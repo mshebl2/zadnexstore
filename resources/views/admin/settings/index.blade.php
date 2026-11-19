@@ -3,18 +3,18 @@
 
     <div class="max-w-5xl mx-auto text-right space-y-8">
         
-        <div class="bg-white rounded-2xl border border-[#EDE6DA] p-6 sm:p-8 shadow-xs">
-            <div class="border-b border-[#EDE6DA] pb-4 mb-6 flex items-center justify-between">
+        <div class="bg-white rounded-2xl border border-[#E2E8F0] p-6 sm:p-8 shadow-xs">
+            <div class="border-b border-[#E2E8F0] pb-4 mb-6 flex items-center justify-between">
                 <div>
                     <h2 class="text-base font-bold text-[#242424]">بيانات المتجر والامتثال والتواصل</h2>
                     <p class="text-xs text-[#777777] mt-0.5">تحكم في كافة معلومات المتجر الرسمية وأرقام التواصل وشبكات التواصل</p>
                 </div>
                 <div class="flex flex-wrap items-center gap-2">
-                    <a href="{{ route('admin.profile') }}" class="bg-[#242424] text-[#C5A059] hover:bg-black hover:text-white px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-xs">
+                    <a href="{{ route('admin.profile') }}" class="bg-[#242424] text-[#0B2E75] hover:bg-black hover:text-white px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-xs">
                         <x-icon name="user" class="w-3.5 h-3.5" />
                         <span>بيانات الدخول وكلمة المرور &larr;</span>
                     </a>
-                    <a href="{{ route('admin.popup.index') }}" class="bg-[#FAF8F4] border border-[#C5A059] text-[#C5A059] hover:bg-[#C5A059] hover:text-white px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5">
+                    <a href="{{ route('admin.popup.index') }}" class="bg-[#F8FAFC] border border-[#0B2E75] text-[#0B2E75] hover:bg-[#0B2E75] hover:text-white px-3.5 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5">
                         <x-icon name="award" class="w-3.5 h-3.5" />
                         <span>إعدادات الإعلانات والعروض المفاجئة &larr;</span>
                     </a>
@@ -26,113 +26,113 @@
 
                 <!-- Section 1: Official Store Information -->
                 <div>
-                    <h3 class="text-xs font-bold text-[#C5A059] uppercase tracking-wider mb-3">المعلومات الأساسية</h3>
+                    <h3 class="text-xs font-bold text-[#0B2E75] uppercase tracking-wider mb-3">المعلومات الأساسية</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">اسم المتجر الرسمي</label>
-                            <input type="text" name="store_name" value="{{ $settings['store_name'] ?? 'متجر زاد نيكس | ZADNEX STORE' }}" required class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                            <input type="text" name="store_name" value="{{ $settings['store_name'] ?? 'متجر زاد نيكس | ZADNEX STORE' }}" required class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">سلوجان المتجر (Tagline)</label>
-                            <input type="text" name="store_tagline" value="{{ $settings['store_tagline'] ?? 'متجر المواد الغذائية والمنظفات والكماليات' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                            <input type="text" name="store_tagline" value="{{ $settings['store_tagline'] ?? 'متجر المواد الغذائية والمنظفات والكماليات' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">رقم السجل التجاري (CR Number)</label>
-                            <input type="text" name="commercial_registry" value="{{ $settings['commercial_registry'] ?? '7055435114' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                            <input type="text" name="commercial_registry" value="{{ $settings['commercial_registry'] ?? '7055435114' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">رقم رخصة النشاط التجاري (بلدي)</label>
-                            <input type="text" name="municipal_license" value="{{ $settings['municipal_license'] ?? '480526670333' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                            <input type="text" name="municipal_license" value="{{ $settings['municipal_license'] ?? '480526670333' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">شهادة سلامة الغذاء (الدفاع المدني)</label>
-                            <input type="text" name="safety_certificate" value="{{ $settings['safety_certificate'] ?? '101565890' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                            <input type="text" name="safety_certificate" value="{{ $settings['safety_certificate'] ?? '101565890' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">الرقم الضريبي (إن وجد)</label>
-                            <input type="text" name="tax_number" value="{{ $settings['tax_number'] ?? '7055435114' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                            <input type="text" name="tax_number" value="{{ $settings['tax_number'] ?? '7055435114' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                         </div>
 
                         <div class="sm:col-span-2">
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">العنوان ومقر المتجر بالمملكة</label>
-                            <input type="text" name="address" value="{{ $settings['address'] ?? 'المملكة العربية السعودية، مكة المكرمة (العاصمة المقدسة)، حي أم الجود، شارع عبد الله بن أبي بكر الصديق' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                            <input type="text" name="address" value="{{ $settings['address'] ?? 'المملكة العربية السعودية، مكة المكرمة (العاصمة المقدسة)، حي أم الجود، شارع عبد الله بن أبي بكر الصديق' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                         </div>
                     </div>
                 </div>
 
                 <!-- Section 2: Contact & Support -->
-                <div class="pt-4 border-t border-[#EDE6DA]">
-                    <h3 class="text-xs font-bold text-[#C5A059] uppercase tracking-wider mb-3">بيانات خدمة العملاء والاتصال</h3>
+                <div class="pt-4 border-t border-[#E2E8F0]">
+                    <h3 class="text-xs font-bold text-[#0B2E75] uppercase tracking-wider mb-3">بيانات خدمة العملاء والاتصال</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">رقم الواتساب الرسمي</label>
-                            <input type="text" name="whatsapp_number" value="{{ $settings['whatsapp_number'] ?? '+966501234567' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] text-left" dir="ltr">
+                            <input type="text" name="whatsapp_number" value="{{ $settings['whatsapp_number'] ?? '+966501234567' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] text-left" dir="ltr">
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">رقم الاتصال الهاتفي</label>
-                            <input type="text" name="contact_phone" value="{{ $settings['contact_phone'] ?? '+966501234567' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] text-left" dir="ltr">
+                            <input type="text" name="contact_phone" value="{{ $settings['contact_phone'] ?? '+966501234567' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] text-left" dir="ltr">
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">البريد الإلكتروني للشكاوى</label>
-                            <input type="email" name="contact_email" value="{{ $settings['contact_email'] ?? 'info@zadnexstore.com' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] text-left" dir="ltr">
+                            <input type="email" name="contact_email" value="{{ $settings['contact_email'] ?? 'info@zadnexstore.com' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] text-left" dir="ltr">
                         </div>
                     </div>
                 </div>
 
                 <!-- Section 3: Social Media Channels -->
-                <div class="pt-4 border-t border-[#EDE6DA]">
-                    <h3 class="text-xs font-bold text-[#C5A059] uppercase tracking-wider mb-3">حسابات وسائل التواصل الاجتماعي</h3>
+                <div class="pt-4 border-t border-[#E2E8F0]">
+                    <h3 class="text-xs font-bold text-[#0B2E75] uppercase tracking-wider mb-3">حسابات وسائل التواصل الاجتماعي</h3>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">رابط حساب انستغرام</label>
-                            <input type="url" name="instagram" value="{{ $settings['instagram'] ?? 'https://www.instagram.com/zadnexstore' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] text-left" dir="ltr">
+                            <input type="url" name="instagram" value="{{ $settings['instagram'] ?? 'https://www.instagram.com/zadnexstore' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] text-left" dir="ltr">
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">رابط حساب سناب شات</label>
-                            <input type="url" name="snapchat" value="{{ $settings['snapchat'] ?? 'https://snapchat.com/add/zadnexstore' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] text-left" dir="ltr">
+                            <input type="url" name="snapchat" value="{{ $settings['snapchat'] ?? 'https://snapchat.com/add/zadnexstore' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] text-left" dir="ltr">
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">رابط حساب تيك توك</label>
-                            <input type="url" name="tiktok" value="{{ $settings['tiktok'] ?? 'https://www.tiktok.com/@zadnexstore' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] text-left" dir="ltr">
+                            <input type="url" name="tiktok" value="{{ $settings['tiktok'] ?? 'https://www.tiktok.com/@zadnexstore' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] text-left" dir="ltr">
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">رابط حساب منصة إكس (تويتر)</label>
-                            <input type="url" name="twitter" value="{{ $settings['twitter'] ?? 'https://x.com/zadnexstore' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] text-left" dir="ltr">
+                            <input type="url" name="twitter" value="{{ $settings['twitter'] ?? 'https://x.com/zadnexstore' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] text-left" dir="ltr">
                         </div>
                     </div>
                 </div>
 
                 <!-- Section 4: Announcement Bar -->
-                <div class="pt-4 border-t border-[#EDE6DA]">
-                    <h3 class="text-xs font-bold text-[#C5A059] uppercase tracking-wider mb-3">شريط الإعلانات الترويجي العلوي</h3>
+                <div class="pt-4 border-t border-[#E2E8F0]">
+                    <h3 class="text-xs font-bold text-[#0B2E75] uppercase tracking-wider mb-3">شريط الإعلانات الترويجي العلوي</h3>
                     <div class="space-y-3">
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">نص الإعلان العلوي</label>
-                            <input type="text" name="announcement_text" value="{{ $settings['announcement_text'] ?? 'شحن مجاني لكافة مدن المملكة للطلبات فوق 299 ر.س — كود خصم 10%: ZADNEX10' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                            <input type="text" name="announcement_text" value="{{ $settings['announcement_text'] ?? 'شحن مجاني لكافة مدن المملكة للطلبات فوق 299 ر.س — كود خصم 10%: ZADNEX10' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                         </div>
 
                         <label class="flex items-center gap-2 text-xs font-semibold text-[#242424] cursor-pointer">
-                            <input type="checkbox" name="announcement_active" value="1" {{ ($settings['announcement_active'] ?? '1') === '1' ? 'checked' : '' }} class="text-[#C5A059] rounded">
+                            <input type="checkbox" name="announcement_active" value="1" {{ ($settings['announcement_active'] ?? '1') === '1' ? 'checked' : '' }} class="text-[#0B2E75] rounded">
                             <span>تفعيل ظهور شريط الإعلانات بالواجهة العلوية للمتجر</span>
                         </label>
                     </div>
                 </div>
 
                 <!-- Section 5: Paymob Electronic Payment Gateway -->
-                <div class="pt-6 border-t border-[#EDE6DA]" x-data="{ showApiKey: false, showSecretKey: false, showHmac: false }">
+                <div class="pt-6 border-t border-[#E2E8F0]" x-data="{ showApiKey: false, showSecretKey: false, showHmac: false }">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center gap-3">
-                            <div class="h-8 px-2 bg-white rounded-lg border border-[#EDE6DA] flex items-center justify-center">
+                            <div class="h-8 px-2 bg-white rounded-lg border border-[#E2E8F0] flex items-center justify-center">
                                 <img src="{{ asset('images/payments/mada.png') }}" alt="مدى" class="h-4.5 w-auto object-contain">
                             </div>
                             <div>
@@ -147,25 +147,25 @@
                             <span class="text-[10px] font-bold px-2.5 py-1 rounded-full {{ ($settings['paymob_enabled'] ?? '0') === '1' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-gray-100 text-gray-600 border border-gray-200' }}">
                                 {{ ($settings['paymob_enabled'] ?? '0') === '1' ? '● البوابة مُفعّلة حالياً' : '○ البوابة مُعطّلة (وضع الإطلاق التجريبي)' }}
                             </span>
-                            <label class="flex items-center gap-2 cursor-pointer bg-white px-3 py-1.5 rounded-xl border border-[#EDE6DA] shadow-2xs">
-                                <input type="checkbox" name="paymob_enabled" value="1" {{ ($settings['paymob_enabled'] ?? '0') === '1' ? 'checked' : '' }} class="rounded text-[#C5A059] focus:ring-[#C5A059]">
+                            <label class="flex items-center gap-2 cursor-pointer bg-white px-3 py-1.5 rounded-xl border border-[#E2E8F0] shadow-2xs">
+                                <input type="checkbox" name="paymob_enabled" value="1" {{ ($settings['paymob_enabled'] ?? '0') === '1' ? 'checked' : '' }} class="rounded text-[#0B2E75] focus:ring-[#0B2E75]">
                                 <span class="text-xs font-bold text-[#242424]">تفعيل بوابة Paymob</span>
                             </label>
                         </div>
                     </div>
 
-                    <div class="bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-4 mb-4">
+                    <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-4 mb-4">
                         <label class="block text-xs font-bold text-[#242424] mb-2">حالة وضع الدفع</label>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <label class="flex items-center gap-2.5 p-3 rounded-lg border cursor-pointer transition {{ ($settings['paymob_mode'] ?? 'mock') === 'live' ? 'bg-white border-[#C5A059] shadow-xs' : 'bg-transparent border-[#EDE6DA]' }}">
-                                <input type="radio" name="paymob_mode" value="live" {{ ($settings['paymob_mode'] ?? 'mock') === 'live' ? 'checked' : '' }} class="text-[#C5A059]">
+                            <label class="flex items-center gap-2.5 p-3 rounded-lg border cursor-pointer transition {{ ($settings['paymob_mode'] ?? 'mock') === 'live' ? 'bg-white border-[#0B2E75] shadow-xs' : 'bg-transparent border-[#E2E8F0]' }}">
+                                <input type="radio" name="paymob_mode" value="live" {{ ($settings['paymob_mode'] ?? 'mock') === 'live' ? 'checked' : '' }} class="text-[#0B2E75]">
                                 <div>
                                     <div class="text-xs font-bold text-[#242424]">الدفع الفعلي المباشر (Live Mode)</div>
                                     <div class="text-[10px] text-[#777777]">معالجة البطاقات البنكية وسحب المبالغ الحقيقية للعملاء</div>
                                 </div>
                             </label>
-                            <label class="flex items-center gap-2.5 p-3 rounded-lg border cursor-pointer transition {{ ($settings['paymob_mode'] ?? 'mock') === 'mock' ? 'bg-white border-[#C5A059] shadow-xs' : 'bg-transparent border-[#EDE6DA]' }}">
-                                <input type="radio" name="paymob_mode" value="mock" {{ ($settings['paymob_mode'] ?? 'mock') === 'mock' ? 'checked' : '' }} class="text-[#C5A059]">
+                            <label class="flex items-center gap-2.5 p-3 rounded-lg border cursor-pointer transition {{ ($settings['paymob_mode'] ?? 'mock') === 'mock' ? 'bg-white border-[#0B2E75] shadow-xs' : 'bg-transparent border-[#E2E8F0]' }}">
+                                <input type="radio" name="paymob_mode" value="mock" {{ ($settings['paymob_mode'] ?? 'mock') === 'mock' ? 'checked' : '' }} class="text-[#0B2E75]">
                                 <div>
                                     <div class="text-xs font-bold text-[#242424]">المحاكي التجريبي الآمن (Mock Mode)</div>
                                     <div class="text-[10px] text-[#777777]">محاكاة إتمام الطلبات وتجربة دورة الشراء دون سحب مالي</div>
@@ -179,56 +179,56 @@
                         <div class="sm:col-span-2">
                             <div class="flex items-center justify-between mb-1.5">
                                 <label class="text-xs font-bold text-[#242424]">المفتاح السري (Secret Key - sau_sk_...)</label>
-                                <button type="button" @click="showSecretKey = !showSecretKey" class="text-[11px] text-[#C5A059] hover:underline font-semibold flex items-center gap-1">
+                                <button type="button" @click="showSecretKey = !showSecretKey" class="text-[11px] text-[#0B2E75] hover:underline font-semibold flex items-center gap-1">
                                     <span x-text="showSecretKey ? 'إخفاء' : 'عرض المفتاح'"></span>
                                 </button>
                             </div>
                             <div class="relative">
-                                <input :type="showSecretKey ? 'text' : 'password'" name="paymob_secret_key" value="{{ $settings['paymob_secret_key'] ?? '' }}" placeholder="sau_sk_live_..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                                <input :type="showSecretKey ? 'text' : 'password'" name="paymob_secret_key" value="{{ $settings['paymob_secret_key'] ?? '' }}" placeholder="sau_sk_live_..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                             </div>
                         </div>
 
                         <!-- Public Key (sau_pk_...) -->
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">المفتاح العام (Public Key - sau_pk_...)</label>
-                            <input type="text" name="paymob_public_key" value="{{ $settings['paymob_public_key'] ?? '' }}" placeholder="sau_pk_live_..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                            <input type="text" name="paymob_public_key" value="{{ $settings['paymob_public_key'] ?? '' }}" placeholder="sau_pk_live_..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                         </div>
 
                         <!-- HMAC Secret -->
                         <div>
                             <div class="flex items-center justify-between mb-1.5">
                                 <label class="text-xs font-bold text-[#242424]">مفتاح التوقيع والتشفير (HMAC)</label>
-                                <button type="button" @click="showHmac = !showHmac" class="text-[11px] text-[#C5A059] hover:underline font-semibold flex items-center gap-1">
+                                <button type="button" @click="showHmac = !showHmac" class="text-[11px] text-[#0B2E75] hover:underline font-semibold flex items-center gap-1">
                                     <span x-text="showHmac ? 'إخفاء' : 'عرض'"></span>
                                 </button>
                             </div>
                             <div class="relative">
-                                <input :type="showHmac ? 'text' : 'password'" name="paymob_hmac_secret" value="{{ $settings['paymob_hmac_secret'] ?? '' }}" placeholder="مفتاح HMAC..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                                <input :type="showHmac ? 'text' : 'password'" name="paymob_hmac_secret" value="{{ $settings['paymob_hmac_secret'] ?? '' }}" placeholder="مفتاح HMAC..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                             </div>
                         </div>
 
                         <!-- Integration ID: Cards -->
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">معرف البطاقات (Mada / Visa / MC Integration ID)</label>
-                            <input type="text" name="paymob_integration_id" value="{{ $settings['paymob_integration_id'] ?? '' }}" placeholder="مثال: 24343" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                            <input type="text" name="paymob_integration_id" value="{{ $settings['paymob_integration_id'] ?? '' }}" placeholder="مثال: 24343" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                         </div>
 
                         <!-- Integration ID: Apple Pay -->
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">معرف أبل باي (Apple Pay Integration ID)</label>
-                            <input type="text" name="paymob_apple_pay_integration_id" value="{{ $settings['paymob_apple_pay_integration_id'] ?? '' }}" placeholder="مثال: 24340" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                            <input type="text" name="paymob_apple_pay_integration_id" value="{{ $settings['paymob_apple_pay_integration_id'] ?? '' }}" placeholder="مثال: 24340" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                         </div>
 
                         <!-- API Key (JWT) -->
                         <div class="sm:col-span-2">
                             <div class="flex items-center justify-between mb-1.5">
                                 <label class="text-xs font-bold text-[#242424]">مفتاح API الاحتياطي (JWT API Key)</label>
-                                <button type="button" @click="showApiKey = !showApiKey" class="text-[11px] text-[#C5A059] hover:underline font-semibold flex items-center gap-1">
+                                <button type="button" @click="showApiKey = !showApiKey" class="text-[11px] text-[#0B2E75] hover:underline font-semibold flex items-center gap-1">
                                     <span x-text="showApiKey ? 'إخفاء' : 'عرض المفتاح'"></span>
                                 </button>
                             </div>
                             <div class="relative">
-                                <input :type="showApiKey ? 'text' : 'password'" name="paymob_api_key" value="{{ $settings['paymob_api_key'] ?? '' }}" placeholder="مفتاح API..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                                <input :type="showApiKey ? 'text' : 'password'" name="paymob_api_key" value="{{ $settings['paymob_api_key'] ?? '' }}" placeholder="مفتاح API..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                             </div>
                         </div>
                     </div>
@@ -249,10 +249,10 @@
                 </div>
 
                 <!-- Section 5.5: Tamara Buy Now Pay Later (بوابة تمارا للتقسيط) -->
-                <div class="pt-6 border-t border-[#EDE6DA]" x-data="{ showTamaraToken: false, showTamaraNotif: false }">
+                <div class="pt-6 border-t border-[#E2E8F0]" x-data="{ showTamaraToken: false, showTamaraNotif: false }">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center gap-3">
-                            <div class="h-8 px-2 bg-white rounded-lg border border-[#EDE6DA] flex items-center justify-center">
+                            <div class="h-8 px-2 bg-white rounded-lg border border-[#E2E8F0] flex items-center justify-center">
                                 <img src="{{ asset('images/payments/tamara.png') }}" alt="تمارا" class="h-5 w-auto object-contain">
                             </div>
                             <div>
@@ -267,25 +267,25 @@
                             <span class="text-[10px] font-bold px-2.5 py-1 rounded-full {{ ($settings['tamara_enabled'] ?? '0') === '1' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-gray-100 text-gray-600 border border-gray-200' }}">
                                 {{ ($settings['tamara_enabled'] ?? '0') === '1' ? '● البوابة مُفعّلة حالياً' : '○ البوابة مُعطّلة' }}
                             </span>
-                            <label class="flex items-center gap-2 cursor-pointer bg-white px-3 py-1.5 rounded-xl border border-[#EDE6DA] shadow-2xs">
-                                <input type="checkbox" name="tamara_enabled" value="1" {{ ($settings['tamara_enabled'] ?? '0') === '1' ? 'checked' : '' }} class="rounded text-[#C5A059] focus:ring-[#C5A059]">
+                            <label class="flex items-center gap-2 cursor-pointer bg-white px-3 py-1.5 rounded-xl border border-[#E2E8F0] shadow-2xs">
+                                <input type="checkbox" name="tamara_enabled" value="1" {{ ($settings['tamara_enabled'] ?? '0') === '1' ? 'checked' : '' }} class="rounded text-[#0B2E75] focus:ring-[#0B2E75]">
                                 <span class="text-xs font-bold text-[#242424]">تفعيل بوابة تمارا</span>
                             </label>
                         </div>
                     </div>
 
-                    <div class="bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-4 mb-4">
+                    <div class="bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-4 mb-4">
                         <label class="block text-xs font-bold text-[#242424] mb-2">بيئة التشغيل لبوابة تمارا</label>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                            <label class="flex items-center gap-2.5 p-3 rounded-lg border cursor-pointer transition {{ ($settings['tamara_mode'] ?? 'sandbox') === 'live' ? 'bg-white border-[#C5A059] shadow-xs' : 'bg-transparent border-[#EDE6DA]' }}">
-                                <input type="radio" name="tamara_mode" value="live" {{ ($settings['tamara_mode'] ?? 'sandbox') === 'live' ? 'checked' : '' }} class="text-[#C5A059]">
+                            <label class="flex items-center gap-2.5 p-3 rounded-lg border cursor-pointer transition {{ ($settings['tamara_mode'] ?? 'sandbox') === 'live' ? 'bg-white border-[#0B2E75] shadow-xs' : 'bg-transparent border-[#E2E8F0]' }}">
+                                <input type="radio" name="tamara_mode" value="live" {{ ($settings['tamara_mode'] ?? 'sandbox') === 'live' ? 'checked' : '' }} class="text-[#0B2E75]">
                                 <div>
                                     <div class="text-xs font-bold text-[#242424]">الدفع الفعلي المباشر (Live Mode)</div>
                                     <div class="text-[10px] text-[#777777]">الإنتاج الحقيقي واستقبال مدفوعات العملاء عبر حساب تمارا التجاري</div>
                                 </div>
                             </label>
-                            <label class="flex items-center gap-2.5 p-3 rounded-lg border cursor-pointer transition {{ ($settings['tamara_mode'] ?? 'sandbox') !== 'live' ? 'bg-white border-[#C5A059] shadow-xs' : 'bg-transparent border-[#EDE6DA]' }}">
-                                <input type="radio" name="tamara_mode" value="sandbox" {{ ($settings['tamara_mode'] ?? 'sandbox') !== 'live' ? 'checked' : '' }} class="text-[#C5A059]">
+                            <label class="flex items-center gap-2.5 p-3 rounded-lg border cursor-pointer transition {{ ($settings['tamara_mode'] ?? 'sandbox') !== 'live' ? 'bg-white border-[#0B2E75] shadow-xs' : 'bg-transparent border-[#E2E8F0]' }}">
+                                <input type="radio" name="tamara_mode" value="sandbox" {{ ($settings['tamara_mode'] ?? 'sandbox') !== 'live' ? 'checked' : '' }} class="text-[#0B2E75]">
                                 <div>
                                     <div class="text-xs font-bold text-[#242424]">الوضع التجريبي الآمن (Sandbox / Mock)</div>
                                     <div class="text-[10px] text-[#777777]">تجربة المحاكاة أو بيئة الاختبار الخاصة بشركاء تمارا</div>
@@ -299,28 +299,28 @@
                         <div class="sm:col-span-2">
                             <div class="flex items-center justify-between mb-1.5">
                                 <label class="text-xs font-bold text-[#242424]">مفتاح API الخاص بتمارا (Tamara API Token / Bearer)</label>
-                                <button type="button" @click="showTamaraToken = !showTamaraToken" class="text-[11px] text-[#C5A059] hover:underline font-semibold flex items-center gap-1">
+                                <button type="button" @click="showTamaraToken = !showTamaraToken" class="text-[11px] text-[#0B2E75] hover:underline font-semibold flex items-center gap-1">
                                     <span x-text="showTamaraToken ? 'إخفاء' : 'عرض المفتاح'"></span>
                                 </button>
                             </div>
-                            <input :type="showTamaraToken ? 'text' : 'password'" name="tamara_api_token" value="{{ $settings['tamara_api_token'] ?? '' }}" placeholder="ضع مفتاح API Token المقدم من تمارا..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                            <input :type="showTamaraToken ? 'text' : 'password'" name="tamara_api_token" value="{{ $settings['tamara_api_token'] ?? '' }}" placeholder="ضع مفتاح API Token المقدم من تمارا..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                         </div>
 
                         <!-- Tamara Notification Webhook Token -->
                         <div>
                             <div class="flex items-center justify-between mb-1.5">
                                 <label class="text-xs font-bold text-[#242424]">مفتاح الإشعارات (Notification Token)</label>
-                                <button type="button" @click="showTamaraNotif = !showTamaraNotif" class="text-[11px] text-[#C5A059] hover:underline font-semibold flex items-center gap-1">
+                                <button type="button" @click="showTamaraNotif = !showTamaraNotif" class="text-[11px] text-[#0B2E75] hover:underline font-semibold flex items-center gap-1">
                                     <span x-text="showTamaraNotif ? 'إخفاء' : 'عرض'"></span>
                                 </button>
                             </div>
-                            <input :type="showTamaraNotif ? 'text' : 'password'" name="tamara_notification_token" value="{{ $settings['tamara_notification_token'] ?? '' }}" placeholder="Notification Token..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                            <input :type="showTamaraNotif ? 'text' : 'password'" name="tamara_notification_token" value="{{ $settings['tamara_notification_token'] ?? '' }}" placeholder="Notification Token..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                         </div>
 
                         <!-- Tamara Public Key -->
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">المفتاح العام للودجت (Public Key - اختياري)</label>
-                            <input type="text" name="tamara_public_key" value="{{ $settings['tamara_public_key'] ?? '' }}" placeholder="Public Key..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                            <input type="text" name="tamara_public_key" value="{{ $settings['tamara_public_key'] ?? '' }}" placeholder="Public Key..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                         </div>
                     </div>
 
@@ -340,10 +340,10 @@
                 </div>
 
                 <!-- Section 5.6: Tabby Buy Now Pay Later (بوابة تابي للتقسيط) -->
-                <div class="pt-6 border-t border-[#EDE6DA]" x-data="{ showTabbySecret: false }">
+                <div class="pt-6 border-t border-[#E2E8F0]" x-data="{ showTabbySecret: false }">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center gap-3">
-                            <div class="h-8 px-2 bg-white rounded-lg border border-[#EDE6DA] flex items-center justify-center">
+                            <div class="h-8 px-2 bg-white rounded-lg border border-[#E2E8F0] flex items-center justify-center">
                                 <img src="{{ asset('images/payments/tabby.png') }}" alt="تابي" class="h-5 w-auto object-contain">
                             </div>
                             <div>
@@ -358,8 +358,8 @@
                             <span class="text-[10px] font-bold px-2.5 py-1 rounded-full {{ ($settings['tabby_enabled'] ?? '0') === '1' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'bg-gray-100 text-gray-600 border border-gray-200' }}">
                                 {{ ($settings['tabby_enabled'] ?? '0') === '1' ? '● البوابة مُفعّلة حالياً' : '○ البوابة مُعطّلة' }}
                             </span>
-                            <label class="flex items-center gap-2 cursor-pointer bg-white px-3 py-1.5 rounded-xl border border-[#EDE6DA] shadow-2xs">
-                                <input type="checkbox" name="tabby_enabled" value="1" {{ ($settings['tabby_enabled'] ?? '0') === '1' ? 'checked' : '' }} class="rounded text-[#C5A059] focus:ring-[#C5A059]">
+                            <label class="flex items-center gap-2 cursor-pointer bg-white px-3 py-1.5 rounded-xl border border-[#E2E8F0] shadow-2xs">
+                                <input type="checkbox" name="tabby_enabled" value="1" {{ ($settings['tabby_enabled'] ?? '0') === '1' ? 'checked' : '' }} class="rounded text-[#0B2E75] focus:ring-[#0B2E75]">
                                 <span class="text-xs font-bold text-[#242424]">تفعيل بوابة تابي</span>
                             </label>
                         </div>
@@ -369,24 +369,24 @@
                         <!-- Tabby Public Key -->
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">المفتاح العام (Tabby Public Key - pk_...)</label>
-                            <input type="text" name="tabby_public_key" value="{{ $settings['tabby_public_key'] ?? '' }}" placeholder="pk_test_... أو pk_live_..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                            <input type="text" name="tabby_public_key" value="{{ $settings['tabby_public_key'] ?? '' }}" placeholder="pk_test_... أو pk_live_..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                         </div>
 
                         <!-- Tabby Secret Key -->
                         <div>
                             <div class="flex items-center justify-between mb-1.5">
                                 <label class="text-xs font-bold text-[#242424]">المفتاح السري (Tabby Secret Key - sk_...)</label>
-                                <button type="button" @click="showTabbySecret = !showTabbySecret" class="text-[11px] text-[#C5A059] hover:underline font-semibold flex items-center gap-1">
+                                <button type="button" @click="showTabbySecret = !showTabbySecret" class="text-[11px] text-[#0B2E75] hover:underline font-semibold flex items-center gap-1">
                                     <span x-text="showTabbySecret ? 'إخفاء' : 'عرض'"></span>
                                 </button>
                             </div>
-                            <input :type="showTabbySecret ? 'text' : 'password'" name="tabby_secret_key" value="{{ $settings['tabby_secret_key'] ?? '' }}" placeholder="sk_test_... أو sk_live_..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                            <input :type="showTabbySecret ? 'text' : 'password'" name="tabby_secret_key" value="{{ $settings['tabby_secret_key'] ?? '' }}" placeholder="sk_test_... أو sk_live_..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                         </div>
                     </div>
                 </div>
 
                 <!-- Section 5.7: WhatsApp Direct Order & Cash on Delivery (الطلب عبر واتساب والدفع عند الاستلام) -->
-                <div class="pt-6 border-t border-[#EDE6DA]">
+                <div class="pt-6 border-t border-[#E2E8F0]">
                     <div class="flex items-center justify-between mb-4">
                         <div class="flex items-center gap-3">
                             <div class="w-8 h-8 rounded-lg bg-emerald-500 text-white flex items-center justify-center font-bold text-sm">
@@ -405,17 +405,17 @@
                         </span>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-4">
-                        <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-[#EDE6DA] cursor-pointer">
-                            <input type="checkbox" name="whatsapp_order_enabled" value="1" {{ ($settings['whatsapp_order_enabled'] ?? '1') === '1' ? 'checked' : '' }} class="rounded text-[#C5A059] focus:ring-[#C5A059]">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-4">
+                        <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-[#E2E8F0] cursor-pointer">
+                            <input type="checkbox" name="whatsapp_order_enabled" value="1" {{ ($settings['whatsapp_order_enabled'] ?? '1') === '1' ? 'checked' : '' }} class="rounded text-[#0B2E75] focus:ring-[#0B2E75]">
                             <div>
                                 <div class="text-xs font-bold text-[#242424]">تفعيل إرسال تفاصيل الطلب عبر واتساب</div>
                                 <div class="text-[10px] text-[#777777]">فتح محادثة واتساب الإدارة مع رسالة مفصلة بالمنتجات والعنوان فور إتمام الطلب</div>
                             </div>
                         </label>
 
-                        <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-[#EDE6DA] cursor-pointer">
-                            <input type="checkbox" name="cod_enabled" value="1" {{ ($settings['cod_enabled'] ?? '1') === '1' ? 'checked' : '' }} class="rounded text-[#C5A059] focus:ring-[#C5A059]">
+                        <label class="flex items-center gap-3 p-3 bg-white rounded-lg border border-[#E2E8F0] cursor-pointer">
+                            <input type="checkbox" name="cod_enabled" value="1" {{ ($settings['cod_enabled'] ?? '1') === '1' ? 'checked' : '' }} class="rounded text-[#0B2E75] focus:ring-[#0B2E75]">
                             <div>
                                 <div class="text-xs font-bold text-[#242424]">تفعيل الدفع عند الاستلام (نقداً أو مدى لمندوب التوصيل)</div>
                                 <div class="text-[10px] text-[#777777]">التحصيل المالي عند باب العميل داخل مكة المكرمة</div>
@@ -436,7 +436,7 @@
                 </div>
 
                 <!-- Section 6: MapIt Logistics Integration (شركة الشحن مابت) -->
-                <div class="pt-6 border-t border-[#EDE6DA]" x-data="{ showMapitKey: false }">
+                <div class="pt-6 border-t border-[#E2E8F0]" x-data="{ showMapitKey: false }">
                     <div class="flex items-center justify-between mb-4">
                         <div>
                             <h3 class="text-sm font-bold text-[#242424] flex items-center gap-2">
@@ -454,12 +454,12 @@
                         <div>
                             <div class="flex items-center justify-between mb-1.5">
                                 <label class="text-xs font-bold text-[#242424]">رمز مرور API لمنصة مابت (API Key / Passcode)</label>
-                                <button type="button" @click="showMapitKey = !showMapitKey" class="text-[11px] text-[#C5A059] hover:underline font-semibold flex items-center gap-1">
+                                <button type="button" @click="showMapitKey = !showMapitKey" class="text-[11px] text-[#0B2E75] hover:underline font-semibold flex items-center gap-1">
                                     <span x-text="showMapitKey ? 'إخفاء' : 'عرض الرمز'"></span>
                                 </button>
                             </div>
                             <div class="relative">
-                                <input :type="showMapitKey ? 'text' : 'password'" name="mapit_api_key" value="{{ $settings['mapit_api_key'] ?? '1D9BCV1-1MEMN2R-PKXJTDY-PSHM2Q8' }}" placeholder="رمز مرور API الخاص بمابت..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                                <input :type="showMapitKey ? 'text' : 'password'" name="mapit_api_key" value="{{ $settings['mapit_api_key'] ?? '1D9BCV1-1MEMN2R-PKXJTDY-PSHM2Q8' }}" placeholder="رمز مرور API الخاص بمابت..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                             </div>
                         </div>
 
@@ -481,7 +481,7 @@
                 </div>
 
                 <!-- Section 7: SEO & Google Search Console (الأرشفة ومحركات البحث) -->
-                <div class="pt-6 border-t border-[#EDE6DA]">
+                <div class="pt-6 border-t border-[#E2E8F0]">
                     <div class="flex items-center justify-between mb-4">
                         <div>
                             <h3 class="text-sm font-bold text-[#242424] flex items-center gap-2">
@@ -536,7 +536,7 @@
                             <label class="block text-xs font-bold text-[#242424] mb-1">
                                 كود إثبات ملكية الموقع في جوجل (Google Site Verification Tag / Code)
                             </label>
-                            <input type="text" name="google_site_verification" value="{{ $settings['google_site_verification'] ?? '' }}" placeholder="ضع كود جوجل مثل: 4xK9... أو كود الميتا كامل &lt;meta name=&quot;google-site-verification&quot; content=&quot;...&quot; /&gt;" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                            <input type="text" name="google_site_verification" value="{{ $settings['google_site_verification'] ?? '' }}" placeholder="ضع كود جوجل مثل: 4xK9... أو كود الميتا كامل &lt;meta name=&quot;google-site-verification&quot; content=&quot;...&quot; /&gt;" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                             <span class="text-[10px] text-[#777777] block mt-1">يتم حقن هذا الكود تلقائياً في ترويسة المتجر &lt;head&gt; لإثبات ملكيتك في Google Search Console.</span>
                         </div>
 
@@ -544,24 +544,24 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             <div>
                                 <label class="block text-xs font-bold text-[#242424] mb-1">عنوان الميتا الافتراضي (Meta Title)</label>
-                                <input type="text" name="meta_title" value="{{ $settings['meta_title'] ?? 'متجر زاد نيكس | ZADNEX STORE — مواد غذائية، مشروبات، منظفات، كماليات' }}" placeholder="متجر زاد نيكس | ZADNEX STORE — مواد غذائية، مشروبات، منظفات، كماليات" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                                <input type="text" name="meta_title" value="{{ $settings['meta_title'] ?? 'متجر زاد نيكس | ZADNEX STORE — مواد غذائية، مشروبات، منظفات، كماليات' }}" placeholder="متجر زاد نيكس | ZADNEX STORE — مواد غذائية، مشروبات، منظفات، كماليات" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                             </div>
 
                             <div>
                                 <label class="block text-xs font-bold text-[#242424] mb-1">الكلمات المفتاحية للمتجر (Meta Keywords)</label>
-                                <input type="text" name="meta_keywords" value="{{ $settings['meta_keywords'] ?? 'مواد غذائية, تموين, مشروبات, منظفات, كماليات, زاد نيكس, مكة المكرمة, بقالة الكترونية, المملكة العربية السعودية' }}" placeholder="مواد غذائية، مشروبات، منظفات، كماليات، مكة المكرمة..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                                <input type="text" name="meta_keywords" value="{{ $settings['meta_keywords'] ?? 'مواد غذائية, تموين, مشروبات, منظفات, كماليات, زاد نيكس, مكة المكرمة, بقالة الكترونية, المملكة العربية السعودية' }}" placeholder="مواد غذائية، مشروبات، منظفات، كماليات، مكة المكرمة..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                             </div>
                         </div>
 
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1">وصف الميتا الافتراضي للمتجر (Meta Description)</label>
-                            <textarea name="meta_description" rows="2" placeholder="اكتب وصفاً جذاباً يظهر في نتائج بحث جوجل لمحركات البحث..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">{{ $settings['meta_description'] ?? 'متجر زاد نيكس — وجهتك الأولى لتسوق المواد الغذائية والمشروبات والمنظفات والكماليات بأعلى جودة وتوصيل سريع في مكة المكرمة وكافة أنحاء المملكة.' }}</textarea>
+                            <textarea name="meta_description" rows="2" placeholder="اكتب وصفاً جذاباً يظهر في نتائج بحث جوجل لمحركات البحث..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">{{ $settings['meta_description'] ?? 'متجر زاد نيكس — وجهتك الأولى لتسوق المواد الغذائية والمشروبات والمنظفات والكماليات بأعلى جودة وتوصيل سريع في مكة المكرمة وكافة أنحاء المملكة.' }}</textarea>
                         </div>
                     </div>
                 </div>
 
                 <!-- Section 8: Pixels & Tracking Platforms (بكسلات التتبع ومنصات الإعلانات) -->
-                <div class="pt-6 border-t border-[#EDE6DA]">
+                <div class="pt-6 border-t border-[#E2E8F0]">
                     <div class="flex items-center justify-between mb-4">
                         <div>
                             <h3 class="text-sm font-bold text-[#242424] flex items-center gap-2">
@@ -579,37 +579,37 @@
                         <!-- Meta / Facebook Pixel -->
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1">معرف بكسل ميتا / فيسبوك (Meta Pixel ID)</label>
-                            <input type="text" name="meta_pixel_id" value="{{ $settings['meta_pixel_id'] ?? '' }}" placeholder="مثال: 123456789012345" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                            <input type="text" name="meta_pixel_id" value="{{ $settings['meta_pixel_id'] ?? '' }}" placeholder="مثال: 123456789012345" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                         </div>
 
                         <!-- TikTok Pixel -->
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1">معرف بكسل تيك توك (TikTok Pixel ID)</label>
-                            <input type="text" name="tiktok_pixel_id" value="{{ $settings['tiktok_pixel_id'] ?? '' }}" placeholder="مثال: C1234567890ABCD" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                            <input type="text" name="tiktok_pixel_id" value="{{ $settings['tiktok_pixel_id'] ?? '' }}" placeholder="مثال: C1234567890ABCD" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                         </div>
 
                         <!-- Snapchat Pixel -->
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1">معرف بكسل سناب شات (Snapchat Pixel ID)</label>
-                            <input type="text" name="snapchat_pixel_id" value="{{ $settings['snapchat_pixel_id'] ?? '' }}" placeholder="مثال: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                            <input type="text" name="snapchat_pixel_id" value="{{ $settings['snapchat_pixel_id'] ?? '' }}" placeholder="مثال: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                         </div>
 
                         <!-- Google Ads Conversion ID -->
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1">معرف إعلانات جوجل (Google Ads Conversion ID)</label>
-                            <input type="text" name="google_ads_id" value="{{ $settings['google_ads_id'] ?? '' }}" placeholder="مثال: AW-123456789" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                            <input type="text" name="google_ads_id" value="{{ $settings['google_ads_id'] ?? '' }}" placeholder="مثال: AW-123456789" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                         </div>
 
                         <!-- Google Analytics 4 (GA4) -->
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1">معرف إحصائيات جوجل (Google Analytics 4 - GA4)</label>
-                            <input type="text" name="google_analytics_id" value="{{ $settings['google_analytics_id'] ?? '' }}" placeholder="مثال: G-XXXXXXXXXX" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                            <input type="text" name="google_analytics_id" value="{{ $settings['google_analytics_id'] ?? '' }}" placeholder="مثال: G-XXXXXXXXXX" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                         </div>
 
                         <!-- Google Tag Manager (GTM) -->
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1">معرف مدير علامات جوجل (Google Tag Manager - GTM)</label>
-                            <input type="text" name="google_tag_manager_id" value="{{ $settings['google_tag_manager_id'] ?? '' }}" placeholder="مثال: GTM-XXXXXXX" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">
+                            <input type="text" name="google_tag_manager_id" value="{{ $settings['google_tag_manager_id'] ?? '' }}" placeholder="مثال: GTM-XXXXXXX" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">
                         </div>
                     </div>
 
@@ -619,7 +619,7 @@
                             <label class="block text-xs font-bold text-[#242424] mb-1">
                                 أكواد برمجية وتتبع إضافية داخل الهيدر (&lt;head&gt; Scripts)
                             </label>
-                            <textarea name="custom_head_scripts" rows="3" placeholder="يمكنك وضع أي سكريبت مخصص لتويتر، بينترست، هوتجار، أو أكواد تحقق إضافية..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">{{ $settings['custom_head_scripts'] ?? '' }}</textarea>
+                            <textarea name="custom_head_scripts" rows="3" placeholder="يمكنك وضع أي سكريبت مخصص لتويتر، بينترست، هوتجار، أو أكواد تحقق إضافية..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">{{ $settings['custom_head_scripts'] ?? '' }}</textarea>
                             <span class="text-[10px] text-[#777777] block mt-0.5">يتم حقن هذه الأكواد في نهاية وسم &lt;head&gt; في جميع صفحات المتجر.</span>
                         </div>
 
@@ -627,14 +627,14 @@
                             <label class="block text-xs font-bold text-[#242424] mb-1">
                                 أكواد برمجية وتتبع إضافية في بداية الصفحة (&lt;body&gt; Scripts)
                             </label>
-                            <textarea name="custom_body_scripts" rows="3" placeholder="أكواد &lt;noscript&gt; أو سكريبتات إضافية تتطلب التواجد في بداية &lt;body&gt;..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] font-mono text-left" dir="ltr">{{ $settings['custom_body_scripts'] ?? '' }}</textarea>
+                            <textarea name="custom_body_scripts" rows="3" placeholder="أكواد &lt;noscript&gt; أو سكريبتات إضافية تتطلب التواجد في بداية &lt;body&gt;..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] font-mono text-left" dir="ltr">{{ $settings['custom_body_scripts'] ?? '' }}</textarea>
                             <span class="text-[10px] text-[#777777] block mt-0.5">يتم حقن هذه الأكواد فوراً بعد فتح وسم &lt;body&gt;.</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="pt-6 border-t border-[#EDE6DA]">
-                    <button type="submit" class="bg-[#C5A059] hover:bg-[#AF8B44] text-white text-xs font-bold px-8 py-3.5 rounded-xl shadow-md transition duration-200">
+                <div class="pt-6 border-t border-[#E2E8F0]">
+                    <button type="submit" class="bg-[#0B2E75] hover:bg-[#071E50] text-white text-xs font-bold px-8 py-3.5 rounded-xl shadow-md transition duration-200">
                         حفظ جميع التعديلات
                     </button>
                 </div>

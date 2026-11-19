@@ -134,8 +134,8 @@ class SeoAndAdminToolsTest extends TestCase
     public function test_admin_can_save_seo_and_pixels_settings(): void
     {
         $res = $this->actingAs($this->admin)->post(route('admin.settings.update'), [
-            'meta_title' => 'متجر إنسينس الرسمي',
-            'meta_keywords' => 'بخور, عود, عطور ملكية',
+            'meta_title' => 'متجر زاد نيكس الرسمي',
+            'meta_keywords' => 'مواد غذائية, مشروبات, منظفات, كماليات',
             'google_site_verification' => 'google-test-token-123',
             'meta_pixel_id' => '1122334455',
             'tiktok_pixel_id' => 'TIKTOK-99',
@@ -144,7 +144,7 @@ class SeoAndAdminToolsTest extends TestCase
         ]);
 
         $res->assertSessionHas('success');
-        $this->assertEquals('متجر إنسينس الرسمي', StoreSetting::get('meta_title'));
+        $this->assertEquals('متجر زاد نيكس الرسمي', StoreSetting::get('meta_title'));
         $this->assertEquals('google-test-token-123', StoreSetting::get('google_site_verification'));
         $this->assertEquals('1122334455', StoreSetting::get('meta_pixel_id'));
 

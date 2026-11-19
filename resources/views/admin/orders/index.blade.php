@@ -13,7 +13,7 @@
 
             <!-- Status Filter -->
             <form method="GET" action="{{ route('admin.orders.index') }}" class="flex items-center gap-2">
-                <select name="status" onchange="this.form.submit()" class="bg-white border border-gray-300 rounded-lg px-3 py-1.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                <select name="status" onchange="this.form.submit()" class="bg-white border border-gray-300 rounded-lg px-3 py-1.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                     <option value="">جميع حالات الشحن</option>
                     <option value="pending" {{ request('status') === 'pending' ? 'selected' : '' }}>قيد المراجعة</option>
                     <option value="processing" {{ request('status') === 'processing' ? 'selected' : '' }}>قيد التجهيز</option>
@@ -22,7 +22,7 @@
                     <option value="cancelled" {{ request('status') === 'cancelled' ? 'selected' : '' }}>ملغي</option>
                 </select>
 
-                <select name="payment_status" onchange="this.form.submit()" class="bg-white border border-gray-300 rounded-lg px-3 py-1.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                <select name="payment_status" onchange="this.form.submit()" class="bg-white border border-gray-300 rounded-lg px-3 py-1.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                     <option value="">جميع حالات الدفع</option>
                     <option value="paid" {{ request('payment_status') === 'paid' ? 'selected' : '' }}>مدفوع</option>
                     <option value="unpaid" {{ request('payment_status') === 'unpaid' ? 'selected' : '' }}>غير مدفوع</option>
@@ -69,7 +69,7 @@
                             <td class="px-6 py-4 text-gray-500">{{ $order->created_at->format('Y-m-d H:i') }}</td>
                             <td class="px-6 py-4">
                                 <div class="flex items-center gap-1.5">
-                                    <a href="{{ route('admin.orders.show', $order->id) }}" class="bg-[#FAF8F4] border border-[#EDE6DA] text-[#242424] hover:bg-[#C5A059] hover:text-white px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition inline-block">
+                                    <a href="{{ route('admin.orders.show', $order->id) }}" class="bg-[#F8FAFC] border border-[#E2E8F0] text-[#242424] hover:bg-[#0B2E75] hover:text-white px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition inline-block">
                                         معاينة
                                     </a>
                                     <a href="{{ route('admin.orders.invoice', $order->id) }}" target="_blank" class="bg-gray-50 border border-gray-200 text-gray-700 hover:bg-gray-200 px-2.5 py-1.5 rounded-lg text-[11px] font-semibold transition inline-block">

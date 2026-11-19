@@ -89,7 +89,7 @@ class TamaraAndAutoIndexTest extends TestCase
         $admin = User::factory()->create(['role' => 'admin']);
 
         $response = $this->actingAs($admin)->post(route('admin.settings.update'), [
-            'store_name_ar' => 'إنسينس',
+            'store_name_ar' => 'زاد نيكس',
             'tamara_enabled' => '1',
             'tamara_mode' => 'sandbox',
             'tamara_api_token' => 'tamara_test_token_123',

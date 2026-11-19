@@ -24,8 +24,8 @@ class StorefrontTest extends TestCase
         $response = $this->get('/');
 
         $response->assertStatus(200);
-        $response->assertSee('INCENSE');
-        $response->assertSee('إنسينس السعودية');
+        $response->assertSee('ZADNEX');
+        $response->assertSee('زاد نيكس');
         $response->assertSee('سلة المشتريات');
     }
 
@@ -34,7 +34,7 @@ class StorefrontTest extends TestCase
         $response = $this->get('/products');
 
         $response->assertStatus(200);
-        $response->assertSee('تشكيلة منتجات إنسينس الفاخرة');
+        $response->assertSee('تشكيلة منتجات زاد نيكس');
         $response->assertSee('عطر سمرقند الملكي');
     }
 
@@ -193,12 +193,12 @@ class StorefrontTest extends TestCase
 
         // 3. Update homepage sections settings
         $secRes = $this->actingAs($admin)->post('/admin/homepage/sections', [
-            'homepage_offers_title' => 'عروض إنسينس الكبرى',
+            'homepage_offers_title' => 'عروض زاد نيكس الكبرى',
             'homepage_section_offers_visible' => '1',
             'homepage_section_hero_visible' => '1',
         ]);
         $secRes->assertSessionHas('success');
-        $this->assertEquals('عروض إنسينس الكبرى', StoreSetting::get('homepage_offers_title'));
+        $this->assertEquals('عروض زاد نيكس الكبرى', StoreSetting::get('homepage_offers_title'));
     }
 }
 

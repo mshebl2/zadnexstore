@@ -14,7 +14,7 @@
                     </span>
                     <span class="text-[11px] text-emerald-600 font-medium mt-1 block">مكتملة ومؤكدة</span>
                 </div>
-                <div class="w-12 h-12 rounded-2xl bg-amber-50 text-[#C5A059] flex items-center justify-center">
+                <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#0B2E75] flex items-center justify-center">
                     <x-icon name="credit-card" class="w-6 h-6" />
                 </div>
             </div>
@@ -62,7 +62,7 @@
         <div class="bg-white rounded-2xl border border-gray-200 shadow-xs overflow-hidden text-right">
             <div class="p-6 border-b border-gray-200 flex items-center justify-between">
                 <h3 class="text-sm font-bold text-[#242424]">أحدث الطلبات المستلمة</h3>
-                <a href="{{ route('admin.orders.index') }}" class="text-xs font-bold text-[#C5A059] hover:underline">
+                <a href="{{ route('admin.orders.index') }}" class="text-xs font-bold text-[#0B2E75] hover:text-[#071E50] hover:underline">
                     عرض جميع الطلبات ←
                 </a>
             </div>
@@ -103,7 +103,7 @@
                             </td>
                             <td class="px-6 py-4 text-gray-500">{{ $order->created_at->format('Y/m/d H:i') }}</td>
                             <td class="px-6 py-4">
-                                <a href="{{ route('admin.orders.show', $order->id) }}" class="text-[#C5A059] hover:underline font-bold">
+                                <a href="{{ route('admin.orders.show', $order->id) }}" class="text-[#0B2E75] hover:underline font-bold">
                                     التفاصيل
                                 </a>
                             </td>

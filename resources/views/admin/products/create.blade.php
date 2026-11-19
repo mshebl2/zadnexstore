@@ -21,7 +21,7 @@
                     <h2 class="text-base font-bold text-[#242424]">إضافة منتج فاخر جديد</h2>
                     <p class="text-xs text-gray-500 mt-0.5">يمكنك رفع الصور مباشرة من كاميرا الجوال أو ألبوم الصور</p>
                 </div>
-                <span class="text-xs font-semibold bg-[#FAF8F4] text-[#C5A059] border border-[#EDE6DA] px-3 py-1 rounded-full">
+                <span class="text-xs font-semibold bg-[#F8FAFC] text-[#0B2E75] border border-[#E2E8F0] px-3 py-1 rounded-full">
                     يدعم رفع الصور من الجوال
                 </span>
             </div>
@@ -32,17 +32,17 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1.5">اسم المنتج بالعربية <span class="text-red-500">*</span></label>
-                        <input type="text" name="name_ar" value="{{ old('name_ar') }}" required placeholder="مثال: أرز بسمتي سيلا هندي ممتاز 5 كجم" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                        <input type="text" name="name_ar" value="{{ old('name_ar') }}" required placeholder="مثال: أرز بسمتي سيلا هندي ممتاز 5 كجم" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1.5">الاسم بالإنجليزية (اختياري)</label>
-                        <input type="text" name="name_en" value="{{ old('name_en') }}" placeholder="Royal Lavender Perfume" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                        <input type="text" name="name_en" value="{{ old('name_en') }}" placeholder="Royal Lavender Perfume" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1.5">القسم والتصنيف <span class="text-red-500">*</span></label>
-                        <select name="category_id" required class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                        <select name="category_id" required class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                             @foreach($categories as $parent)
                                 @if($parent->children->isNotEmpty())
                                     <optgroup label="── {{ $parent->name_ar }} ──">
@@ -64,48 +64,48 @@
 
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1.5">رمز المنتج (SKU) <span class="text-red-500">*</span></label>
-                        <input type="text" name="sku" value="{{ old('sku', 'INC-' . rand(100, 999)) }}" required class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                        <input type="text" name="sku" value="{{ old('sku', 'INC-' . rand(100, 999)) }}" required class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1.5">السعر الأساسي (ر.س) <span class="text-red-500">*</span></label>
-                        <input type="number" step="0.01" name="regular_price" value="{{ old('regular_price') }}" required placeholder="250.00" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                        <input type="number" step="0.01" name="regular_price" value="{{ old('regular_price') }}" required placeholder="250.00" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1.5">سعر التخفيض (اختياري)</label>
-                        <input type="number" step="0.01" name="sale_price" value="{{ old('sale_price') }}" placeholder="199.00" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                        <input type="number" step="0.01" name="sale_price" value="{{ old('sale_price') }}" placeholder="199.00" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1.5">كمية المخزون <span class="text-red-500">*</span></label>
-                        <input type="number" name="stock_quantity" value="{{ old('stock_quantity', 15) }}" required class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                        <input type="number" name="stock_quantity" value="{{ old('stock_quantity', 15) }}" required class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1.5">الوزن / الحجم (مثال: 5 كجم، 1 لتر، كرتون)</label>
-                        <input type="text" name="size" value="{{ old('size') }}" placeholder="100 مل" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                        <input type="text" name="size" value="{{ old('size') }}" placeholder="100 مل" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                     </div>
 
                     <!-- Photo Upload Section (Primary & Mobile Camera) -->
-                    <div class="sm:col-span-2 bg-[#FAF8F4] p-5 rounded-2xl border border-[#EDE6DA] space-y-4">
+                    <div class="sm:col-span-2 bg-[#F8FAFC] p-5 rounded-2xl border border-[#E2E8F0] space-y-4">
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1">
                                 صورة المنتج الرئيسية (التقطها بالكاميرا أو ارفعها من الجوال) <span class="text-red-500">*</span>
                             </label>
                             
-                            <div class="border-2 border-dashed border-[#C5A059]/50 hover:border-[#C5A059] rounded-xl p-4 bg-white text-center cursor-pointer transition">
+                            <div class="border-2 border-dashed border-[#0B2E75]/50 hover:border-[#0B2E75] rounded-xl p-4 bg-white text-center cursor-pointer transition">
                                 <label for="product_image_file" class="cursor-pointer block">
                                     <template x-if="primaryPreview">
                                         <div class="relative">
                                             <img :src="primaryPreview" class="max-h-56 mx-auto rounded-xl object-contain shadow-sm mb-2">
-                                            <span class="text-xs text-[#C5A059] font-bold block">اضغط لتغيير الصورة أو اختيار لقطة أخرى</span>
+                                            <span class="text-xs text-[#0B2E75] font-bold block">اضغط لتغيير الصورة أو اختيار لقطة أخرى</span>
                                         </div>
                                     </template>
 
                                     <template x-if="!primaryPreview">
                                         <div class="py-4">
-                                            <div class="w-12 h-12 rounded-full bg-[#FAF8F4] border border-[#EDE6DA] flex items-center justify-center mx-auto text-[#C5A059] mb-2">
+                                            <div class="w-12 h-12 rounded-full bg-[#F8FAFC] border border-[#E2E8F0] flex items-center justify-center mx-auto text-[#0B2E75] mb-2">
                                                 <x-icon name="camera" class="w-6 h-6" />
                                             </div>
                                             <span class="text-xs font-bold text-[#242424] block">التقط صورة بكاميرا الجوال أو اختر من الألبوم</span>
@@ -124,16 +124,16 @@
                         </div>
 
                         <!-- Additional Photos from Mobile -->
-                        <div class="pt-2 border-t border-[#EDE6DA]">
+                        <div class="pt-2 border-t border-[#E2E8F0]">
                             <label class="block text-xs font-bold text-[#242424] mb-1">
                                 صور إضافية للمعرض (اختياري - يمكنك اختيار عدة صور معاً من الجوال)
                             </label>
-                            <label for="gallery_files" class="flex items-center justify-between bg-white border border-[#EDE6DA] rounded-xl px-4 py-3 cursor-pointer hover:border-[#C5A059] transition">
+                            <label for="gallery_files" class="flex items-center justify-between bg-white border border-[#E2E8F0] rounded-xl px-4 py-3 cursor-pointer hover:border-[#0B2E75] transition">
                                 <span class="text-xs text-gray-600 flex items-center gap-2">
-                                    <x-icon name="images" class="w-4 h-4 text-[#C5A059]" />
+                                    <x-icon name="images" class="w-4 h-4 text-[#0B2E75]" />
                                     <span x-text="galleryCount > 0 ? ('تم اختيار ' + galleryCount + ' صور إضافية') : 'اختر صور إضافية لزوايا المنتج من الجوال'"></span>
                                 </span>
-                                <span class="bg-[#FAF8F4] text-[#C5A059] text-xs font-bold px-3 py-1 rounded-lg border border-[#EDE6DA]">تحديد الصور</span>
+                                <span class="bg-[#F8FAFC] text-[#0B2E75] text-xs font-bold px-3 py-1 rounded-lg border border-[#E2E8F0]">تحديد الصور</span>
                                 <input type="file" 
                                        id="gallery_files" 
                                        name="gallery_files[]" 
@@ -145,31 +145,31 @@
                         </div>
 
                         <!-- Fallback URL input -->
-                        <div class="pt-2 border-t border-[#EDE6DA]">
+                        <div class="pt-2 border-t border-[#E2E8F0]">
                             <label class="block text-[11px] text-gray-600 mb-1">أو إذا رغبت، ضع رابط صورة مباشر:</label>
-                            <input type="url" name="image_url" placeholder="https://images.unsplash.com/..." class="w-full bg-white border border-[#EDE6DA] rounded-lg px-3 py-2 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                            <input type="url" name="image_url" placeholder="https://images.unsplash.com/..." class="w-full bg-white border border-[#E2E8F0] rounded-lg px-3 py-2 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                         </div>
                     </div>
 
                     <!-- Fragrance Notes -->
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1.5">المواصفات الأساسية (Feature 1)</label>
-                        <input type="text" name="fragrance_top" value="{{ old('fragrance_top') }}" placeholder="الهيل، البرغموت..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                        <input type="text" name="fragrance_top" value="{{ old('fragrance_top') }}" placeholder="الهيل، البرغموت..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                     </div>
 
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1.5">الجودة وسلامة الغذاء (Feature 2)</label>
-                        <input type="text" name="fragrance_heart" value="{{ old('fragrance_heart') }}" placeholder="الورد، الياسمين..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                        <input type="text" name="fragrance_heart" value="{{ old('fragrance_heart') }}" placeholder="الورد، الياسمين..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                     </div>
 
                     <div class="sm:col-span-2">
                         <label class="block text-xs font-bold text-[#242424] mb-1.5">المصدر والتعبئة (Feature 3)</label>
-                        <input type="text" name="fragrance_base" value="{{ old('fragrance_base') }}" placeholder="المكونات أو المواصفات الرئيسية..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                        <input type="text" name="fragrance_base" value="{{ old('fragrance_base') }}" placeholder="المكونات أو المواصفات الرئيسية..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg px-3.5 py-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                     </div>
 
                     <div class="sm:col-span-2">
                         <label class="block text-xs font-bold text-[#242424] mb-1.5">الوصف التفصيلي بالعربية <span class="text-red-500">*</span></label>
-                        <textarea name="description_ar" rows="4" required placeholder="اكتب وصفاً مميزاً للمنتج ومكوناته..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg p-3 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">{{ old('description_ar') }}</textarea>
+                        <textarea name="description_ar" rows="4" required placeholder="اكتب وصفاً مميزاً للمنتج ومكوناته..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-3 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">{{ old('description_ar') }}</textarea>
                     </div>
 
                     <!-- SEO & Search Engine Optimization -->
@@ -181,30 +181,30 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <div>
                                 <label class="block text-[11px] font-bold text-[#242424] mb-1">عنوان الميتا المخصص (SEO Title)</label>
-                                <input type="text" name="seo_title" value="{{ old('seo_title') }}" placeholder="اتركه فارغاً ليتم استخدام اسم المنتج تلقائياً" class="w-full bg-white border border-[#EDE6DA] rounded-lg px-3 py-2 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                                <input type="text" name="seo_title" value="{{ old('seo_title') }}" placeholder="اتركه فارغاً ليتم استخدام اسم المنتج تلقائياً" class="w-full bg-white border border-[#E2E8F0] rounded-lg px-3 py-2 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                             </div>
                             <div>
                                 <label class="block text-[11px] font-bold text-[#242424] mb-1">وصف الميتا في نتائج بحث جوجل (SEO Description)</label>
-                                <input type="text" name="seo_description" value="{{ old('seo_description') }}" placeholder="اتركه فارغاً ليتم استخلاص وصف تلقائي من وصف المنتج" class="w-full bg-white border border-[#EDE6DA] rounded-lg px-3 py-2 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                                <input type="text" name="seo_description" value="{{ old('seo_description') }}" placeholder="اتركه فارغاً ليتم استخلاص وصف تلقائي من وصف المنتج" class="w-full bg-white border border-[#E2E8F0] rounded-lg px-3 py-2 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                             </div>
                         </div>
                     </div>
 
                     <div class="sm:col-span-2 flex items-center gap-6 pt-2">
                         <label class="flex items-center gap-2 text-xs font-semibold text-[#242424] cursor-pointer">
-                            <input type="checkbox" name="is_featured" value="1" class="text-[#C5A059] rounded">
+                            <input type="checkbox" name="is_featured" value="1" class="text-[#0B2E75] rounded">
                             <span>عرض في قسم الأكثر طلباً بالرئيسية</span>
                         </label>
 
                         <label class="flex items-center gap-2 text-xs font-semibold text-[#242424] cursor-pointer">
-                            <input type="checkbox" name="is_active" value="1" checked class="text-[#C5A059] rounded">
+                            <input type="checkbox" name="is_active" value="1" checked class="text-[#0B2E75] rounded">
                             <span>تفعيل ظهور المنتج فوراً بالمتجر</span>
                         </label>
                     </div>
                 </div>
 
                 <div class="pt-6 border-t border-gray-200 flex items-center gap-3">
-                    <button type="submit" class="bg-[#C5A059] hover:bg-[#AF8B44] text-white text-xs font-bold px-7 py-3 rounded-xl transition shadow-md flex items-center gap-2">
+                    <button type="submit" class="bg-[#0B2E75] hover:bg-[#071E50] text-white text-xs font-bold px-7 py-3 rounded-xl transition shadow-md flex items-center gap-2">
                         <x-icon name="check" class="w-4 h-4" />
                         <span>حفظ ونشر المنتج</span>
                     </button>

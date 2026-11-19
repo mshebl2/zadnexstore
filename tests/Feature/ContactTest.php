@@ -16,7 +16,7 @@ class ContactTest extends TestCase
         $response = $this->get('/contact');
 
         $response->assertStatus(200);
-        $response->assertSee('تواصل مع مستشاري إنسينس السعودية');
+        $response->assertSee('تواصل مع فريق متجر زاد نيكس');
         $response->assertSee('نموذج المراسلة المباشر');
     }
 

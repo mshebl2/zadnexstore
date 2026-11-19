@@ -15,9 +15,9 @@
                     <div>
                         <div class="flex items-center gap-2">
                             <h1 class="text-xl sm:text-2xl font-bold">{{ $user->name }}</h1>
-                            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#C5A059]/20 text-[#E3C588] border border-[#C5A059]/40 text-[11px] font-bold">
-                                <x-icon name="award" class="w-3.5 h-3.5 text-[#C5A059]" />
-                                <span>عضو نادي صفوة زاد نيكس</span>
+                            <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#0B2E75]/20 text-[#FBB404] border border-[#FBB404]/40 text-[11px] font-bold">
+                                <x-icon name="award" class="w-3.5 h-3.5 text-[#FBB404]" />
+                                <span>عميل معتمد في متجر زاد نيكس</span>
                             </span>
                         </div>
                         <p class="text-xs text-[#A59D92] mt-1 font-mono" dir="ltr">{{ $user->email }}</p>
@@ -201,7 +201,7 @@
                     <div class="bg-gradient-to-br from-[#1C1C1C] via-[#2A2A2A] to-[#1C1C1C] text-white rounded-3xl p-6 sm:p-8 shadow-md">
                         <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
                             <div class="space-y-2">
-                                <span class="text-xs font-bold text-[#C5A059] uppercase tracking-wider block">برنامج أرباح صفوة زاد نيكس</span>
+                                <span class="text-xs font-bold text-[#FBB404] uppercase tracking-wider block">برنامج أرباح ومكافآت زاد نيكس</span>
                                 <h3 class="text-lg font-bold">شارك رابطك الخاص واكسب 10% عمولة نقدية</h3>
                                 <p class="text-xs text-[#A59D92] max-w-xl leading-relaxed">
                                     أي عميل يشتري من المتجر عبر رابطك الفريد، تُضاف 10% من قيمة مشترياته فوراً إلى محفظتك كأرباح يمكنك سحبها لحسابك البنكي!

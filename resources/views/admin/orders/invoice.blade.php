@@ -56,7 +56,7 @@
 
         .btn-primary {
             background-color: #242424;
-            color: #C5A059;
+            color: #0B2E75;
         }
         .btn-primary:hover {
             background-color: #000000;
@@ -85,7 +85,7 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            border-bottom: 2px solid #C5A059;
+            border-bottom: 2px solid #0B2E75;
             padding-bottom: 24px;
             margin-bottom: 28px;
         }
@@ -122,9 +122,9 @@
 
         .invoice-badge {
             display: inline-block;
-            background: #FAF8F4;
-            color: #AF8B44;
-            border: 1px solid #C5A059;
+            background: #F8FAFC;
+            color: #071E50;
+            border: 1px solid #0B2E75;
             padding: 4px 12px;
             border-radius: 6px;
             font-size: 11px;
@@ -163,7 +163,7 @@
         .card-header {
             font-size: 12px;
             font-weight: 800;
-            color: #C5A059;
+            color: #0B2E75;
             border-bottom: 1px solid #e7e5e4;
             padding-bottom: 8px;
             margin-bottom: 10px;
@@ -252,7 +252,7 @@
             width: 64px;
             height: 64px;
             background: #242424;
-            color: #C5A059;
+            color: #0B2E75;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -280,7 +280,7 @@
         }
 
         .totals-table tr.grand-total td {
-            border-top: 2px solid #C5A059;
+            border-top: 2px solid #0B2E75;
             padding-top: 10px;
             font-size: 15px;
             font-weight: 800;
@@ -288,7 +288,7 @@
         }
 
         .grand-price {
-            color: #C5A059;
+            color: #0B2E75;
             font-size: 18px;
             font-weight: 900;
             text-align: left;
@@ -424,7 +424,7 @@
                 @if($order->shipping_tracking_number)
                 <div class="data-row">
                     <span class="data-label">رقم بوليصة التتبع:</span>
-                    <span class="data-val" style="color: #AF8B44; font-family: monospace;">{{ $order->shipping_tracking_number }}</span>
+                    <span class="data-val" style="color: #071E50; font-family: monospace;">{{ $order->shipping_tracking_number }}</span>
                 </div>
                 @endif
                 <div class="data-row">

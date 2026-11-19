@@ -15,29 +15,29 @@
         .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
     </style>
 </head>
-<body class="bg-[#FAF8F4] text-[#242424] antialiased min-h-screen flex flex-col items-center justify-center p-6 selection:bg-[#C5A059] selection:text-white">
+<body class="bg-[#F8FAFC] text-slate-800 antialiased min-h-screen flex flex-col items-center justify-center p-6 selection:bg-[#0B2E75] selection:text-[#FBB404]">
     <div class="max-w-md w-full text-center space-y-6">
-        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white border border-[#EDE6DA] shadow-sm mb-2">
-            <span class="text-3xl font-serif font-bold text-[#C5A059]">403</span>
+        <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-white border border-slate-200 shadow-sm mb-2">
+            <span class="text-3xl font-bold text-[#0B2E75]">403</span>
         </div>
 
         <div class="space-y-2">
-            <h1 class="text-xl sm:text-2xl font-bold text-[#242424]">غير مصرح بالوصول</h1>
-            <p class="text-xs sm:text-sm text-[#777777] leading-relaxed">
+            <h1 class="text-xl sm:text-2xl font-bold text-slate-900">غير مصرح بالوصول</h1>
+            <p class="text-xs sm:text-sm text-slate-500 leading-relaxed">
                 عذراً، ليس لديك الصلاحية الكافية للوصول إلى هذه الصفحة أو السجل المطلوب.
             </p>
         </div>
 
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
-            <a href="{{ url('/') }}" class="w-full sm:w-auto bg-[#242424] hover:bg-black text-[#C5A059] text-xs font-bold px-6 py-3 rounded-xl transition duration-200 shadow-md">
+            <a href="{{ url('/') }}" class="w-full sm:w-auto bg-[#0B2E75] hover:bg-[#071E50] text-white text-xs font-bold px-6 py-3 rounded-xl transition duration-200 shadow-md">
                 العودة للرئيسية &larr;
             </a>
-            <a href="{{ route('login') }}" class="w-full sm:w-auto bg-[#C5A059] hover:bg-[#AF8B44] text-white text-xs font-bold px-6 py-3 rounded-xl transition duration-200 shadow-md">
+            <a href="{{ route('login') }}" class="w-full sm:w-auto bg-[#FBB404] hover:bg-[#E0A003] text-[#071E50] text-xs font-bold px-6 py-3 rounded-xl transition duration-200 shadow-md">
                 تسجيل الدخول
             </a>
         </div>
 
-        <div class="pt-8 text-[11px] text-[#A0A0A0] border-t border-[#EDE6DA]/80">
+        <div class="pt-8 text-[11px] text-slate-400 border-t border-slate-200">
             متجر زاد نيكس &copy; {{ date('Y') }} — مواد غذائية • مشروبات • منظفات • كماليات
         </div>
     </div>

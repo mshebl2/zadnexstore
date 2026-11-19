@@ -45,78 +45,82 @@
             <div>
                 <!-- Brand / Logo -->
                 <div class="h-20 flex items-center px-6 border-b border-[#2E2E2E]">
-                    <a href="{{ route('admin.dashboard') }}" class="flex items-center">
-                        <img src="{{ asset('images/logo-white.png') }}" alt="ZADNEX STORE" class="h-10 w-auto object-contain">
+                    <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3">
+                        <img src="{{ asset('images/logo.png') }}" alt="متجر زاد نيكس" class="h-10 w-auto object-contain bg-white/10 p-1 rounded-lg">
+                        <div class="flex flex-col">
+                            <span class="text-sm font-black text-[#FBB404] tracking-wide">زاد نيكس</span>
+                            <span class="text-[10px] text-gray-400">لوحة الإدارة والتحكم</span>
+                        </div>
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <nav class="p-4 space-y-1 text-xs font-semibold">
-                    <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.dashboard') ? 'bg-[#C5A059] text-white' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
+                    <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.dashboard') ? 'bg-[#0B2E75] text-white font-bold border-r-4 border-[#FBB404]' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
                         <x-icon name="home" class="w-4 h-4" />
                         <span>لوحة المؤشرات العامة</span>
                     </a>
 
-                    <a href="{{ route('admin.orders.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.orders*') ? 'bg-[#C5A059] text-white' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
+                    <a href="{{ route('admin.orders.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.orders*') ? 'bg-[#0B2E75] text-white font-bold border-r-4 border-[#FBB404]' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
                         <x-icon name="shopping-bag" class="w-4 h-4" />
                         <span>إدارة الطلبات</span>
                     </a>
 
-                    <a href="{{ route('admin.products.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.products*') ? 'bg-[#C5A059] text-white' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
+                    <a href="{{ route('admin.products.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.products*') ? 'bg-[#0B2E75] text-white font-bold border-r-4 border-[#FBB404]' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
                         <x-icon name="package" class="w-4 h-4" />
                         <span>المنتجات والمخزون</span>
                     </a>
 
-                    <a href="{{ route('admin.categories.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.categories*') ? 'bg-[#C5A059] text-white' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
+                    <a href="{{ route('admin.categories.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.categories*') ? 'bg-[#0B2E75] text-white font-bold border-r-4 border-[#FBB404]' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
                         <x-icon name="filter" class="w-4 h-4" />
                         <span>أقسام وتصنيفات المتجر</span>
                     </a>
 
-                    <a href="{{ route('admin.coupons.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.coupons*') ? 'bg-[#C5A059] text-white' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
+                    <a href="{{ route('admin.coupons.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.coupons*') ? 'bg-[#0B2E75] text-white font-bold border-r-4 border-[#FBB404]' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
                         <x-icon name="check-circle" class="w-4 h-4" />
                         <span>قسائم الخصم والكوبونات</span>
                     </a>
 
-                    <a href="{{ route('admin.banners.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.banners*') ? 'bg-[#C5A059] text-white' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
+                    <a href="{{ route('admin.banners.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.banners*') ? 'bg-[#0B2E75] text-white font-bold border-r-4 border-[#FBB404]' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
                         <x-icon name="image" class="w-4 h-4" />
                         <span>إدارة الصفحة الرئيسية والبنرات</span>
                     </a>
 
-                    <a href="{{ route('admin.popup.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.popup*') ? 'bg-[#C5A059] text-white' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
+                    <a href="{{ route('admin.popup.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.popup*') ? 'bg-[#0B2E75] text-white font-bold border-r-4 border-[#FBB404]' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
                         <x-icon name="award" class="w-4 h-4" />
                         <span>عروض الإعلانات المفاجئة</span>
                     </a>
 
-                    <a href="{{ route('admin.shipping.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.shipping*') ? 'bg-[#C5A059] text-white' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
+                    <a href="{{ route('admin.shipping.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.shipping*') ? 'bg-[#0B2E75] text-white font-bold border-r-4 border-[#FBB404]' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
                         <x-icon name="truck" class="w-4 h-4" />
                         <span>مناطق ورسوم الشحن</span>
                     </a>
 
-                    <a href="{{ route('admin.settings.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.settings*') ? 'bg-[#C5A059] text-white' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
+                    <a href="{{ route('admin.settings.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.settings*') ? 'bg-[#0B2E75] text-white font-bold border-r-4 border-[#FBB404]' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
                         <x-icon name="shield-check" class="w-4 h-4" />
                         <span>إعدادات المتجر العامة</span>
                     </a>
 
-                    <a href="{{ route('admin.profile') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.profile*') ? 'bg-[#C5A059] text-white' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
+                    <a href="{{ route('admin.profile') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.profile*') ? 'bg-[#0B2E75] text-white font-bold border-r-4 border-[#FBB404]' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
                         <x-icon name="user" class="w-4 h-4" />
                         <span>حساب المدير والأمان</span>
                     </a>
 
-                    <a href="{{ route('admin.messages.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.messages*') ? 'bg-[#C5A059] text-white' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
+                    <a href="{{ route('admin.messages.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.messages*') ? 'bg-[#0B2E75] text-white font-bold border-r-4 border-[#FBB404]' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
                         <x-icon name="mail" class="w-4 h-4" />
                         <span>رسائل واستفسارات العملاء</span>
                         @if(\App\Models\ContactMessage::where('is_read', false)->count() > 0)
-                            <span class="mr-auto bg-[#C5A059] text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                            <span class="mr-auto bg-[#FBB404] text-[#071E50] text-[10px] font-black px-1.5 py-0.5 rounded-full">
                                 {{ \App\Models\ContactMessage::where('is_read', false)->count() }}
                             </span>
                         @endif
                     </a>
 
-                    <a href="{{ route('admin.affiliates.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.affiliates*') ? 'bg-[#C5A059] text-white' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
+                    <a href="{{ route('admin.affiliates.index') }}" class="flex items-center gap-3 px-3.5 py-3 rounded-xl transition {{ request()->routeIs('admin.affiliates*') ? 'bg-[#0B2E75] text-white font-bold border-r-4 border-[#FBB404]' : 'text-[#A59D92] hover:bg-[#2A2A2A] hover:text-white' }}">
                         <x-icon name="share-2" class="w-4 h-4" />
                         <span>المسوقون وعمولات الإحالة</span>
                         @if(\App\Models\PayoutRequest::where('status', 'pending')->count() > 0)
-                            <span class="mr-auto bg-amber-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">
+                            <span class="mr-auto bg-[#FBB404] text-[#071E50] text-[10px] font-black px-1.5 py-0.5 rounded-full">
                                 {{ \App\Models\PayoutRequest::where('status', 'pending')->count() }}
                             </span>
                         @endif
@@ -126,7 +130,7 @@
 
             <!-- Bottom user / return to storefront -->
             <div class="p-4 border-t border-[#2E2E2E] space-y-2 text-xs">
-                <a href="{{ route('home') }}" target="_blank" class="flex items-center gap-2 text-[#C5A059] hover:underline px-3 py-2">
+                <a href="{{ route('home') }}" target="_blank" class="flex items-center gap-2 text-[#FBB404] hover:underline px-3 py-2 font-bold">
                     <x-icon name="arrow-right" class="w-4 h-4" />
                     <span>معاينة واجهة المتجر</span>
                 </a>
@@ -169,8 +173,8 @@
                         </span>
                     @endif
 
-                    <a href="{{ route('admin.profile') }}" class="hidden sm:flex items-center gap-2 text-gray-700 hover:text-[#C5A059] transition px-3 py-1.5 rounded-xl hover:bg-gray-50 border border-transparent hover:border-gray-200" title="إعدادات الحساب وكلمة المرور">
-                        <x-icon name="user" class="w-4 h-4 text-[#C5A059]" />
+                    <a href="{{ route('admin.profile') }}" class="hidden sm:flex items-center gap-2 text-gray-700 hover:text-[#0B2E75] transition px-3 py-1.5 rounded-xl hover:bg-gray-50 border border-transparent hover:border-gray-200" title="إعدادات الحساب وكلمة المرور">
+                        <x-icon name="user" class="w-4 h-4 text-[#0B2E75]" />
                         <span class="font-bold">{{ auth()->user()?->name ?? 'المدير' }}</span>
                     </a>
                 </div>

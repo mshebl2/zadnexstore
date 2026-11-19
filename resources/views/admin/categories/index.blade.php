@@ -25,24 +25,24 @@
         <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs h-fit space-y-4">
             <h3 class="text-sm font-bold text-[#242424] border-b border-gray-100 pb-3 flex items-center justify-between">
                 <span>إضافة قسم جديد</span>
-                <span class="text-[10px] text-[#C5A059] bg-[#FAF8F4] px-2 py-0.5 rounded-full border border-[#EDE6DA]">يدعم رفع الصور من الجوال</span>
+                <span class="text-[10px] text-[#0B2E75] bg-[#F8FAFC] px-2 py-0.5 rounded-full border border-[#E2E8F0]">يدعم رفع الصور من الجوال</span>
             </h3>
 
             <form action="{{ route('admin.categories.store') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
                 @csrf
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">اسم القسم بالعربية <span class="text-red-500">*</span></label>
-                    <input type="text" name="name_ar" required placeholder="مثال: مواد غذائية وتموين" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                    <input type="text" name="name_ar" required placeholder="مثال: مواد غذائية وتموين" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                 </div>
 
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">الاسم بالإنجليزية (اختياري)</label>
-                    <input type="text" name="name_en" placeholder="Musk & Powder Perfumes" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                    <input type="text" name="name_en" placeholder="Musk & Powder Perfumes" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                 </div>
 
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">تبع القسم (القسم الرئيسي)</label>
-                    <select name="parent_id" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                    <select name="parent_id" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                         <option value="">-- قسم رئيسي مستقل (بدون قسم أب) --</option>
                         @foreach($parentCategories as $pCat)
                             <option value="{{ $pCat->id }}">قسم فرعي يتبع لـ: {{ $pCat->name_ar }}</option>
@@ -54,19 +54,19 @@
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">صورة القسم (رفع من الجوال أو الكاميرا)</label>
                     
-                    <div class="border-2 border-dashed border-[#EDE6DA] hover:border-[#C5A059] rounded-xl p-3 bg-[#FAF8F4] text-center transition">
+                    <div class="border-2 border-dashed border-[#E2E8F0] hover:border-[#0B2E75] rounded-xl p-3 bg-[#F8FAFC] text-center transition">
                         <label for="cat_image_file" class="cursor-pointer block">
                             <!-- Preview if selected -->
                             <template x-if="createPreview">
                                 <div class="relative mb-2">
                                     <img :src="createPreview" class="w-full h-32 object-cover rounded-lg mx-auto shadow-xs">
-                                    <span class="text-[10px] text-[#C5A059] font-bold mt-1 block">اضغط لتغيير الصورة</span>
+                                    <span class="text-[10px] text-[#0B2E75] font-bold mt-1 block">اضغط لتغيير الصورة</span>
                                 </div>
                             </template>
 
                             <template x-if="!createPreview">
                                 <div class="py-3">
-                                    <x-icon name="image" class="w-8 h-8 text-[#C5A059] mx-auto mb-1" />
+                                    <x-icon name="image" class="w-8 h-8 text-[#0B2E75] mx-auto mb-1" />
                                     <span class="text-xs font-bold text-[#242424] block">التقط صورة بالكاميرا أو اختر من الجوال</span>
                                     <span class="text-[10px] text-gray-500">JPG, PNG, WEBP (حتى 10 ميجابايت)</span>
                                 </div>
@@ -84,16 +84,16 @@
                     <!-- Fallback URL input -->
                     <div class="mt-2">
                         <span class="text-[10px] text-gray-500 block mb-0.5">أو ضع رابط صورة خارجي:</span>
-                        <input type="url" name="image_url" placeholder="https://..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg p-2 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                        <input type="url" name="image_url" placeholder="https://..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                     </div>
                 </div>
 
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">وصف مختصر للقسم</label>
-                    <textarea name="description_ar" rows="2" placeholder="وصف يعبر عن منتجات هذا القسم الغذائي أو المنزلي..." class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]"></textarea>
+                    <textarea name="description_ar" rows="2" placeholder="وصف يعبر عن منتجات هذا القسم الغذائي أو المنزلي..." class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]"></textarea>
                 </div>
 
-                <button type="submit" class="w-full bg-[#C5A059] hover:bg-[#AF8B44] text-white text-xs font-bold py-3 px-4 rounded-xl transition shadow-md flex items-center justify-center gap-2">
+                <button type="submit" class="w-full bg-[#0B2E75] hover:bg-[#071E50] text-white text-xs font-bold py-3 px-4 rounded-xl transition shadow-md flex items-center justify-center gap-2">
                     <x-icon name="plus" class="w-4 h-4" />
                     <span>إضافة القسم الآن</span>
                 </button>
@@ -111,7 +111,7 @@
                 @foreach($categories as $category)
                 <div class="p-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition">
                     <div class="flex items-center gap-3">
-                        <img src="{{ $category->image }}" alt="" class="w-14 h-14 object-cover rounded-xl border border-gray-200 bg-[#FAF8F4] flex-shrink-0">
+                        <img src="{{ $category->image }}" alt="" class="w-14 h-14 object-cover rounded-xl border border-gray-200 bg-[#F8FAFC] flex-shrink-0">
                         <div>
                             <div class="flex items-center gap-2">
                                 <h4 class="font-bold text-xs text-[#242424]">{{ $category->name_ar }}</h4>
@@ -120,20 +120,20 @@
                                         فرعي من: {{ $category->parent->name_ar }}
                                     </span>
                                 @else
-                                    <span class="text-[10px] bg-amber-50 text-[#C5A059] px-2 py-0.5 rounded-full border border-amber-200 font-bold">
+                                    <span class="text-[10px] bg-amber-50 text-[#0B2E75] px-2 py-0.5 rounded-full border border-amber-200 font-bold">
                                         قسم رئيسي
                                     </span>
                                 @endif
                             </div>
                             <span class="text-[10px] text-gray-400 font-mono block mt-0.5">{{ $category->slug }}</span>
-                            <span class="text-[10px] text-[#C5A059] font-medium block">{{ $category->products->count() }} منتجات مرتبطة</span>
+                            <span class="text-[10px] text-[#0B2E75] font-medium block">{{ $category->products->count() }} منتجات مرتبطة</span>
                         </div>
                     </div>
 
                     <div class="flex items-center gap-2 flex-shrink-0">
                         <button type="button" 
                                 @click="currentCat = {{ json_encode($category) }}; editPreview = null; editModalOpen = true" 
-                                class="text-[#C5A059] hover:bg-[#FAF8F4] text-xs px-3 py-1.5 rounded-lg transition border border-[#C5A059]/40 font-bold">
+                                class="text-[#0B2E75] hover:bg-[#F8FAFC] text-xs px-3 py-1.5 rounded-lg transition border border-[#0B2E75]/40 font-bold">
                             تعديل
                         </button>
 
@@ -161,15 +161,15 @@
                     @method('PUT')
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1">اسم القسم بالعربية <span class="text-red-500">*</span></label>
-                        <input type="text" name="name_ar" x-model="currentCat.name_ar" required class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl px-3 py-2 text-xs">
+                        <input type="text" name="name_ar" x-model="currentCat.name_ar" required class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-xs">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1">الاسم بالإنجليزي</label>
-                        <input type="text" name="name_en" x-model="currentCat.name_en" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl px-3 py-2 text-xs">
+                        <input type="text" name="name_en" x-model="currentCat.name_en" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-xs">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1">القسم الرئيسي التابع له</label>
-                        <select name="parent_id" x-model="currentCat.parent_id" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl px-3 py-2 text-xs">
+                        <select name="parent_id" x-model="currentCat.parent_id" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-xs">
                             <option :value="null">-- قسم رئيسي مستقل --</option>
                             @foreach($parentCategories as $pCat)
                                 <option value="{{ $pCat->id }}">يتبع لـ: {{ $pCat->name_ar }}</option>
@@ -180,7 +180,7 @@
                     <!-- Upload New Photo from mobile inside Edit Modal -->
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1">تحديث الصورة (رفع من الجوال أو الكاميرا)</label>
-                        <div class="border-2 border-dashed border-[#EDE6DA] rounded-xl p-3 bg-[#FAF8F4] text-center">
+                        <div class="border-2 border-dashed border-[#E2E8F0] rounded-xl p-3 bg-[#F8FAFC] text-center">
                             <label for="cat_edit_image_file" class="cursor-pointer block">
                                 <template x-if="editPreview">
                                     <img :src="editPreview" class="w-full h-32 object-cover rounded-lg mx-auto shadow-xs mb-1">
@@ -188,7 +188,7 @@
                                 <template x-if="!editPreview && currentCat.image">
                                     <img :src="currentCat.image" class="w-full h-28 object-cover rounded-lg mx-auto shadow-xs mb-1">
                                 </template>
-                                <span class="text-xs font-bold text-[#C5A059] block">اختر صورة جديدة من الجوال</span>
+                                <span class="text-xs font-bold text-[#0B2E75] block">اختر صورة جديدة من الجوال</span>
                                 <input type="file" 
                                        id="cat_edit_image_file" 
                                        name="image_file" 
@@ -201,15 +201,15 @@
 
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1">رابط صورة خارجي بديل</label>
-                        <input type="url" name="image_url" x-model="currentCat.image" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl px-3 py-2 text-xs">
+                        <input type="url" name="image_url" x-model="currentCat.image" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-xs">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1">الوصف</label>
-                        <textarea name="description_ar" x-model="currentCat.description_ar" rows="3" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl px-3 py-2 text-xs"></textarea>
+                        <textarea name="description_ar" x-model="currentCat.description_ar" rows="3" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-xs"></textarea>
                     </div>
                     <div class="pt-2 flex justify-end gap-2 border-t border-gray-100">
                         <button type="button" @click="editModalOpen = false" class="px-4 py-2 text-xs text-[#777777]">إلغاء</button>
-                        <button type="submit" class="bg-[#C5A059] text-white px-5 py-2.5 rounded-xl text-xs font-bold hover:bg-[#AF8B44] transition shadow-md">حفظ التعديلات</button>
+                        <button type="submit" class="bg-[#0B2E75] text-white px-5 py-2.5 rounded-xl text-xs font-bold hover:bg-[#071E50] transition shadow-md">حفظ التعديلات</button>
                     </div>
                 </form>
             </div>

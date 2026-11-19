@@ -4,10 +4,10 @@
     <div class="space-y-8" x-data="{ addModalOpen: false, editModalOpen: false, currentZone: {} }">
         
         <!-- Header -->
-        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-[#EDE6DA] shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+        <div class="bg-white p-6 sm:p-8 rounded-2xl border border-[#E2E8F0] shadow-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
                 <h2 class="text-lg sm:text-xl font-bold text-[#242424] flex items-center gap-2">
-                    <x-icon name="truck" class="w-5 h-5 text-[#C5A059]" />
+                    <x-icon name="truck" class="w-5 h-5 text-[#0B2E75]" />
                     <span>مناطق التوصيل ورسوم الشحن بالمملكة</span>
                 </h2>
                 <p class="text-xs text-[#777777] mt-1 leading-relaxed">
@@ -17,17 +17,17 @@
 
             <button @click="addModalOpen = true" 
                     type="button" 
-                    class="bg-[#C5A059] hover:bg-[#AF8B44] text-white px-5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 shadow-xs transition">
+                    class="bg-[#0B2E75] hover:bg-[#071E50] text-white px-5 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 shadow-xs transition">
                 <x-icon name="plus" class="w-4 h-4" />
                 <span>إضافة منطقة شحن جديدة</span>
             </button>
         </div>
 
         <!-- Shipping Zones Table -->
-        <div class="bg-white rounded-2xl border border-[#EDE6DA] shadow-xs overflow-hidden">
+        <div class="bg-white rounded-2xl border border-[#E2E8F0] shadow-xs overflow-hidden">
             <div class="overflow-x-auto">
                 <table class="w-full text-right text-xs">
-                    <thead class="bg-[#FAF8F4] text-[#777777] border-b border-[#EDE6DA] font-semibold">
+                    <thead class="bg-[#F8FAFC] text-[#777777] border-b border-[#E2E8F0] font-semibold">
                         <tr>
                             <th class="p-4">المدينة / المنطقة</th>
                             <th class="p-4">سعر الشحن</th>
@@ -37,16 +37,16 @@
                             <th class="p-4 text-center">الإجراءات</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-[#EDE6DA]/60">
+                    <tbody class="divide-y divide-[#E2E8F0]/60">
                         @forelse($zones as $zone)
-                            <tr class="hover:bg-[#FAF8F4]/50 transition">
+                            <tr class="hover:bg-[#F8FAFC]/50 transition">
                                 <td class="p-4 font-bold text-[#242424]">
                                     {{ $zone->city_name_ar }}
                                     @if($zone->city_name_en)
                                         <span class="block text-[10px] text-[#777777] font-normal font-sans">{{ $zone->city_name_en }}</span>
                                     @endif
                                 </td>
-                                <td class="p-4 font-mono font-bold text-[#C5A059]">
+                                <td class="p-4 font-mono font-bold text-[#0B2E75]">
                                     {{ number_format($zone->shipping_cost, 2) }} ر.س
                                 </td>
                                 <td class="p-4">
@@ -74,7 +74,7 @@
                                 <td class="p-4">
                                     <div class="flex items-center justify-center gap-2">
                                         <button @click="currentZone = {{ json_encode($zone) }}; editModalOpen = true" 
-                                                class="p-2 text-[#777777] hover:text-[#C5A059] hover:bg-[#FAF8F4] rounded-lg transition"
+                                                class="p-2 text-[#777777] hover:text-[#0B2E75] hover:bg-[#F8FAFC] rounded-lg transition"
                                                 title="تعديل">
                                             <x-icon name="eye" class="w-4 h-4" />
                                         </button>
@@ -110,29 +110,29 @@
                     @csrf
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1">اسم المدينة / المنطقة (عربي)</label>
-                        <input type="text" name="city_name_ar" required placeholder="مثل: الرياض، جدة ومكة المكرمة" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl px-3 py-2 text-xs">
+                        <input type="text" name="city_name_ar" required placeholder="مثل: الرياض، جدة ومكة المكرمة" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-xs">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1">الاسم بالإنجليزي (اختياري)</label>
-                        <input type="text" name="city_name_en" placeholder="e.g. Riyadh" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl px-3 py-2 text-xs">
+                        <input type="text" name="city_name_en" placeholder="e.g. Riyadh" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-xs">
                     </div>
                     <div class="grid grid-cols-2 gap-3">
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1">سعر الشحن (ر.س)</label>
-                            <input type="number" step="0.01" name="shipping_cost" required value="25.00" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl px-3 py-2 text-xs font-bold">
+                            <input type="number" step="0.01" name="shipping_cost" required value="25.00" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-xs font-bold">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1">حد الشحن المجاني</label>
-                            <input type="number" step="0.01" name="free_shipping_threshold" value="299.00" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl px-3 py-2 text-xs">
+                            <input type="number" step="0.01" name="free_shipping_threshold" value="299.00" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-xs">
                         </div>
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1">مدة التوصيل المتوقعة</label>
-                        <input type="text" name="estimated_days" value="2 - 4 أيام عمل" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl px-3 py-2 text-xs">
+                        <input type="text" name="estimated_days" value="2 - 4 أيام عمل" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-xs">
                     </div>
                     <div class="pt-2 flex justify-end gap-2">
                         <button type="button" @click="addModalOpen = false" class="px-4 py-2 text-xs text-[#777777]">إلغاء</button>
-                        <button type="submit" class="bg-[#C5A059] text-white px-5 py-2 rounded-xl text-xs font-bold">إضافة</button>
+                        <button type="submit" class="bg-[#0B2E75] text-white px-5 py-2 rounded-xl text-xs font-bold">إضافة</button>
                     </div>
                 </form>
             </div>
@@ -148,33 +148,33 @@
                     @method('PUT')
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1">اسم المدينة / المنطقة</label>
-                        <input type="text" name="city_name_ar" x-model="currentZone.city_name_ar" required class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl px-3 py-2 text-xs">
+                        <input type="text" name="city_name_ar" x-model="currentZone.city_name_ar" required class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-xs">
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1">الاسم بالإنجليزي</label>
-                        <input type="text" name="city_name_en" x-model="currentZone.city_name_en" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl px-3 py-2 text-xs">
+                        <input type="text" name="city_name_en" x-model="currentZone.city_name_en" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-xs">
                     </div>
                     <div class="grid grid-cols-2 gap-3">
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1">سعر الشحن (ر.س)</label>
-                            <input type="number" step="0.01" name="shipping_cost" x-model="currentZone.shipping_cost" required class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl px-3 py-2 text-xs font-bold">
+                            <input type="number" step="0.01" name="shipping_cost" x-model="currentZone.shipping_cost" required class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-xs font-bold">
                         </div>
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1">حد الشحن المجاني</label>
-                            <input type="number" step="0.01" name="free_shipping_threshold" x-model="currentZone.free_shipping_threshold" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl px-3 py-2 text-xs">
+                            <input type="number" step="0.01" name="free_shipping_threshold" x-model="currentZone.free_shipping_threshold" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-xs">
                         </div>
                     </div>
                     <div>
                         <label class="block text-xs font-bold text-[#242424] mb-1">مدة التوصيل المتوقعة</label>
-                        <input type="text" name="estimated_days" x-model="currentZone.estimated_days" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl px-3 py-2 text-xs">
+                        <input type="text" name="estimated_days" x-model="currentZone.estimated_days" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl px-3 py-2 text-xs">
                     </div>
                     <div class="flex items-center gap-2">
-                        <input type="checkbox" name="is_active" value="1" :checked="currentZone.is_active" id="edit_is_active" class="rounded text-[#C5A059]">
+                        <input type="checkbox" name="is_active" value="1" :checked="currentZone.is_active" id="edit_is_active" class="rounded text-[#0B2E75]">
                         <label for="edit_is_active" class="text-xs text-[#242424] font-medium">المنطقة مفعلة وتستقبل الطلبات</label>
                     </div>
                     <div class="pt-2 flex justify-end gap-2">
                         <button type="button" @click="editModalOpen = false" class="px-4 py-2 text-xs text-[#777777]">إلغاء</button>
-                        <button type="submit" class="bg-[#C5A059] text-white px-5 py-2 rounded-xl text-xs font-bold">حفظ التعديلات</button>
+                        <button type="submit" class="bg-[#0B2E75] text-white px-5 py-2 rounded-xl text-xs font-bold">حفظ التعديلات</button>
                     </div>
                 </form>
             </div>

@@ -72,7 +72,7 @@ class OrderInvoiceTest extends TestCase
         $response->assertSee('سارة الشريف');
         $response->assertSee('عطر سمرقند الملكي');
         $response->assertSee('فاتورة مبيعات معتمدة');
-        $response->assertSee('إنسينس السعودية');
+        $response->assertSee('متجر زاد نيكس');
         $response->assertDontSee('لوحة المؤشرات العامة');
         $response->assertDontSee('تسجيل الخروج');
     }

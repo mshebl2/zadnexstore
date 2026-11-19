@@ -12,7 +12,7 @@
             </div>
 
             <div class="flex items-center gap-2">
-                <a href="{{ route('admin.orders.invoice', $order->id) }}" target="_blank" class="bg-[#242424] hover:bg-black text-[#C5A059] text-xs font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-2 shadow-xs">
+                <a href="{{ route('admin.orders.invoice', $order->id) }}" target="_blank" class="bg-[#242424] hover:bg-black text-[#0B2E75] text-xs font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-2 shadow-xs">
                     <x-icon name="printer" class="w-4 h-4" />
                     <span>طباعة الفاتورة الرسمية</span>
                 </a>
@@ -36,7 +36,7 @@
 
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">حالة التوصيل والشحن:</label>
-                    <select name="status" class="w-full bg-[#FAF8F4] border border-gray-300 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#C5A059]">
+                    <select name="status" class="w-full bg-[#F8FAFC] border border-gray-300 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#0B2E75]">
                         <option value="pending" {{ $order->status === 'pending' ? 'selected' : '' }}>قيد المراجعة</option>
                         <option value="processing" {{ $order->status === 'processing' ? 'selected' : '' }}>قيد التجهيز</option>
                         <option value="shipped" {{ $order->status === 'shipped' ? 'selected' : '' }}>تم الشحن للمندوب</option>
@@ -47,7 +47,7 @@
 
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">حالة السداد والدفع:</label>
-                    <select name="payment_status" class="w-full bg-[#FAF8F4] border border-gray-300 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#C5A059]">
+                    <select name="payment_status" class="w-full bg-[#F8FAFC] border border-gray-300 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-[#0B2E75]">
                         <option value="unpaid" {{ $order->payment_status === 'unpaid' ? 'selected' : '' }}>غير مدفوع</option>
                         <option value="paid" {{ $order->payment_status === 'paid' ? 'selected' : '' }}>مدفوع ومؤكد</option>
                         <option value="failed" {{ $order->payment_status === 'failed' ? 'selected' : '' }}>فشل الدفع</option>
@@ -55,7 +55,7 @@
                     </select>
                 </div>
 
-                <button type="submit" class="bg-[#C5A059] hover:bg-[#AF8B44] text-white text-xs font-bold py-2.5 px-4 rounded-lg transition">
+                <button type="submit" class="bg-[#0B2E75] hover:bg-[#071E50] text-white text-xs font-bold py-2.5 px-4 rounded-lg transition">
                     حفظ التعديلات
                 </button>
             </form>
@@ -65,18 +65,18 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-xs space-y-2 text-xs">
                 <h3 class="text-sm font-bold text-[#242424] border-b border-gray-100 pb-2 flex items-center gap-2">
-                    <x-icon name="user" class="w-4 h-4 text-[#C5A059]" />
+                    <x-icon name="user" class="w-4 h-4 text-[#0B2E75]" />
                     <span>بيانات العميل</span>
                 </h3>
                 <p><strong>الاسم:</strong> {{ $order->customer_name }}</p>
-                <p><strong>رقم الجوال:</strong> <a href="tel:{{ $order->customer_phone }}" class="text-[#C5A059] font-mono">{{ $order->customer_phone }}</a></p>
+                <p><strong>رقم الجوال:</strong> <a href="tel:{{ $order->customer_phone }}" class="text-[#0B2E75] font-mono">{{ $order->customer_phone }}</a></p>
                 <p><strong>البريد:</strong> {{ $order->customer_email ?? 'غير محدد' }}</p>
                 <p><strong>طريقة الدفع:</strong> {{ $order->payment_method === 'cod' ? 'الدفع عند الاستلام' : 'بطاقة إلكترونية (Paymob)' }}</p>
             </div>
 
             <div class="bg-white rounded-2xl border border-gray-200 p-6 shadow-xs space-y-2 text-xs">
                 <h3 class="text-sm font-bold text-[#242424] border-b border-gray-100 pb-2 flex items-center gap-2">
-                    <x-icon name="map-pin" class="w-4 h-4 text-[#C5A059]" />
+                    <x-icon name="map-pin" class="w-4 h-4 text-[#0B2E75]" />
                     <span>عنوان التوصيل</span>
                 </h3>
                 <p><strong>المدينة:</strong> {{ $order->city }}</p>
@@ -89,10 +89,10 @@
         </div>
 
         <!-- MapIt Shipping & Logistics Card -->
-        <div class="bg-white rounded-2xl border border-[#EDE6DA] p-6 shadow-xs text-xs space-y-4 print:hidden">
+        <div class="bg-white rounded-2xl border border-[#E2E8F0] p-6 shadow-xs text-xs space-y-4 print:hidden">
             <div class="flex items-center justify-between border-b border-gray-100 pb-3">
                 <div class="flex items-center gap-2.5">
-                    <div class="w-8 h-8 rounded-lg bg-[#FAF8F4] border border-[#C5A059]/40 flex items-center justify-center font-bold text-[#C5A059]">
+                    <div class="w-8 h-8 rounded-lg bg-[#F8FAFC] border border-[#0B2E75]/40 flex items-center justify-center font-bold text-[#0B2E75]">
                         <x-icon name="truck" class="w-4 h-4" />
                     </div>
                     <div>
@@ -106,14 +106,14 @@
             </div>
 
             @if($order->shipping_tracking_number)
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-[#FAF8F4] p-4 rounded-xl border border-[#EDE6DA]">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 bg-[#F8FAFC] p-4 rounded-xl border border-[#E2E8F0]">
                     <div>
                         <span class="text-gray-500 block text-[11px]">شركة الخدمات اللوجستية:</span>
                         <strong class="text-sm font-bold text-[#242424]">مابت (MapIt Logistics)</strong>
                     </div>
                     <div>
                         <span class="text-gray-500 block text-[11px]">رقم الشحنة / البوليصة:</span>
-                        <strong class="text-sm font-bold text-[#C5A059] font-mono">{{ $order->shipping_tracking_number }}</strong>
+                        <strong class="text-sm font-bold text-[#0B2E75] font-mono">{{ $order->shipping_tracking_number }}</strong>
                     </div>
                     <div>
                         <span class="text-gray-500 block text-[11px]">حالة الشحنة في مابت:</span>
@@ -125,7 +125,7 @@
 
                 <div class="flex items-center gap-3 pt-1">
                     @if($order->shipping_label_url)
-                        <a href="{{ $order->shipping_label_url }}" target="_blank" class="bg-[#242424] hover:bg-black text-[#C5A059] text-xs font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-xs">
+                        <a href="{{ $order->shipping_label_url }}" target="_blank" class="bg-[#242424] hover:bg-black text-[#0B2E75] text-xs font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-1.5 shadow-xs">
                             <x-icon name="search" class="w-4 h-4" />
                             <span>تتبع الشحنة المباشر على مابت &larr;</span>
                         </a>
@@ -138,14 +138,14 @@
                     </form>
                 </div>
             @else
-                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#FAF8F4] p-4 rounded-xl border border-[#EDE6DA]">
+                <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-[#F8FAFC] p-4 rounded-xl border border-[#E2E8F0]">
                     <div class="space-y-1">
                         <p class="font-bold text-[#242424]">هل الطلب جاهز للشحن؟</p>
                         <p class="text-[11px] text-gray-500">اضغط على الزر ليتم إرسال بيانات العميل والعنوان فوراً إلى منصة مابت وإصدار رقم التتبع والبوليصة تلقائياً.</p>
                     </div>
                     <form action="{{ route('admin.orders.ship.mapit', $order->id) }}" method="POST">
                         @csrf
-                        <button type="submit" class="bg-[#C5A059] hover:bg-[#AF8B44] text-white text-xs font-bold px-6 py-3 rounded-xl transition duration-200 flex items-center gap-2 shadow-sm whitespace-nowrap">
+                        <button type="submit" class="bg-[#0B2E75] hover:bg-[#071E50] text-white text-xs font-bold px-6 py-3 rounded-xl transition duration-200 flex items-center gap-2 shadow-sm whitespace-nowrap">
                             <x-icon name="truck" class="w-4 h-4" />
                             <span>إصدار بوليصة شحن مابت الآن 🚀</span>
                         </button>
@@ -174,7 +174,7 @@
 
                     <div class="text-left font-bold text-[#242424]">
                         {{ $item->quantity }} × {{ number_format($item->unit_price, 2) }} ر.س
-                        <div class="text-[#C5A059] font-black">{{ number_format($item->total_price, 2) }} ر.س</div>
+                        <div class="text-[#0B2E75] font-black">{{ number_format($item->total_price, 2) }} ر.س</div>
                     </div>
                 </div>
                 @endforeach
@@ -198,7 +198,7 @@
                 </div>
                 <div class="border-t border-gray-200 pt-2 flex items-center justify-between text-base font-extrabold text-[#242424]">
                     <span>المجموع الإجمالي:</span>
-                    <span class="text-xl text-[#C5A059]">{{ number_format($order->total, 2) }} ر.س</span>
+                    <span class="text-xl text-[#0B2E75]">{{ number_format($order->total, 2) }} ر.س</span>
                 </div>
             </div>
         </div>

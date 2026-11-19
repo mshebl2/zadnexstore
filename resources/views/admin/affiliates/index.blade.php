@@ -24,11 +24,11 @@
                     <span class="text-2xl font-black text-[#242424] mt-1 block">
                         {{ number_format($totalCommissionPaid, 2) }} <span class="text-xs font-normal text-gray-500">ر.س</span>
                     </span>
-                    <span class="text-[11px] text-[#C5A059] font-medium mt-1 block">
+                    <span class="text-[11px] text-[#0B2E75] font-medium mt-1 block">
                         الافتراضي: {{ $globalSettings['type'] === 'fixed' ? $globalSettings['rate'] . ' ر.س ثابت' : $globalSettings['rate'] . '%' }}
                     </span>
                 </div>
-                <div class="w-12 h-12 rounded-2xl bg-amber-50 text-[#C5A059] flex items-center justify-center">
+                <div class="w-12 h-12 rounded-2xl bg-amber-50 text-[#0B2E75] flex items-center justify-center">
                     <x-icon name="award" class="w-6 h-6" />
                 </div>
             </div>
@@ -82,7 +82,7 @@
                     class="px-5 py-2.5 rounded-xl text-xs font-bold transition flex items-center gap-2">
                 <x-icon name="users" class="w-4 h-4" />
                 <span>قائمة المسوقين والتحكم بالعمولات</span>
-                <span class="px-2 py-0.5 rounded-full text-[10px] font-black" :class="activeTab === 'affiliates' ? 'bg-[#C5A059] text-white' : 'bg-gray-200 text-gray-700'">{{ $totalAffiliatesCount }}</span>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-black" :class="activeTab === 'affiliates' ? 'bg-[#0B2E75] text-white' : 'bg-gray-200 text-gray-700'">{{ $totalAffiliatesCount }}</span>
             </button>
 
             <button type="button" 
@@ -91,7 +91,7 @@
                     class="px-5 py-2.5 rounded-xl text-xs font-bold transition flex items-center gap-2">
                 <x-icon name="user-check" class="w-4 h-4" />
                 <span>العملاء المسجلين عبر الإحالات</span>
-                <span class="px-2 py-0.5 rounded-full text-[10px] font-black" :class="activeTab === 'referred_customers' ? 'bg-[#C5A059] text-white' : 'bg-gray-200 text-gray-700'">{{ $totalReferredUsersCount }}</span>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-black" :class="activeTab === 'referred_customers' ? 'bg-[#0B2E75] text-white' : 'bg-gray-200 text-gray-700'">{{ $totalReferredUsersCount }}</span>
             </button>
 
             <button type="button" 
@@ -141,7 +141,7 @@
                                name="search" 
                                value="{{ request('search') }}" 
                                placeholder="بحث بالاسم، الإيميل، الجوال، الكود..." 
-                               class="bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2 text-xs focus:ring-2 focus:ring-[#C5A059] focus:outline-hidden w-64 text-right">
+                               class="bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2 text-xs focus:ring-2 focus:ring-[#0B2E75] focus:outline-hidden w-64 text-right">
                         <button type="submit" class="bg-[#242424] hover:bg-black text-white px-4 py-2 rounded-xl text-xs font-bold transition">
                             بحث
                         </button>
@@ -184,13 +184,13 @@
                                     </td>
 
                                     <td class="p-4 whitespace-nowrap">
-                                        <span class="inline-block bg-amber-50 text-[#C5A059] font-mono font-bold px-2.5 py-1 rounded-lg border border-amber-200">
+                                        <span class="inline-block bg-amber-50 text-[#0B2E75] font-mono font-bold px-2.5 py-1 rounded-lg border border-amber-200">
                                             {{ $aff->referral_code }}
                                         </span>
                                         <div class="mt-1.5 flex items-center gap-1.5">
                                             <button type="button" 
                                                     @click="copyToClipboard('{{ $aff->referral_link }}', {{ $aff->id }})" 
-                                                    class="text-[11px] text-gray-500 hover:text-[#C5A059] flex items-center gap-1 transition">
+                                                    class="text-[11px] text-gray-500 hover:text-[#0B2E75] flex items-center gap-1 transition">
                                                 <x-icon name="copy" class="w-3.5 h-3.5" />
                                                 <span x-text="copiedCode === {{ $aff->id }} ? 'تم النسخ!' : 'نسخ الرابط'">نسخ الرابط</span>
                                             </button>
@@ -214,7 +214,7 @@
                                     </td>
 
                                     <td class="p-4">
-                                        <div class="font-mono font-black text-sm text-[#C5A059]">
+                                        <div class="font-mono font-black text-sm text-[#0B2E75]">
                                             {{ number_format($aff->wallet_balance, 2) }} ر.س
                                         </div>
                                         <button type="button" 
@@ -258,7 +258,7 @@
                                                     rate: '{{ $aff->custom_commission_rate ?? '' }}',
                                                     active: {{ $aff->is_affiliate_active ? 'true' : 'false' }}
                                                 }; editModalOpen = true;"
-                                                class="bg-[#FAF8F4] hover:bg-[#EDE6DA] text-[#242424] hover:text-[#C5A059] px-3 py-1.5 rounded-lg text-xs font-bold border border-[#EDE6DA] transition flex items-center gap-1 mx-auto">
+                                                class="bg-[#F8FAFC] hover:bg-[#E2E8F0] text-[#242424] hover:text-[#0B2E75] px-3 py-1.5 rounded-lg text-xs font-bold border border-[#E2E8F0] transition flex items-center gap-1 mx-auto">
                                             <x-icon name="sliders" class="w-3.5 h-3.5" />
                                             <span>تخصيص العمولة</span>
                                         </button>
@@ -293,7 +293,7 @@
                                name="referral_search" 
                                value="{{ request('referral_search') }}" 
                                placeholder="بحث باسم العميل، الإيميل، كود المسوق..." 
-                               class="bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2 text-xs focus:ring-2 focus:ring-[#C5A059] focus:outline-hidden w-64 text-right">
+                               class="bg-gray-50 border border-gray-200 rounded-xl px-3.5 py-2 text-xs focus:ring-2 focus:ring-[#0B2E75] focus:outline-hidden w-64 text-right">
                         <button type="submit" class="bg-[#242424] hover:bg-black text-white px-4 py-2 rounded-xl text-xs font-bold transition">
                             بحث
                         </button>
@@ -335,7 +335,7 @@
                                     </td>
 
                                     <td class="p-4">
-                                        <span class="bg-amber-50 text-[#C5A059] font-mono font-bold px-2 py-0.5 rounded-md border border-amber-200">
+                                        <span class="bg-amber-50 text-[#0B2E75] font-mono font-bold px-2 py-0.5 rounded-md border border-amber-200">
                                             {{ $customer->referred_by }}
                                         </span>
                                     </td>
@@ -412,7 +412,7 @@
                                         {{ $req->user->name }}
                                         <span class="text-[11px] text-gray-400 block font-normal font-mono" dir="ltr">{{ $req->user->email }}</span>
                                     </td>
-                                    <td class="p-4 font-black text-sm text-[#C5A059] font-mono">
+                                    <td class="p-4 font-black text-sm text-[#0B2E75] font-mono">
                                         {{ number_format($req->amount, 2) }} ر.س
                                     </td>
                                     <td class="p-4">
@@ -500,7 +500,7 @@
                                 <tr class="hover:bg-gray-50/50">
                                     <td class="p-4 font-bold text-[#242424]">
                                         {{ $comm->referrer->name ?? 'مسوق' }}
-                                        <span class="text-[11px] text-[#C5A059] block font-mono">كود: {{ $comm->referrer->referral_code ?? '—' }}</span>
+                                        <span class="text-[11px] text-[#0B2E75] block font-mono">كود: {{ $comm->referrer->referral_code ?? '—' }}</span>
                                     </td>
                                     <td class="p-4 text-gray-700">
                                         {{ $comm->buyer->name ?? 'عميل زائر' }}
@@ -517,7 +517,7 @@
                                     <td class="p-4 font-bold text-purple-700">
                                         {{ $comm->commission_rate }}
                                     </td>
-                                    <td class="p-4 font-mono font-black text-sm text-[#C5A059]">
+                                    <td class="p-4 font-mono font-black text-sm text-[#0B2E75]">
                                         {{ number_format($comm->commission_amount, 2) }} ر.س
                                     </td>
                                     <td class="p-4 text-gray-400 text-[11px]">
@@ -553,7 +553,7 @@
                         </div>
                         <label class="relative inline-flex items-center cursor-pointer">
                             <input type="checkbox" name="affiliate_enabled" value="1" {{ $globalSettings['enabled'] == '1' ? 'checked' : '' }} class="sr-only peer">
-                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#C5A059]"></div>
+                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-hidden rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-[#0B2E75]"></div>
                         </label>
                     </div>
 
@@ -562,7 +562,7 @@
                         <label class="block text-xs font-bold text-[#242424] mb-2">نوع العمولة الافتراضية</label>
                         <div class="grid grid-cols-2 gap-4">
                             <label class="border border-gray-200 rounded-xl p-3 flex items-center gap-3 cursor-pointer hover:bg-gray-50">
-                                <input type="radio" name="affiliate_commission_type" value="percent" {{ $globalSettings['type'] === 'percent' ? 'checked' : '' }} class="text-[#C5A059] focus:ring-[#C5A059]">
+                                <input type="radio" name="affiliate_commission_type" value="percent" {{ $globalSettings['type'] === 'percent' ? 'checked' : '' }} class="text-[#0B2E75] focus:ring-[#0B2E75]">
                                 <div>
                                     <span class="text-xs font-bold block text-gray-800">نسبة مئوية (%)</span>
                                     <span class="text-[10px] text-gray-500">نسبة مئوية من قيمة الطلب قبل الشحن</span>
@@ -570,7 +570,7 @@
                             </label>
 
                             <label class="border border-gray-200 rounded-xl p-3 flex items-center gap-3 cursor-pointer hover:bg-gray-50">
-                                <input type="radio" name="affiliate_commission_type" value="fixed" {{ $globalSettings['type'] === 'fixed' ? 'checked' : '' }} class="text-[#C5A059] focus:ring-[#C5A059]">
+                                <input type="radio" name="affiliate_commission_type" value="fixed" {{ $globalSettings['type'] === 'fixed' ? 'checked' : '' }} class="text-[#0B2E75] focus:ring-[#0B2E75]">
                                 <div>
                                     <span class="text-xs font-bold block text-gray-800">مبلغ ثابت (ر.س)</span>
                                     <span class="text-[10px] text-gray-500">مبلغ محدد بالريال السعودي لكل طلب ناجح</span>
@@ -589,7 +589,7 @@
                                    max="1000"
                                    name="affiliate_commission_rate" 
                                    value="{{ $globalSettings['rate'] }}" 
-                                   class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-xs text-right focus:ring-2 focus:ring-[#C5A059] focus:outline-hidden font-mono font-bold" 
+                                   class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-xs text-right focus:ring-2 focus:ring-[#0B2E75] focus:outline-hidden font-mono font-bold" 
                                    required>
                         </div>
                         <p class="text-[11px] text-gray-400 mt-1">إذا تم اختيار نسبة مئوية، اكتب مثلاً 10 (تعني 10%). وإذا تم اختيار مبلغ ثابت، اكتب مثلاً 20 (تعني 20 ر.س).</p>
@@ -603,7 +603,7 @@
                                min="1" 
                                name="affiliate_min_payout" 
                                value="{{ $globalSettings['min_payout'] }}" 
-                               class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-xs text-right focus:ring-2 focus:ring-[#C5A059] focus:outline-hidden font-mono font-bold" 
+                               class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-xs text-right focus:ring-2 focus:ring-[#0B2E75] focus:outline-hidden font-mono font-bold" 
                                required>
                         <p class="text-[11px] text-gray-400 mt-1">أقل رصيد محفظة يسمح للمسوق بتقديم طلب تحويل بنكي له (الافتراضي: 100 ر.س).</p>
                     </div>
@@ -646,7 +646,7 @@
                             <label class="block text-xs font-bold text-[#242424] mb-1">نوع العمولة لهذا المسوق</label>
                             <select name="custom_commission_type" 
                                     x-model="selectedAffiliate.type" 
-                                    class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs text-right focus:ring-2 focus:ring-[#C5A059]">
+                                    class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs text-right focus:ring-2 focus:ring-[#0B2E75]">
                                 <option value="default">استخدام النسبة الافتراضية للمتجر ({{ $globalSettings['type'] === 'fixed' ? $globalSettings['rate'] . ' ر.س' : $globalSettings['rate'] . '%' }})</option>
                                 <option value="percent">نسبة مئوية مخصصة (%)</option>
                                 <option value="fixed">مبلغ ثابت مخصص (ر.س لكل طلب)</option>
@@ -666,7 +666,7 @@
                                    name="custom_commission_rate" 
                                    x-model="selectedAffiliate.rate" 
                                    placeholder="مثلاً: 15" 
-                                   class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs text-right focus:ring-2 focus:ring-[#C5A059] font-mono font-bold">
+                                   class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs text-right focus:ring-2 focus:ring-[#0B2E75] font-mono font-bold">
                         </div>
 
                         <!-- Status Active/Inactive -->
@@ -679,7 +679,7 @@
                                    name="is_affiliate_active" 
                                    value="1" 
                                    x-model="selectedAffiliate.active" 
-                                   class="w-4 h-4 rounded-sm text-[#C5A059] focus:ring-[#C5A059]">
+                                   class="w-4 h-4 rounded-sm text-[#0B2E75] focus:ring-[#0B2E75]">
                         </div>
 
                         <div class="flex items-center gap-2 pt-2">
@@ -717,7 +717,7 @@
                         <div>
                             <span class="text-xs text-gray-500 block">المسوق:</span>
                             <span class="text-sm font-bold text-[#242424] block" x-text="balanceAffiliate.name"></span>
-                            <span class="text-xs text-[#C5A059] font-mono font-bold block mt-0.5">
+                            <span class="text-xs text-[#0B2E75] font-mono font-bold block mt-0.5">
                                 الرصيد الحالي: <span x-text="balanceAffiliate.balance.toFixed(2)"></span> ر.س
                             </span>
                         </div>
@@ -725,7 +725,7 @@
                         <!-- Action Type -->
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1">نوع الإجراء</label>
-                            <select name="action" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs text-right focus:ring-2 focus:ring-[#C5A059]">
+                            <select name="action" class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs text-right focus:ring-2 focus:ring-[#0B2E75]">
                                 <option value="add">إضافة مكافأة / رصيد إضافي (+)</option>
                                 <option value="deduct">خصم من الرصيد (-)</option>
                                 <option value="set">تحديد الرصيد لمبلغ معين (=)</option>
@@ -740,7 +740,7 @@
                                    min="0.01" 
                                    name="amount" 
                                    placeholder="مثلاً: 50" 
-                                   class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs text-right focus:ring-2 focus:ring-[#C5A059] font-mono font-bold" 
+                                   class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs text-right focus:ring-2 focus:ring-[#0B2E75] font-mono font-bold" 
                                    required>
                         </div>
 
@@ -750,7 +750,7 @@
                             <input type="text" 
                                    name="note" 
                                    placeholder="مثلاً: مكافأة تحقيق هدف مبيعات" 
-                                   class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs text-right focus:ring-2 focus:ring-[#C5A059]">
+                                   class="w-full bg-gray-50 border border-gray-200 rounded-xl p-2.5 text-xs text-right focus:ring-2 focus:ring-[#0B2E75]">
                         </div>
 
                         <div class="flex items-center gap-2 pt-2">

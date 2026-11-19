@@ -55,7 +55,7 @@ class CustomerDashboardTest extends TestCase
 
         $response->assertStatus(200);
         $response->assertSee('فيصل الحربي');
-        $response->assertSee('عضو نادي صفوة إنسينس');
+        $response->assertSee('عميل معتمد في متجر زاد نيكس');
         $response->assertSee('رصيد أرباح الإحالات');
         $response->assertSee('150.00');
     }

@@ -152,7 +152,7 @@
         .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
     </style>
 </head>
-<body x-data class="bg-[#FAF8F4] text-[#242424] antialiased selection:bg-[#C5A059] selection:text-white flex flex-col min-h-screen">
+<body x-data class="bg-[#F8FAFC] text-[#0F172A] antialiased selection:bg-[#0B2E75] selection:text-[#FBB404] flex flex-col min-h-screen">
     
     <!-- Tracking NoScript Fallbacks -->
     @if($gtmId)

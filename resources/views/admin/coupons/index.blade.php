@@ -10,12 +10,12 @@
                 @csrf
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">كود الخصم (الكوبون) <span class="text-red-500">*</span></label>
-                    <input type="text" name="code" required placeholder="مثال: EID2026" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg p-2.5 text-xs text-[#242424] uppercase font-mono focus:outline-none focus:border-[#C5A059]">
+                    <input type="text" name="code" required placeholder="مثال: EID2026" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5 text-xs text-[#242424] uppercase font-mono focus:outline-none focus:border-[#0B2E75]">
                 </div>
 
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">نوع الخصم <span class="text-red-500">*</span></label>
-                    <select name="type" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                    <select name="type" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                         <option value="percent">نسبة مئوية (%)</option>
                         <option value="fixed">مبلغ ثابت (ر.س)</option>
                     </select>
@@ -23,20 +23,20 @@
 
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">قيمة الخصم <span class="text-red-500">*</span></label>
-                    <input type="number" step="0.01" name="value" required placeholder="مثال: 15" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                    <input type="number" step="0.01" name="value" required placeholder="مثال: 15" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                 </div>
 
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">الحد الأدنى لقيمة الطلب (ر.س)</label>
-                    <input type="number" step="0.01" name="min_order_amount" value="0" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                    <input type="number" step="0.01" name="min_order_amount" value="0" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                 </div>
 
                 <div>
                     <label class="block text-xs font-bold text-gray-700 mb-1">الحد الأقصى لمرات الاستخدام</label>
-                    <input type="number" name="max_uses" placeholder="اتركه فارغاً للاستخدام غير المحدود" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-lg p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                    <input type="number" name="max_uses" placeholder="اتركه فارغاً للاستخدام غير المحدود" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-lg p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                 </div>
 
-                <button type="submit" class="w-full bg-[#C5A059] hover:bg-[#AF8B44] text-white text-xs font-bold py-2.5 px-4 rounded-xl transition">
+                <button type="submit" class="w-full bg-[#0B2E75] hover:bg-[#071E50] text-white text-xs font-bold py-2.5 px-4 rounded-xl transition">
                     حفظ وتفعيل الكوبون
                 </button>
             </form>
@@ -53,10 +53,10 @@
                 <div class="p-4 flex items-center justify-between gap-4 hover:bg-gray-50 transition">
                     <div>
                         <div class="flex items-center gap-2">
-                            <span class="font-mono font-bold text-xs bg-[#FAF8F4] border border-[#EDE6DA] text-[#242424] px-2.5 py-1 rounded-md">
+                            <span class="font-mono font-bold text-xs bg-[#F8FAFC] border border-[#E2E8F0] text-[#242424] px-2.5 py-1 rounded-md">
                                 {{ $coupon->code }}
                             </span>
-                            <span class="text-xs font-bold text-[#C5A059]">
+                            <span class="text-xs font-bold text-[#0B2E75]">
                                 {{ $coupon->type === 'percent' ? $coupon->value . '%' : $coupon->value . ' ر.س' }}
                             </span>
                         </div>

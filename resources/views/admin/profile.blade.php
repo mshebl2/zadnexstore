@@ -6,13 +6,13 @@
         <!-- Header Banner -->
         <div class="bg-gradient-to-r from-[#1C1C1C] via-[#2A2A2A] to-[#1C1C1C] text-white p-6 sm:p-8 rounded-3xl border border-[#3A3A3A] shadow-md flex flex-col sm:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-4">
-                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#C5A059] to-[#8C6D37] text-white flex items-center justify-center shadow-lg font-black text-2xl">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#0B2E75] to-[#8C6D37] text-white flex items-center justify-center shadow-lg font-black text-2xl">
                     {{ mb_substr($admin->name, 0, 1) }}
                 </div>
                 <div>
                     <div class="flex items-center gap-2">
                         <h2 class="text-lg sm:text-xl font-bold">{{ $admin->name }}</h2>
-                        <span class="bg-[#C5A059] text-black text-[10px] font-black px-2.5 py-0.5 rounded-full">مدير النظام (Admin)</span>
+                        <span class="bg-[#0B2E75] text-black text-[10px] font-black px-2.5 py-0.5 rounded-full">مدير النظام (Admin)</span>
                     </div>
                     <p class="text-xs text-[#A59D92] mt-1 font-mono" dir="ltr">{{ $admin->email }}</p>
                     <p class="text-[11px] text-gray-400 mt-0.5">تاريخ إنشاء الحساب: {{ $admin->created_at->format('Y-m-d') }}</p>
@@ -46,10 +46,10 @@
             @method('PUT')
 
             <!-- Section 1: Account Information -->
-            <div class="bg-white rounded-3xl border border-[#EDE6DA] p-6 sm:p-8 shadow-xs space-y-6">
-                <div class="border-b border-[#EDE6DA] pb-4">
+            <div class="bg-white rounded-3xl border border-[#E2E8F0] p-6 sm:p-8 shadow-xs space-y-6">
+                <div class="border-b border-[#E2E8F0] pb-4">
                     <h3 class="text-sm font-bold text-[#242424] flex items-center gap-2">
-                        <x-icon name="user" class="w-4 h-4 text-[#C5A059]" />
+                        <x-icon name="user" class="w-4 h-4 text-[#0B2E75]" />
                         <span>البيانات الأساسية للمدير</span>
                     </h3>
                     <p class="text-xs text-gray-500 mt-0.5">اسمك الذي يظهر في النظام والبريد الإلكتروني المستخدم كاسم مستخدم لتسجيل الدخول</p>
@@ -62,7 +62,7 @@
                                name="name" 
                                value="{{ old('name', $admin->name) }}" 
                                required 
-                               class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-3 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] transition">
+                               class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-3 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75] focus:ring-1 focus:ring-[#0B2E75] transition">
                     </div>
 
                     <div>
@@ -74,7 +74,7 @@
                                value="{{ old('email', $admin->email) }}" 
                                dir="ltr" 
                                required 
-                               class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-3 text-xs text-left text-[#242424] font-mono focus:outline-none focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] transition">
+                               class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-3 text-xs text-left text-[#242424] font-mono focus:outline-none focus:border-[#0B2E75] focus:ring-1 focus:ring-[#0B2E75] transition">
                         <span class="text-[10px] text-gray-400 mt-1 block">هذا هو البريد الذي ستستخدمه في شاشة الدخول (Login).</span>
                     </div>
 
@@ -85,16 +85,16 @@
                                value="{{ old('phone', $admin->phone) }}" 
                                placeholder="05XXXXXXXX" 
                                dir="ltr" 
-                               class="w-full sm:w-1/2 bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-3 text-xs text-left text-[#242424] font-mono focus:outline-none focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] transition">
+                               class="w-full sm:w-1/2 bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-3 text-xs text-left text-[#242424] font-mono focus:outline-none focus:border-[#0B2E75] focus:ring-1 focus:ring-[#0B2E75] transition">
                     </div>
                 </div>
             </div>
 
             <!-- Section 2: Password Change -->
-            <div class="bg-white rounded-3xl border border-[#EDE6DA] p-6 sm:p-8 shadow-xs space-y-6">
-                <div class="border-b border-[#EDE6DA] pb-4">
+            <div class="bg-white rounded-3xl border border-[#E2E8F0] p-6 sm:p-8 shadow-xs space-y-6">
+                <div class="border-b border-[#E2E8F0] pb-4">
                     <h3 class="text-sm font-bold text-[#242424] flex items-center gap-2">
-                        <x-icon name="lock" class="w-4 h-4 text-[#C5A059]" />
+                        <x-icon name="lock" class="w-4 h-4 text-[#0B2E75]" />
                         <span>تغيير كلمة المرور للوحة التحكم</span>
                     </h3>
                     <p class="text-xs text-gray-500 mt-0.5">اترك حقول كلمة المرور فارغة إذا كنت تريد فقط تحديث الاسم أو البريد الإلكتروني دون تغيير كلمة المرور</p>
@@ -107,7 +107,7 @@
                                name="current_password" 
                                placeholder="••••••••" 
                                dir="ltr" 
-                               class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-3 text-xs text-left text-[#242424] focus:outline-none focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] transition">
+                               class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-3 text-xs text-left text-[#242424] focus:outline-none focus:border-[#0B2E75] focus:ring-1 focus:ring-[#0B2E75] transition">
                         <span class="text-[10px] text-gray-400 mt-1 block">مطلوبة فقط عند تعيين كلمة مرور جديدة.</span>
                     </div>
 
@@ -117,7 +117,7 @@
                                name="new_password" 
                                placeholder="••••••••" 
                                dir="ltr" 
-                               class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-3 text-xs text-left text-[#242424] focus:outline-none focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] transition">
+                               class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-3 text-xs text-left text-[#242424] focus:outline-none focus:border-[#0B2E75] focus:ring-1 focus:ring-[#0B2E75] transition">
                         <span class="text-[10px] text-gray-400 mt-1 block">6 أحرف على الأقل.</span>
                     </div>
 
@@ -127,14 +127,14 @@
                                name="new_password_confirmation" 
                                placeholder="••••••••" 
                                dir="ltr" 
-                               class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-3 text-xs text-left text-[#242424] focus:outline-none focus:border-[#C5A059] focus:ring-1 focus:ring-[#C5A059] transition">
+                               class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-3 text-xs text-left text-[#242424] focus:outline-none focus:border-[#0B2E75] focus:ring-1 focus:ring-[#0B2E75] transition">
                     </div>
                 </div>
             </div>
 
             <!-- Submit Button -->
             <div class="flex items-center justify-end gap-3 pt-2">
-                <button type="submit" class="bg-[#242424] hover:bg-black text-[#C5A059] hover:text-[#FAF8F4] font-bold px-8 py-3.5 rounded-2xl text-xs transition shadow-md flex items-center gap-2">
+                <button type="submit" class="bg-[#242424] hover:bg-black text-[#0B2E75] hover:text-[#F8FAFC] font-bold px-8 py-3.5 rounded-2xl text-xs transition shadow-md flex items-center gap-2">
                     <x-icon name="check-circle" class="w-4 h-4" />
                     <span>حفظ بيانات الحساب وكلمة المرور</span>
                 </button>
