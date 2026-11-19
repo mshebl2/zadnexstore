@@ -1,0 +1,11 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /checkout
+Disallow: /customer/
+Disallow: /my-account
+Disallow: /paymob/
+Disallow: /cart
+Allow: /
+
+Sitemap: https://incense-sa.com/sitemap.xml
+Sitemap: https://blueviolet-owl-115981.hostingersite.com/sitemap.xml
