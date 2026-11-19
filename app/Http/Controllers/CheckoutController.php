@@ -301,18 +301,6 @@ class CheckoutController extends Controller
             return redirect()->route('checkout.index')->with('error', $e->getMessage());
         }
     }
-                $cart->items()->delete();
-                $cart->coupon_code = null;
-                $cart->save();
-                return redirect($paymentResult['redirect_url']);
-            }
-
-            return redirect()->route('checkout.index')->with('error', $paymentResult['message'] ?? 'فشلت عملية تهيئة الدفع');
-
-        } catch (\Exception $e) {
-            return redirect()->route('checkout.index')->with('error', $e->getMessage());
-        }
-    }
 
     public function confirmation($orderNumber)
     {
