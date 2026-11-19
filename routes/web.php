@@ -24,9 +24,39 @@ Route::get('/setup-database', function (\Illuminate\Http\Request $request) {
     }
 
     try {
-        if (!file_exists(base_path('.env')) && file_exists(base_path('.env.production'))) {
-            copy(base_path('.env.production'), base_path('.env'));
+        $envPath = base_path('.env');
+        
+        // Auto-create from .env.production if missing
+        if (!file_exists($envPath) && file_exists(base_path('.env.production'))) {
+            copy(base_path('.env.production'), $envPath);
         }
+
+        // Always ensure .env has the new database credentials
+        if (file_exists($envPath)) {
+            $env = file_get_contents($envPath);
+            $env = preg_replace('/DB_CONNECTION=.*/', 'DB_CONNECTION=mysql', $env);
+            $env = preg_replace('/DB_HOST=.*/', 'DB_HOST=127.0.0.1', $env);
+            $env = preg_replace('/DB_PORT=.*/', 'DB_PORT=3306', $env);
+            $env = preg_replace('/DB_DATABASE=.*/', 'DB_DATABASE=u363963266_zadnexstore', $env);
+            $env = preg_replace('/DB_USERNAME=.*/', 'DB_USERNAME=u363963266_zadnexstore', $env);
+            $env = preg_replace('/DB_PASSWORD=.*/', 'DB_PASSWORD=Zadnexstore22', $env);
+            $env = preg_replace('/SESSION_DRIVER=.*/', 'SESSION_DRIVER=file', $env);
+            $env = preg_replace('/CACHE_STORE=.*/', 'CACHE_STORE=file', $env);
+            $env = preg_replace('/QUEUE_CONNECTION=.*/', 'QUEUE_CONNECTION=sync', $env);
+            file_put_contents($envPath, $env);
+        }
+
+        // Apply dynamically to runtime config
+        config([
+            'database.connections.mysql.host' => '127.0.0.1',
+            'database.connections.mysql.database' => 'u363963266_zadnexstore',
+            'database.connections.mysql.username' => 'u363963266_zadnexstore',
+            'database.connections.mysql.password' => 'Zadnexstore22',
+            'session.driver' => 'file',
+            'cache.default' => 'file',
+        ]);
+        \Illuminate\Support\Facades\DB::purge('mysql');
+        \Illuminate\Support\Facades\DB::reconnect('mysql');
 
         if (empty(config('app.key'))) {
             \Illuminate\Support\Facades\Artisan::call('key:generate', ['--force' => true]);
@@ -45,7 +75,7 @@ Route::get('/setup-database', function (\Illuminate\Http\Request $request) {
 
         return response("<h2>✅ تم تهيئة قاعدة بيانات متجر زاد نيكس بنجاح!</h2><pre><strong>Migrations:</strong>\n{$migrateOutput}\n<strong>Seeder:</strong>\n{$seedOutput}\n<strong>Storage:</strong>\n{$storageOutput}</pre><p><a href='/'>انقر هنا للانتقال إلى المتجر ➔</a></p>", 200, ['Content-Type' => 'text/html; charset=utf-8']);
     } catch (\Throwable $e) {
-        return response("<h2>❌ خطأ أثناء تهيئة المتجر:</h2><pre>{$e->getMessage()}\n\nFile: {$e->getFile()}:{$e->getLine()}</pre><p>تأكد من صحة بيانات .env (اسم قاعدة البيانات والمستخدم وكلمة المرور).</p>", 200, ['Content-Type' => 'text/html; charset=utf-8']);
+        return response("<h2>❌ تفاصيل الخطأ:</h2><pre>{$e->getMessage()}\n\n{$e->getFile()}:{$e->getLine()}</pre><p>إذا كان الخطأ Access denied، تأكد من الضغط على زر Create في هوستنجر لإنشاء قاعدة البيانات.</p>", 200, ['Content-Type' => 'text/html; charset=utf-8']);
     }
 });
 
