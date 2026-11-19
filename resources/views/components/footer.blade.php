@@ -124,10 +124,12 @@
 
         <!-- Bottom bar: Payment methods & Copyright -->
         <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-gray-400 gap-4">
-            <div class="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-right">
+            <div class="flex flex-col sm:flex-row items-center gap-2 text-center sm:text-right flex-wrap">
                 <span>&copy; {{ date('Y') }} متجر زاد نيكس (ZADNEX STORE). جميع الحقوق محفوظة.</span>
                 <span class="hidden sm:inline text-gray-600">|</span>
                 <span>سجل تجاري موثق: {{ $cr }}</span>
+                <span class="hidden sm:inline text-gray-600">|</span>
+                <span>صُمم بواسطة <a href="https://wa.me/966543907572" target="_blank" rel="noopener noreferrer" class="text-[#FBB404] hover:underline font-bold transition">رواد الرقمية</a></span>
             </div>
 
             <!-- Modern Payment Badges -->

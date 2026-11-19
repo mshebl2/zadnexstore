@@ -198,6 +198,12 @@
 
                 {{ $slot }}
             </main>
+
+            <!-- Admin Footer -->
+            <footer class="px-6 sm:px-8 py-4 border-t border-gray-200 bg-white text-xs text-gray-500 flex flex-col sm:flex-row items-center justify-between gap-2">
+                <span>متجر زاد نيكس &copy; {{ date('Y') }} — لوحة الإدارة والتحكم</span>
+                <span>صُمم بواسطة <a href="https://wa.me/966543907572" target="_blank" rel="noopener noreferrer" class="font-bold text-[#0B2E75] hover:text-[#FBB404] transition">رواد الرقمية</a></span>
+            </footer>
         </div>
     </div>
 </body>
