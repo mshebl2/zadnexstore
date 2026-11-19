@@ -17,6 +17,30 @@ use App\Http\Middleware\EnsureAdmin;
 |--------------------------------------------------------------------------
 */
 
+// One-click Setup route for Hostinger / Shared Hosting deployment
+Route::get('/setup-database', function (\Illuminate\Http\Request $request) {
+    if ($request->query('secret') !== 'zadnex2026') {
+        abort(403, 'Unauthorized setup access.');
+    }
+
+    try {
+        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
+        $migrateOutput = \Illuminate\Support\Facades\Artisan::output();
+
+        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true, '--class' => 'ZadnexDatabaseSeeder']);
+        $seedOutput = \Illuminate\Support\Facades\Artisan::output();
+
+        \Illuminate\Support\Facades\Artisan::call('storage:link');
+        $storageOutput = \Illuminate\Support\Facades\Artisan::output();
+
+        \Illuminate\Support\Facades\Artisan::call('optimize:clear');
+
+        return response("<h2>✅ تم تهيئة قاعدة بيانات متجر زاد نيكس بنجاح!</h2><pre><strong>Migrations:</strong>\n{$migrateOutput}\n<strong>Seeder:</strong>\n{$seedOutput}\n<strong>Storage:</strong>\n{$storageOutput}</pre><p><a href='/'>انقر هنا للانتقال إلى المتجر ➔</a></p>", 200, ['Content-Type' => 'text/html; charset=utf-8']);
+    } catch (\Throwable $e) {
+        return response("<h2>❌ خطأ أثناء الاتصال بقاعدة البيانات:</h2><pre>{$e->getMessage()}</pre><p>تأكد من صحة بيانات .env (اسم قاعدة البيانات والمستخدم وكلمة المرور).</p>", 500, ['Content-Type' => 'text/html; charset=utf-8']);
+    }
+});
+
 // --- Storefront ---
 Route::get('/', [StorefrontController::class, 'home'])->name('home');
 Route::get('/about', [StorefrontController::class, 'about'])->name('about');
