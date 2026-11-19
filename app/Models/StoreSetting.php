@@ -18,10 +18,14 @@ class StoreSetting extends Model
 
     public static function get(string $key, ?string $default = null): ?string
     {
-        return Cache::rememberForever("store_setting_{$key}", function () use ($key, $default) {
-            $setting = static::where('setting_key', $key)->first();
-            return $setting ? $setting->setting_value : $default;
-        });
+        try {
+            return Cache::rememberForever("store_setting_{$key}", function () use ($key, $default) {
+                $setting = static::where('setting_key', $key)->first();
+                return $setting ? $setting->setting_value : $default;
+            });
+        } catch (\Throwable $e) {
+            return $default;
+        }
     }
 
     public static function set(string $key, ?string $value, string $group = 'general'): void

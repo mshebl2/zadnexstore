@@ -24,6 +24,14 @@ Route::get('/setup-database', function (\Illuminate\Http\Request $request) {
     }
 
     try {
+        if (!file_exists(base_path('.env')) && file_exists(base_path('.env.production'))) {
+            copy(base_path('.env.production'), base_path('.env'));
+        }
+
+        if (empty(config('app.key'))) {
+            \Illuminate\Support\Facades\Artisan::call('key:generate', ['--force' => true]);
+        }
+
         \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
         $migrateOutput = \Illuminate\Support\Facades\Artisan::output();
 
@@ -37,8 +45,42 @@ Route::get('/setup-database', function (\Illuminate\Http\Request $request) {
 
         return response("<h2>✅ تم تهيئة قاعدة بيانات متجر زاد نيكس بنجاح!</h2><pre><strong>Migrations:</strong>\n{$migrateOutput}\n<strong>Seeder:</strong>\n{$seedOutput}\n<strong>Storage:</strong>\n{$storageOutput}</pre><p><a href='/'>انقر هنا للانتقال إلى المتجر ➔</a></p>", 200, ['Content-Type' => 'text/html; charset=utf-8']);
     } catch (\Throwable $e) {
-        return response("<h2>❌ خطأ أثناء الاتصال بقاعدة البيانات:</h2><pre>{$e->getMessage()}</pre><p>تأكد من صحة بيانات .env (اسم قاعدة البيانات والمستخدم وكلمة المرور).</p>", 500, ['Content-Type' => 'text/html; charset=utf-8']);
+        return response("<h2>❌ خطأ أثناء تهيئة المتجر:</h2><pre>{$e->getMessage()}\n\nFile: {$e->getFile()}:{$e->getLine()}</pre><p>تأكد من صحة بيانات .env (اسم قاعدة البيانات والمستخدم وكلمة المرور).</p>", 200, ['Content-Type' => 'text/html; charset=utf-8']);
     }
+});
+
+// Diagnostics & Debug Route for Hostinger
+Route::get('/debug', function (\Illuminate\Http\Request $request) {
+    if ($request->query('secret') !== 'zadnex2026') {
+        abort(403, 'Unauthorized access.');
+    }
+
+    $data = [];
+    $data['php_version'] = PHP_VERSION;
+    $data['env_exists'] = file_exists(base_path('.env'));
+    $data['app_key_set'] = !empty(config('app.key'));
+    $data['db_host'] = config('database.connections.mysql.host');
+    $data['db_database'] = config('database.connections.mysql.database');
+
+    try {
+        \Illuminate\Support\Facades\DB::connection()->getPdo();
+        $data['database_status'] = 'CONNECTED';
+        $tables = \Illuminate\Support\Facades\Schema::getTableListing();
+        $data['tables_count'] = count($tables);
+        $data['tables'] = $tables;
+    } catch (\Throwable $e) {
+        $data['database_status'] = 'ERROR: ' . $e->getMessage();
+    }
+
+    $logFile = storage_path('logs/laravel.log');
+    if (file_exists($logFile)) {
+        $lines = file($logFile);
+        $data['latest_log_errors'] = array_slice($lines, -25);
+    } else {
+        $data['latest_log_errors'] = 'No logs created yet.';
+    }
+
+    return response()->json($data, 200, [], JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
 });
 
 // One-click Cache Clear for Hostinger

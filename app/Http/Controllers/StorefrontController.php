@@ -21,18 +21,29 @@ class StorefrontController extends Controller
 
     public function home()
     {
-        $heroBanners = HomepageBanner::hero()->get();
-        if ($heroBanners->isEmpty()) {
-            $heroBanners = HomepageBanner::active()->get();
-        }
-        $secondaryBanners = HomepageBanner::secondary()->take(2)->get();
-        $offerBanners = HomepageBanner::offers()->take(3)->get();
+        try {
+            $heroBanners = HomepageBanner::hero()->get();
+            if ($heroBanners->isEmpty()) {
+                $heroBanners = HomepageBanner::active()->get();
+            }
+            $secondaryBanners = HomepageBanner::secondary()->take(2)->get();
+            $offerBanners = HomepageBanner::offers()->take(3)->get();
 
-        $banners = $heroBanners;
-        $categories = Category::parents()->with(['children'])->withCount('products')->get();
-        $featuredProducts = Product::active()->featured()->with(['category', 'images'])->take(8)->get();
-        $newArrivals = Product::active()->latest()->with(['category', 'images'])->take(8)->get();
-        $settings = StoreSetting::pluck('setting_value', 'setting_key')->toArray();
+            $banners = $heroBanners;
+            $categories = Category::parents()->with(['children'])->withCount('products')->get();
+            $featuredProducts = Product::active()->featured()->with(['category', 'images'])->take(8)->get();
+            $newArrivals = Product::active()->latest()->with(['category', 'images'])->take(8)->get();
+            $settings = StoreSetting::pluck('setting_value', 'setting_key')->toArray();
+        } catch (\Throwable $e) {
+            $heroBanners = collect();
+            $secondaryBanners = collect();
+            $offerBanners = collect();
+            $banners = collect();
+            $categories = collect();
+            $featuredProducts = collect();
+            $newArrivals = collect();
+            $settings = [];
+        }
 
         return view('pages.home', compact(
             'heroBanners', 
