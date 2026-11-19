@@ -1146,6 +1146,8 @@ class AdminController extends Controller
             'contact_phone',
             'contact_email',
             'commercial_registry',
+            'municipal_license',
+            'safety_certificate',
             'tax_number',
             'maroof_link',
             'address',

@@ -40,17 +40,27 @@
 
                         <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">رقم السجل التجاري (CR Number)</label>
-                            <input type="text" name="commercial_registry" value="{{ $settings['commercial_registry'] ?? '1010789456' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                            <input type="text" name="commercial_registry" value="{{ $settings['commercial_registry'] ?? '7055435114' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
                         </div>
 
                         <div>
-                            <label class="block text-xs font-bold text-[#242424] mb-1.5">الرقم الضريبي (VAT Number)</label>
-                            <input type="text" name="tax_number" value="{{ $settings['tax_number'] ?? '310458921000003' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                            <label class="block text-xs font-bold text-[#242424] mb-1.5">رقم رخصة النشاط التجاري (بلدي)</label>
+                            <input type="text" name="municipal_license" value="{{ $settings['municipal_license'] ?? '480526670333' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-[#242424] mb-1.5">شهادة سلامة الغذاء (الدفاع المدني)</label>
+                            <input type="text" name="safety_certificate" value="{{ $settings['safety_certificate'] ?? '101565890' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-[#242424] mb-1.5">الرقم الضريبي (إن وجد)</label>
+                            <input type="text" name="tax_number" value="{{ $settings['tax_number'] ?? '7055435114' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
                         </div>
 
                         <div class="sm:col-span-2">
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">العنوان ومقر المتجر بالمملكة</label>
-                            <input type="text" name="address" value="{{ $settings['address'] ?? 'المملكة العربية السعودية، الرياض، طريق الملك فهد' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
+                            <input type="text" name="address" value="{{ $settings['address'] ?? 'المملكة العربية السعودية، مكة المكرمة (العاصمة المقدسة)، حي أم الجود، شارع عبد الله بن أبي بكر الصديق' }}" class="w-full bg-[#FAF8F4] border border-[#EDE6DA] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#C5A059]">
                         </div>
                     </div>
                 </div>

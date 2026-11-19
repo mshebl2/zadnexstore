@@ -4,6 +4,7 @@
     $whatsapp = \App\Models\StoreSetting::get('whatsapp_number', '966580760890');
     $email = \App\Models\StoreSetting::get('contact_email', 'info@zadnexstore.com');
     $cr = \App\Models\StoreSetting::get('commercial_registry', '7055435114');
+    $license = \App\Models\StoreSetting::get('municipal_license', '480526670333');
     $safety = \App\Models\StoreSetting::get('safety_certificate', '101565890');
     $address = \App\Models\StoreSetting::get('address', 'المملكة العربية السعودية، مكة المكرمة، حي أم الجود، شارع عبد الله بن أبي بكر الصديق');
 @endphp
@@ -81,6 +82,10 @@
                     <p class="flex items-center gap-2">
                         <x-icon name="shield-check" class="w-3.5 h-3.5 text-[#FBB404] shrink-0" />
                         <span>السجل التجاري: <strong class="text-white font-mono" dir="ltr">{{ $cr }}</strong> (نشط)</span>
+                    </p>
+                    <p class="flex items-center gap-2">
+                        <x-icon name="check-circle" class="w-3.5 h-3.5 text-[#FBB404] shrink-0" />
+                        <span>رخصة نشاط تجاري: <strong class="text-white font-mono" dir="ltr">{{ $license }}</strong></span>
                     </p>
                     <p class="flex items-center gap-2">
                         <x-icon name="award" class="w-3.5 h-3.5 text-[#FBB404] shrink-0" />

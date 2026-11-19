@@ -287,6 +287,10 @@
                         </li>
                         <li class="flex items-start gap-2.5">
                             <x-icon name="shield-check" class="w-4 h-4 text-[#FBB404] shrink-0 mt-0.5" />
+                            <span>رخصة نشاط تجاري سارية رقم <strong>480526670333</strong> (أمانة العاصمة المقدسة - بلدي).</span>
+                        </li>
+                        <li class="flex items-start gap-2.5">
+                            <x-icon name="shield-check" class="w-4 h-4 text-[#FBB404] shrink-0 mt-0.5" />
                             <span>شهادة سلامة معتمدة رقم <strong>101565890</strong> لنشاط البقالات ومحلات التجزئة.</span>
                         </li>
                         <li class="flex items-start gap-2.5">

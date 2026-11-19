@@ -115,7 +115,7 @@
                 </p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- Card 1: Commercial Registration (وزارة التجارة) -->
                 <div class="bg-[#F8FAFC] rounded-2xl p-6 border border-[#E2E8F0] hover:border-[#0B2E75] transition-all duration-300 flex flex-col justify-between space-y-5">
@@ -132,12 +132,12 @@
 
                         <h3 class="text-lg font-bold text-[#0F172A]">شهادة السجل التجاري</h3>
                         <p class="text-xs text-gray-600 mt-1">
-                            سجل تجاري إلكتروني صادر عن وزارة التجارة بالمملكة العربية السعودية لـ <strong>متجر زاد نيكس</strong>.
+                            سجل تجاري إلكتروني موثق صادر عن وزارة التجارة لـ <strong>متجر زاد نيكس</strong>.
                         </p>
 
                         <div class="mt-4 space-y-2.5 bg-white p-4 rounded-xl border border-[#E2E8F0] text-xs">
                             <div class="flex items-center justify-between">
-                                <span class="text-gray-500">الرقم الوطني الموحد / السجل:</span>
+                                <span class="text-gray-500">رقم السجل الموحد:</span>
                                 <span class="font-mono font-bold text-[#0B2E75] text-sm" dir="ltr">7055435114</span>
                             </div>
                             <div class="flex items-center justify-between">
@@ -160,18 +160,67 @@
                            target="_blank" 
                            class="inline-flex items-center gap-2 bg-[#0B2E75] hover:bg-[#071E50] text-white text-xs font-bold px-4 py-2.5 rounded-xl transition">
                             <x-icon name="file-text" class="w-4 h-4" />
-                            <span>معاينة شهادة السجل التجاري (PDF)</span>
+                            <span>معاينة السجل (PDF)</span>
                         </a>
                         <span class="text-[11px] text-gray-400 font-mono">CR: 7055435114</span>
                     </div>
                 </div>
 
-                <!-- Card 2: Food Safety & Civil Defense Certificate (سلامة) -->
+                <!-- Card 2: Commercial Activity License (أمانة العاصمة المقدسة - بلدي) -->
+                <div class="bg-[#F8FAFC] rounded-2xl p-6 border border-[#E2E8F0] hover:border-emerald-600 transition-all duration-300 flex flex-col justify-between space-y-5">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="bg-emerald-700 text-white text-[11px] font-bold px-3 py-1 rounded-full">
+                                أمانة العاصمة المقدسة (بلدي)
+                            </span>
+                            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                رخصة نشاط سارية
+                            </span>
+                        </div>
+
+                        <h3 class="text-lg font-bold text-[#0F172A]">رخصة نشاط تجاري</h3>
+                        <p class="text-xs text-gray-600 mt-1">
+                            رخصة بلدية معتمدة من منصة بلدي (بلدية الحديبية) لنشاط التموينات والبقالات.
+                        </p>
+
+                        <div class="mt-4 space-y-2.5 bg-white p-4 rounded-xl border border-[#E2E8F0] text-xs">
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-500">رقم الرخصة الموحد:</span>
+                                <span class="font-mono font-bold text-emerald-800 text-sm" dir="ltr">480526670333</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-500">النشاط المعتمد:</span>
+                                <span class="font-bold text-[#0F172A]">تموينات ضمن محطة وقود</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-500">البلدية والحي:</span>
+                                <span class="font-medium text-gray-800">بلدية الحديبية - حي أم الجود</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-500">صلاحية الترخيص:</span>
+                                <span class="font-mono font-bold text-gray-800" dir="ltr">حتى 1449/06/08هـ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-[#E2E8F0] flex items-center justify-between">
+                        <a href="{{ asset('docs/license-zadnex.pdf') }}" 
+                           target="_blank" 
+                           class="inline-flex items-center gap-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition">
+                            <x-icon name="file-text" class="w-4 h-4" />
+                            <span>معاينة الرخصة (PDF)</span>
+                        </a>
+                        <span class="text-[11px] text-gray-400 font-mono">Lic: 480526670333</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Food Safety & Civil Defense Certificate (سلامة) -->
                 <div class="bg-[#F8FAFC] rounded-2xl p-6 border border-[#E2E8F0] hover:border-[#FBB404] transition-all duration-300 flex flex-col justify-between space-y-5">
                     <div>
                         <div class="flex items-center justify-between mb-4">
                             <span class="bg-[#FBB404] text-[#071E50] text-[11px] font-bold px-3 py-1 rounded-full">
-                                المديرية العامة للدفاع المدني (سلامة)
+                                الدفاع المدني (سلامة)
                             </span>
                             <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2.5 py-0.5 rounded-full flex items-center gap-1">
                                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
@@ -179,27 +228,27 @@
                             </span>
                         </div>
 
-                        <h3 class="text-lg font-bold text-[#0F172A]">شهادة سلامة الغذاء والوقاية والحماية</h3>
+                        <h3 class="text-lg font-bold text-[#0F172A]">شهادة سلامة المنشأة والغذاء</h3>
                         <p class="text-xs text-gray-600 mt-1">
-                            فاتورة سلامة لنشاط تجزئة البقالات صادرة عن بوابة سلامة الرسمية للمديرية العامة للدفاع المدني.
+                            شهادة سلامة رسمية لنشاط تجزئة البقالات صادرة عن بوابة سلامة للدفاع المدني.
                         </p>
 
                         <div class="mt-4 space-y-2.5 bg-white p-4 rounded-xl border border-[#E2E8F0] text-xs">
                             <div class="flex items-center justify-between">
-                                <span class="text-gray-500">رقم الشهادة:</span>
+                                <span class="text-gray-500">رقم شهادة سلامة:</span>
                                 <span class="font-mono font-bold text-[#0B2E75] text-sm" dir="ltr">101565890</span>
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-gray-500">نشاط الايزك:</span>
-                                <span class="font-bold text-[#0F172A]">البقالات (محل تجزئة)</span>
+                                <span class="text-gray-500">تصنيف الايزك:</span>
+                                <span class="font-bold text-[#0F172A]">البقالات ومحلات التجزئة</span>
                             </div>
                             <div class="flex items-center justify-between">
                                 <span class="text-gray-500">كود الايزك:</span>
                                 <span class="font-mono font-medium text-gray-800">471131</span>
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-gray-500">المدينة والحي:</span>
-                                <span class="font-medium text-gray-800">العاصمة المقدسة (مكة المكرمة) - حي أم الجود</span>
+                                <span class="text-gray-500">المدينة:</span>
+                                <span class="font-medium text-gray-800">مكة المكرمة (حي أم الجود)</span>
                             </div>
                         </div>
                     </div>
