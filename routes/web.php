@@ -41,6 +41,16 @@ Route::get('/setup-database', function (\Illuminate\Http\Request $request) {
     }
 });
 
+// One-click Cache Clear for Hostinger
+Route::get('/clear-cache', function (\Illuminate\Http\Request $request) {
+    if ($request->query('secret') !== 'zadnex2026') {
+        abort(403, 'Unauthorized access.');
+    }
+
+    \Illuminate\Support\Facades\Artisan::call('optimize:clear');
+    return response("<h2>✅ تم تفريغ كافة أنواع الكاش بنجاح (Views, Routes, Config)!</h2><p><a href='/'>انقر هنا للعودة للمتجر ➔</a></p>", 200, ['Content-Type' => 'text/html; charset=utf-8']);
+});
+
 // --- Storefront ---
 Route::get('/', [StorefrontController::class, 'home'])->name('home');
 Route::get('/about', [StorefrontController::class, 'about'])->name('about');
