@@ -44,17 +44,6 @@
                     @error('password') <span class="text-[11px] text-red-500 mt-1 block">{{ $message }}</span> @enderror
                 </div>
 
-                <!-- Admin Quick Hint -->
-                <div class="bg-blue-50/70 border border-blue-200/60 rounded-xl p-3 text-[11px] text-blue-900 flex items-start gap-2">
-                    <x-icon name="info" class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
-                    <div>
-                        <span class="font-bold">بيانات حساب الإدارة الافتراضية:</span>
-                        <div class="mt-0.5 text-[10px] text-blue-800 font-mono" dir="ltr">
-                            البريد: info@zadnexstore.com | كلمة المرور: zadnex2026@admin
-                        </div>
-                    </div>
-                </div>
-
                 <div class="flex items-center justify-between text-xs text-slate-500">
                     <label class="flex items-center gap-2 cursor-pointer">
                         <input type="checkbox" name="remember" class="text-[#0B2E75] focus:ring-[#0B2E75] rounded border-slate-300">

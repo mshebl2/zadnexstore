@@ -121,19 +121,11 @@ class="sticky top-0 z-40 transition-all duration-300 border-b border-[#FBB404]/3
                     <x-icon name="search" class="w-5 h-5" />
                 </button>
 
-                <!-- Account / Admin -->
+                <!-- Account -->
                 @auth
-                    @if(auth()->user()->isAdmin())
-                        <a href="{{ route('admin.dashboard') }}" class="p-2 text-[#FBB404] bg-white/10 hover:bg-white/20 transition rounded-full flex items-center gap-1.5 text-xs font-bold" title="لوحة التحكم">
-                            <x-icon name="user" class="w-5 h-5" />
-                            <span class="hidden md:inline">الإدارة</span>
-                        </a>
-                    @else
-                        <a href="{{ route('customer.dashboard') }}" class="p-2 text-white/90 hover:text-[#FBB404] hover:bg-white/10 transition rounded-full flex items-center gap-1.5" title="لوحة تحكم حسابي">
-                            <x-icon name="user" class="w-5 h-5" />
-                            <span class="hidden md:inline text-xs font-bold text-[#FBB404]">حسابي</span>
-                        </a>
-                    @endif
+                    <a href="{{ auth()->user()->isAdmin() ? route('admin.dashboard') : route('customer.dashboard') }}" class="p-2 text-white/90 hover:text-[#FBB404] hover:bg-white/10 transition rounded-full" title="حسابي">
+                        <x-icon name="user" class="w-5 h-5" />
+                    </a>
                 @else
                     <a href="{{ route('login') }}" class="p-2 text-white/90 hover:text-[#FBB404] hover:bg-white/10 transition rounded-full" title="تسجيل الدخول">
                         <x-icon name="user" class="w-5 h-5" />

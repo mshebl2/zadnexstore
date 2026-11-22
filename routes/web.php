@@ -17,10 +17,14 @@ use App\Http\Middleware\EnsureAdmin;
 |--------------------------------------------------------------------------
 */
 
-// One-click Setup route for Hostinger / Shared Hosting deployment
+// Restricted Admin Maintenance / Setup Route (Protected: requires active admin session)
 Route::get('/setup-database', function (\Illuminate\Http\Request $request) {
+    if (!auth()->check() || !auth()->user()->isAdmin()) {
+        abort(404);
+    }
+
     if ($request->query('secret') !== 'zadnex2026') {
-        abort(403, 'Unauthorized setup access.');
+        abort(404);
     }
 
     // Optional remote git pull

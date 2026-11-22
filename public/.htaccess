@@ -5,6 +5,10 @@
 
     RewriteEngine On
 
+    # Security: block access to hidden files and sensitive extensions
+    RewriteRule (^\.|/\.) - [F,L]
+    RewriteRule \.(env|log|sql|sqlite|sqlite3|bak|config|sh|bat|md|json|yml|yaml|lock)$ - [F,L,NC]
+
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
