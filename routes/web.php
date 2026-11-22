@@ -23,6 +23,13 @@ Route::get('/setup-database', function (\Illuminate\Http\Request $request) {
         abort(403, 'Unauthorized setup access.');
     }
 
+    // Optional remote git pull
+    if ($request->query('action') === 'pull') {
+        $pullOutput = shell_exec('git pull origin main 2>&1');
+        \Illuminate\Support\Facades\Artisan::call('optimize:clear');
+        return response("<h2>🔄 نتيجة تحديث Git على الخادم:</h2><pre>{$pullOutput}</pre><p><a href='/'>العودة للمتجر ➔</a></p>", 200, ['Content-Type' => 'text/html; charset=utf-8']);
+    }
+
     try {
         $envPath = base_path('.env');
         
