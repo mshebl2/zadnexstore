@@ -30,6 +30,29 @@ Route::get('/setup-database', function (\Illuminate\Http\Request $request) {
         return response("<h2>🔄 نتيجة تحديث Git على الخادم:</h2><pre>{$pullOutput}</pre><p><a href='/'>العودة للمتجر ➔</a></p>", 200, ['Content-Type' => 'text/html; charset=utf-8']);
     }
 
+    // Optional admin password reset / sync
+    if ($request->query('action') === 'reset-admin') {
+        \App\Models\User::updateOrCreate(
+            ['email' => 'info@zadnexstore.com'],
+            [
+                'name' => 'إدارة متجر زاد نيكس',
+                'phone' => '+966580760890',
+                'role' => 'admin',
+                'password' => \Illuminate\Support\Facades\Hash::make('zadnex2026@admin'),
+            ]
+        );
+        \App\Models\User::updateOrCreate(
+            ['email' => 'admin@zadnexstore.com'],
+            [
+                'name' => 'مدير النظام',
+                'phone' => '0580760890',
+                'role' => 'admin',
+                'password' => \Illuminate\Support\Facades\Hash::make('zadnex2026@admin'),
+            ]
+        );
+        return response("<h2>✅ تم تأكيد وتعيين كلمة مرور الإدارة: zadnex2026@admin للحسابين info و admin بنجاح!</h2><p><a href='/login'>تسجيل الدخول ➔</a></p>", 200, ['Content-Type' => 'text/html; charset=utf-8']);
+    }
+
     try {
         $envPath = base_path('.env');
         

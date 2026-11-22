@@ -182,8 +182,15 @@
     <!-- Sticky Luxury Header -->
     <x-header />
 
+    <!-- Subtle Brand Background Watermark & Theme Colors (Blue & Yellow) -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden flex items-center justify-center select-none" aria-hidden="true">
+        <div class="absolute -top-32 -right-32 w-96 h-96 bg-[#0B2E75]/5 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-32 -left-32 w-96 h-96 bg-[#FBB404]/8 rounded-full blur-3xl"></div>
+        <img src="{{ asset('images/logo.png') }}?v=4" alt="" class="w-[520px] max-w-[75vw] h-auto object-contain opacity-[0.035] filter grayscale-[20%]">
+    </div>
+
     <!-- Main Content Area -->
-    <main class="flex-grow pb-16 md:pb-0">
+    <main class="flex-grow pb-16 md:pb-0 relative z-10">
         {{ $slot }}
     </main>
 

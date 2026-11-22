@@ -27,7 +27,7 @@ class="sticky top-0 z-40 transition-all duration-300 border-b border-[#FBB404]/3
             <!-- Brand Logo (Pure transparent logo, no extra text, no background box) -->
             <div class="flex items-center">
                 <a href="{{ route('home') }}" class="group flex items-center" title="متجر زاد نيكس - ZADNEX STORE">
-                    <img src="{{ asset('images/logo.png') }}" 
+                    <img src="{{ asset('images/logo.png') }}?v=4" 
                          alt="متجر زاد نيكس - ZADNEX STORE" 
                          class="h-16 sm:h-20 lg:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
                 </a>

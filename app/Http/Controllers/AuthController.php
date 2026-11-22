@@ -34,7 +34,16 @@ class AuthController extends Controller
         $user = null;
         $lowered = strtolower($input);
         if ($lowered === 'admin' || $lowered === 'إدارة' || $lowered === 'ادارة') {
-            $user = User::where('role', 'admin')->first();
+            $admins = User::where('role', 'admin')->get();
+            foreach ($admins as $adm) {
+                if (Hash::check($password, $adm->password)) {
+                    $user = $adm;
+                    break;
+                }
+            }
+            if (!$user) {
+                $user = $admins->first();
+            }
         } elseif (filter_var($input, FILTER_VALIDATE_EMAIL)) {
             $user = User::where('email', $lowered)->first();
         } else {

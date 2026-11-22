@@ -34,6 +34,16 @@
                         </div>
 
                         <div>
+                            <label class="block text-xs font-bold text-[#242424] mb-1.5">مالك المنشأة / المتجر</label>
+                            <input type="text" name="store_owner" value="{{ $settings['store_owner'] ?? 'منال سالم فرج' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
+                        </div>
+
+                        <div>
+                            <label class="block text-xs font-bold text-[#242424] mb-1.5">تاريخ التأسيس (تاريخ قيد السجل)</label>
+                            <input type="text" name="establishment_date" value="{{ $settings['establishment_date'] ?? '20/10/2026' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
+                        </div>
+
+                        <div>
                             <label class="block text-xs font-bold text-[#242424] mb-1.5">سلوجان المتجر (Tagline)</label>
                             <input type="text" name="store_tagline" value="{{ $settings['store_tagline'] ?? 'متجر المواد الغذائية والمنظفات والكماليات' }}" class="w-full bg-[#F8FAFC] border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-[#242424] focus:outline-none focus:border-[#0B2E75]">
                         </div>

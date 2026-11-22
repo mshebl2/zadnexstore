@@ -81,11 +81,11 @@
                     </p>
                     <p class="flex items-center gap-2">
                         <x-icon name="user" class="w-3.5 h-3.5 text-[#FBB404] shrink-0" />
-                        <span>مالك المنشأة: <strong class="text-white">منال سالم فرج</strong></span>
+                        <span>مالك المنشأة: <strong class="text-white">{{ \App\Models\StoreSetting::get('store_owner', 'منال سالم فرج') }}</strong></span>
                     </p>
                     <p class="flex items-center gap-2">
                         <x-icon name="shield-check" class="w-3.5 h-3.5 text-[#FBB404] shrink-0" />
-                        <span>السجل التجاري: <strong class="text-white font-mono" dir="ltr">{{ $cr }}</strong> (تاريخ التأسيس: 2026/10/20م)</span>
+                        <span>السجل التجاري: <strong class="text-white font-mono" dir="ltr">{{ $cr }}</strong> (تاريخ التأسيس: {{ \App\Models\StoreSetting::get('establishment_date', '20/10/2026') }}م)</span>
                     </p>
                     <p class="flex items-center gap-2">
                         <x-icon name="check-circle" class="w-3.5 h-3.5 text-[#FBB404] shrink-0" />
