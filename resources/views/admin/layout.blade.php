@@ -46,7 +46,7 @@
                 <!-- Brand / Logo -->
                 <div class="h-20 flex items-center px-6 border-b border-[#2E2E2E]">
                     <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3">
-                        <img src="{{ asset('images/logo.png') }}" alt="متجر زاد نيكس" class="h-10 w-auto object-contain bg-white/10 p-1 rounded-lg">
+                        <img src="{{ asset('images/logo.png') }}" alt="متجر زاد نيكس" class="h-10 w-auto object-contain">
                         <div class="flex flex-col">
                             <span class="text-sm font-black text-[#FBB404] tracking-wide">زاد نيكس</span>
                             <span class="text-[10px] text-gray-400">لوحة الإدارة والتحكم</span>

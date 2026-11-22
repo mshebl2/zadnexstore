@@ -24,20 +24,12 @@ class="sticky top-0 z-40 transition-all duration-300 border-b border-[#FBB404]/3
                 </button>
             </div>
 
-            <!-- Brand Logo & Expanded Name (Covering top cleanly with royal blue) -->
+            <!-- Brand Logo (Pure transparent logo, no extra text, no background box) -->
             <div class="flex items-center">
-                <a href="{{ route('home') }}" class="group flex items-center gap-3 sm:gap-4" title="متجر زاد نيكس - ZADNEX STORE">
+                <a href="{{ route('home') }}" class="group flex items-center" title="متجر زاد نيكس - ZADNEX STORE">
                     <img src="{{ asset('images/logo.png') }}" 
                          alt="متجر زاد نيكس - ZADNEX STORE" 
-                         class="h-14 sm:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md">
-                    <div class="flex flex-col text-right">
-                        <span class="text-lg sm:text-2xl font-black text-white tracking-wide leading-tight group-hover:text-[#FBB404] transition">
-                            متجر زاد نيكس
-                        </span>
-                        <span class="text-[10px] sm:text-xs font-bold text-[#FBB404] tracking-widest uppercase mt-0.5">
-                            ZADNEX STORE • مواد غذائية وتموين
-                        </span>
-                    </div>
+                         class="h-16 sm:h-20 lg:h-24 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
                 </a>
             </div>
 
@@ -275,8 +267,8 @@ class="sticky top-0 z-40 transition-all duration-300 border-b border-[#FBB404]/3
                 <x-icon name="x" class="w-5 h-5" />
             </button>
 
-            <div class="w-14 h-14 mx-auto mb-3 bg-[#0B2E75] p-2 rounded-2xl flex items-center justify-center shadow-md">
-                <img src="{{ asset('images/logo.png') }}" alt="زاد نيكس" class="max-h-full object-contain">
+            <div class="w-24 h-auto mx-auto mb-3">
+                <img src="{{ asset('images/logo.png') }}" alt="زاد نيكس" class="w-full h-auto object-contain">
             </div>
 
             <h3 class="text-lg font-black text-[#0B2E75]">باركود متجر زاد نيكس (QR Code)</h3>

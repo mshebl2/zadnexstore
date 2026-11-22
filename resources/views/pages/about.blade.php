@@ -74,7 +74,7 @@
                 <div class="relative bg-gradient-to-br from-[#0B2E75] to-[#071E50] p-8 sm:p-10 rounded-3xl shadow-xl text-center border-4 border-white/20 overflow-hidden group">
                     <div class="absolute -top-12 -right-12 w-40 h-40 bg-[#FBB404]/20 rounded-full blur-2xl"></div>
                     <div class="relative z-10 flex flex-col items-center">
-                        <div class="w-48 sm:w-56 h-auto p-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 shadow-lg mb-6 group-hover:scale-105 transition-transform duration-500">
+                        <div class="w-48 sm:w-56 h-auto mb-6 group-hover:scale-105 transition-transform duration-500">
                             <img src="{{ asset('images/logo.png') }}" alt="شعار متجر زاد نيكس - ZADNEX" class="w-full h-auto object-contain">
                         </div>
                         <h3 class="text-xl font-bold text-white">متجر زاد نيكس | ZADNEX</h3>

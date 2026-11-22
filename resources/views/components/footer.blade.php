@@ -19,7 +19,7 @@
                     <a href="{{ route('home') }}" class="inline-block" title="متجر زاد نيكس - ZADNEX STORE">
                         <img src="{{ asset('images/logo.png') }}" 
                              alt="متجر زاد نيكس - ZADNEX STORE" 
-                             class="h-14 w-auto object-contain bg-white/10 p-2 rounded-xl backdrop-blur-sm">
+                             class="h-16 w-auto object-contain">
                     </a>
                     <span class="text-xs text-[#FBB404] mt-2 font-bold">
                         متجر زاد نيكس • مواد غذائية • مشروبات • منظفات • كماليات
