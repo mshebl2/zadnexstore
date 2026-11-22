@@ -5,6 +5,10 @@
     $cr = \App\Models\StoreSetting::get('commercial_registry', '7055435114');
     $safety = \App\Models\StoreSetting::get('safety_certificate', '101565890');
     $whatsapp = \App\Models\StoreSetting::get('whatsapp_number', '966580760890');
+    $instagram = \App\Models\StoreSetting::get('instagram', 'https://www.instagram.com/zadnexstore');
+    $snapchat = \App\Models\StoreSetting::get('snapchat', 'https://www.snapchat.com/add/zadnexstore');
+    $tiktok = \App\Models\StoreSetting::get('tiktok', 'https://www.tiktok.com/@zadnexstore');
+    $twitter = \App\Models\StoreSetting::get('twitter', 'https://x.com/zadnexstore');
 @endphp
 
 <div x-data
@@ -171,11 +175,33 @@
             </div>
 
             <!-- Drawer Footer -->
-            <div class="p-5 border-t border-[#E2E8F0] bg-[#F8FAFC] text-xs text-[#64748B] space-y-2.5">
+            <div class="p-5 border-t border-[#E2E8F0] bg-[#F8FAFC] text-xs text-[#64748B] space-y-3">
                 <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $whatsapp) }}" target="_blank" class="flex items-center gap-2 text-[#25D366] font-bold hover:underline">
                     <x-icon name="whatsapp" class="w-4 h-4" />
                     <span>تواصل معنا عبر واتساب (0580760890)</span>
                 </a>
+
+                <!-- Mobile Drawer Social Media Row -->
+                <div class="pt-2 border-t border-[#E2E8F0] space-y-2">
+                    <span class="text-[11px] font-bold text-[#0B2E75] block">تابع زاد نيكس:</span>
+                    <div class="flex items-center gap-2">
+                        <a href="{{ $instagram }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center shadow-xs" title="إنستغرام">
+                            <x-icon name="instagram" class="w-3.5 h-3.5" />
+                        </a>
+                        <a href="{{ $tiktok }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center shadow-xs border border-zinc-700" title="تيك توك">
+                            <x-icon name="tiktok" class="w-3.5 h-3.5" />
+                        </a>
+                        <a href="{{ $snapchat }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#FFFC00] text-black flex items-center justify-center shadow-xs" title="سناب شات">
+                            <x-icon name="snapchat" class="w-3.5 h-3.5" />
+                        </a>
+                        <a href="{{ $twitter }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center shadow-xs border border-zinc-700" title="إكس">
+                            <x-icon name="x-twitter" class="w-3 h-3" />
+                        </a>
+                        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $whatsapp) }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center shadow-xs" title="واتساب">
+                            <x-icon name="whatsapp" class="w-3.5 h-3.5" />
+                        </a>
+                    </div>
+                </div>
 
                 <div class="pt-2 border-t border-[#E2E8F0] space-y-1 text-[11px]">
                     <p class="flex items-center justify-between">

@@ -7,9 +7,10 @@
     $license = \App\Models\StoreSetting::get('municipal_license', '480526670333');
     $safety = \App\Models\StoreSetting::get('safety_certificate', '101565890');
     $address = \App\Models\StoreSetting::get('address', 'المملكة العربية السعودية، مكة المكرمة، حي أم الجود، شارع عبد الله بن أبي بكر الصديق');
-    $instagram = \App\Models\StoreSetting::get('instagram');
-    $snapchat = \App\Models\StoreSetting::get('snapchat');
-    $tiktok = \App\Models\StoreSetting::get('tiktok');
+    $instagram = \App\Models\StoreSetting::get('instagram', 'https://www.instagram.com/zadnexstore');
+    $snapchat = \App\Models\StoreSetting::get('snapchat', 'https://www.snapchat.com/add/zadnexstore');
+    $tiktok = \App\Models\StoreSetting::get('tiktok', 'https://www.tiktok.com/@zadnexstore');
+    $twitter = \App\Models\StoreSetting::get('twitter', 'https://x.com/zadnexstore');
 @endphp
 
 <footer class="bg-[#071E50] text-gray-200 pt-16 pb-12 border-t-4 border-[#FBB404]">
@@ -31,31 +32,53 @@
                 <p class="text-xs text-gray-300 leading-relaxed">
                     متجر زاد نيكس — خياركم الأول لأجود المواد الغذائية والتموينية، المشروبات، المنظفات المنزلية ومستلزمات البيت اليومية. نلتزم بأعلى معايير سلامة الغذاء ونقدم أفضل الأسعار التوفيرية مع خدمة التوصيل السريع.
                 </p>
-                <div class="flex items-center gap-2.5 pt-2 flex-wrap">
-                    <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $whatsapp) }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-[#25D366] text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm flex-shrink-0" title="واتساب" aria-label="تواصل معنا عبر واتساب">
-                        <x-icon name="whatsapp" class="w-4 h-4" />
-                    </a>
-                    <a href="tel:{{ preg_replace('/[^0-9+]/', '', $phone) }}" class="w-8 h-8 rounded-full bg-white/15 text-white hover:bg-[#FBB404] hover:text-[#071E50] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm flex-shrink-0" title="اتصال مباشر" aria-label="اتصل بنا">
-                        <x-icon name="phone" class="w-4 h-4" />
-                    </a>
-                    <a href="mailto:{{ $email }}" class="w-8 h-8 rounded-full bg-white/15 text-white hover:bg-[#FBB404] hover:text-[#071E50] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm flex-shrink-0" title="البريد الإلكتروني" aria-label="راسلنا بالبريد">
-                        <x-icon name="mail" class="w-4 h-4" />
-                    </a>
-                    @if($instagram)
-                    <a href="{{ $instagram }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/15 text-white hover:bg-[#FBB404] hover:text-[#071E50] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm flex-shrink-0" title="إنستغرام" aria-label="إنستغرام">
-                        <x-icon name="instagram" class="w-4 h-4" />
-                    </a>
-                    @endif
-                    @if($snapchat)
-                    <a href="{{ $snapchat }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/15 text-white hover:bg-[#FBB404] hover:text-[#071E50] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm flex-shrink-0" title="سناب شات" aria-label="سناب شات">
-                        <x-icon name="snapchat" class="w-4 h-4" />
-                    </a>
-                    @endif
-                    @if($tiktok)
-                    <a href="{{ $tiktok }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/15 text-white hover:bg-[#FBB404] hover:text-[#071E50] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm flex-shrink-0" title="تيك توك" aria-label="تيك توك">
-                        <x-icon name="tiktok" class="w-4 h-4" />
-                    </a>
-                    @endif
+                <div class="pt-3 space-y-2.5">
+                    <span class="text-xs font-bold text-[#FBB404] block">تابعنا وتواصل معنا مباشرة:</span>
+                    
+                    <div class="flex items-center gap-2 sm:gap-2.5 flex-wrap">
+                        <!-- 1. WhatsApp Official -->
+                        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $whatsapp) }}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-[#25D366] text-white flex items-center justify-center transition-all duration-300 hover:scale-115 hover:shadow-lg shadow-sm flex-shrink-0 group" title="واتساب متجر زاد نيكس" aria-label="واتساب">
+                            <x-icon name="whatsapp" class="w-4 h-4 transition-transform group-hover:scale-110" />
+                        </a>
+
+                        <!-- 2. Instagram Official Gradient -->
+                        @if($instagram)
+                        <a href="{{ $instagram }}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center transition-all duration-300 hover:scale-115 hover:shadow-lg shadow-sm flex-shrink-0 group" title="إنستغرام - Instagram" aria-label="إنستغرام">
+                            <x-icon name="instagram" class="w-4 h-4 transition-transform group-hover:scale-110" />
+                        </a>
+                        @endif
+
+                        <!-- 3. TikTok Official -->
+                        @if($tiktok)
+                        <a href="{{ $tiktok }}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-black border border-white/20 text-white flex items-center justify-center transition-all duration-300 hover:scale-115 hover:border-white/50 hover:shadow-lg shadow-sm flex-shrink-0 group" title="تيك توك - TikTok" aria-label="تيك توك">
+                            <x-icon name="tiktok" class="w-4 h-4 transition-transform group-hover:scale-110" />
+                        </a>
+                        @endif
+
+                        <!-- 4. Snapchat Official Yellow -->
+                        @if($snapchat)
+                        <a href="{{ $snapchat }}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-[#FFFC00] text-black flex items-center justify-center transition-all duration-300 hover:scale-115 hover:shadow-lg shadow-sm flex-shrink-0 group" title="سناب شات - Snapchat" aria-label="سناب شات">
+                            <x-icon name="snapchat" class="w-4 h-4 transition-transform group-hover:scale-110" />
+                        </a>
+                        @endif
+
+                        <!-- 5. X Platform (Twitter) New Logo -->
+                        @if($twitter)
+                        <a href="{{ $twitter }}" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-black border border-white/20 text-white flex items-center justify-center transition-all duration-300 hover:scale-115 hover:border-white/50 hover:shadow-lg shadow-sm flex-shrink-0 group" title="منصة إكس - X (تويتر سابقاً)" aria-label="منصة إكس">
+                            <x-icon name="x-twitter" class="w-3.5 h-3.5 transition-transform group-hover:scale-110" />
+                        </a>
+                        @endif
+
+                        <!-- 6. Phone Call Direct -->
+                        <a href="tel:{{ preg_replace('/[^0-9+]/', '', $phone) }}" class="w-9 h-9 rounded-full bg-white/15 text-white hover:bg-[#FBB404] hover:text-[#071E50] flex items-center justify-center transition-all duration-300 hover:scale-115 hover:shadow-lg shadow-sm flex-shrink-0 group" title="اتصال هاتفي مباشر" aria-label="اتصل بنا">
+                            <x-icon name="phone" class="w-4 h-4 transition-transform group-hover:scale-110" />
+                        </a>
+
+                        <!-- 7. Email Direct -->
+                        <a href="mailto:{{ $email }}" class="w-9 h-9 rounded-full bg-white/15 text-white hover:bg-[#FBB404] hover:text-[#071E50] flex items-center justify-center transition-all duration-300 hover:scale-115 hover:shadow-lg shadow-sm flex-shrink-0 group" title="البريد الإلكتروني الرسمي" aria-label="راسلنا بالبريد">
+                            <x-icon name="mail" class="w-4 h-4 transition-transform group-hover:scale-110" />
+                        </a>
+                    </div>
                 </div>
             </div>
 

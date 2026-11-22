@@ -22,6 +22,12 @@
     </div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 text-right">
+        @php
+            $instagram = \App\Models\StoreSetting::get('instagram', 'https://www.instagram.com/zadnexstore');
+            $snapchat = \App\Models\StoreSetting::get('snapchat', 'https://www.snapchat.com/add/zadnexstore');
+            $tiktok = \App\Models\StoreSetting::get('tiktok', 'https://www.tiktok.com/@zadnexstore');
+            $twitter = \App\Models\StoreSetting::get('twitter', 'https://x.com/zadnexstore');
+        @endphp
 
         <!-- Top 4 Direct Contact Channels -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-12">
@@ -112,6 +118,46 @@
                 </div>
             </div>
 
+        </div>
+
+        <!-- Official Social Media Channels Banner -->
+        <div class="bg-white rounded-3xl border border-[#E2E8F0] p-6 sm:p-8 shadow-xs mb-10 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-4 text-center md:text-right">
+                <div class="w-12 h-12 rounded-2xl bg-[#071E50] text-[#FBB404] flex items-center justify-center shrink-0 shadow-sm">
+                    <x-icon name="sparkles" class="w-6 h-6" />
+                </div>
+                <div>
+                    <h3 class="text-base sm:text-lg font-extrabold text-[#0F172A]">تابع حسابات زاد نيكس على منصات التواصل</h3>
+                    <p class="text-xs text-[#64748B] mt-0.5">شاهد أحدث عروض التوفير والخصومات والمسابقات الحصرية عبر صفحاتنا الرسمية</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 flex-wrap justify-center">
+                <!-- WhatsApp -->
+                <a href="https://wa.me/966580760890" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-2xl bg-[#25D366] text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm" title="واتساب زاد نيكس">
+                    <x-icon name="whatsapp" class="w-5 h-5" />
+                </a>
+
+                <!-- Instagram -->
+                <a href="{{ $instagram }}" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-[#f09433] via-[#dc2743] to-[#bc1888] text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm" title="إنستغرام زاد نيكس">
+                    <x-icon name="instagram" class="w-5 h-5" />
+                </a>
+
+                <!-- TikTok -->
+                <a href="{{ $tiktok }}" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-2xl bg-black border border-white/20 text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm" title="تيك توك زاد نيكس">
+                    <x-icon name="tiktok" class="w-5 h-5" />
+                </a>
+
+                <!-- Snapchat -->
+                <a href="{{ $snapchat }}" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-2xl bg-[#FFFC00] text-black flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm" title="سناب شات زاد نيكس">
+                    <x-icon name="snapchat" class="w-5 h-5" />
+                </a>
+
+                <!-- X (Twitter) -->
+                <a href="{{ $twitter }}" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-2xl bg-black border border-white/20 text-white flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm" title="منصة إكس زاد نيكس">
+                    <x-icon name="x-twitter" class="w-4.5 h-4.5" />
+                </a>
+            </div>
         </div>
 
         <!-- Main Form & Interactive Google Map Section -->
