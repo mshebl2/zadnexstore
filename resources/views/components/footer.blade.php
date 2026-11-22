@@ -7,6 +7,9 @@
     $license = \App\Models\StoreSetting::get('municipal_license', '480526670333');
     $safety = \App\Models\StoreSetting::get('safety_certificate', '101565890');
     $address = \App\Models\StoreSetting::get('address', 'المملكة العربية السعودية، مكة المكرمة، حي أم الجود، شارع عبد الله بن أبي بكر الصديق');
+    $instagram = \App\Models\StoreSetting::get('instagram');
+    $snapchat = \App\Models\StoreSetting::get('snapchat');
+    $tiktok = \App\Models\StoreSetting::get('tiktok');
 @endphp
 
 <footer class="bg-[#071E50] text-gray-200 pt-16 pb-12 border-t-4 border-[#FBB404]">
@@ -38,6 +41,21 @@
                     <a href="mailto:{{ $email }}" class="w-8 h-8 rounded-full bg-white/15 text-white hover:bg-[#FBB404] hover:text-[#071E50] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm flex-shrink-0" title="البريد الإلكتروني" aria-label="راسلنا بالبريد">
                         <x-icon name="mail" class="w-4 h-4" />
                     </a>
+                    @if($instagram)
+                    <a href="{{ $instagram }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/15 text-white hover:bg-[#FBB404] hover:text-[#071E50] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm flex-shrink-0" title="إنستغرام" aria-label="إنستغرام">
+                        <x-icon name="instagram" class="w-4 h-4" />
+                    </a>
+                    @endif
+                    @if($snapchat)
+                    <a href="{{ $snapchat }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/15 text-white hover:bg-[#FBB404] hover:text-[#071E50] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm flex-shrink-0" title="سناب شات" aria-label="سناب شات">
+                        <x-icon name="snapchat" class="w-4 h-4" />
+                    </a>
+                    @endif
+                    @if($tiktok)
+                    <a href="{{ $tiktok }}" target="_blank" rel="noopener noreferrer" class="w-8 h-8 rounded-full bg-white/15 text-white hover:bg-[#FBB404] hover:text-[#071E50] flex items-center justify-center transition-all duration-300 hover:scale-110 shadow-sm flex-shrink-0" title="تيك توك" aria-label="تيك توك">
+                        <x-icon name="tiktok" class="w-4 h-4" />
+                    </a>
+                    @endif
                 </div>
             </div>
 
