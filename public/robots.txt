@@ -7,4 +7,4 @@ Disallow: /paymob/
 Disallow: /cart
 Allow: /
 
-Sitemap: https://blueviolet-owl-115981.hostingersite.com/sitemap.xml
+Sitemap: https://www.zadnexstore.com/sitemap.xml

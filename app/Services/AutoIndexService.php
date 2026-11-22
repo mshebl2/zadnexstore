@@ -18,11 +18,7 @@ class AutoIndexService
             return 'zadnexstore_test_key';
         }
 
-        $key = StoreSetting::get('indexnow_key');
-        if (!$key) {
-            $key = 'zadnex_' . bin2hex(random_bytes(12));
-            StoreSetting::set('indexnow_key', $key);
-        }
+        $key = StoreSetting::get('indexnow_key', 'zadnex2026indexnow');
 
         // Ensure key file exists in public directory
         $keyFilePath = public_path("{$key}.txt");

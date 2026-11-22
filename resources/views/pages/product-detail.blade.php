@@ -1,6 +1,9 @@
 <x-app-layout>
     <x-slot:title>{{ $product->seo_title ?? $product->name_ar . ' | متجر زاد نيكس' }}</x-slot:title>
     <x-slot:description>{{ $product->seo_description ?? Str::limit(strip_tags($product->description_ar), 160) }}</x-slot:description>
+    <x-slot:ogImage>{{ $product->primary_image }}</x-slot:ogImage>
+    <x-slot:ogType>product</x-slot:ogType>
+    <x-slot:keywords>{{ $product->name_ar }}, {{ $product->category->name_ar }}, شراء {{ $product->name_ar }} مكة, توصيل {{ $product->name_ar }}, متجر زاد نيكس, مواد غذائية وتموين مكة</x-slot:keywords>
 
     <!-- Google Merchant & SEO Schema.org Product Rich Snippet -->
     <script type="application/ld+json">
@@ -15,17 +18,48 @@
         "{{ '@' }}type": "Brand",
         "name": "متجر زاد نيكس"
       },
+      "category": "{{ $product->category->name_ar }}",
       "offers": {
         "{{ '@' }}type": "Offer",
         "url": "{{ url()->current() }}",
         "priceCurrency": "SAR",
         "price": "{{ $product->current_price }}",
+        "priceValidUntil": "{{ now()->addYear()->format('Y-m-d') }}",
+        "itemCondition": "https://schema.org/NewCondition",
         "availability": "{{ $product->stock_quantity > 0 ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock' }}",
         "seller": {
           "{{ '@' }}type": "Organization",
           "name": "متجر زاد نيكس"
         }
       }
+    }
+    </script>
+
+    <!-- BreadcrumbList Schema.org -->
+    <script type="application/ld+json">
+    {
+      "{{ '@' }}context": "https://schema.org",
+      "{{ '@' }}type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "{{ '@' }}type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "{{ url('/') }}"
+        },
+        {
+          "{{ '@' }}type": "ListItem",
+          "position": 2,
+          "name": "{{ $product->category->name_ar }}",
+          "item": "{{ route('category.show', $product->category->slug) }}"
+        },
+        {
+          "{{ '@' }}type": "ListItem",
+          "position": 3,
+          "name": "{{ $product->name_ar }}",
+          "item": "{{ url()->current() }}"
+        }
+      ]
     }
     </script>
 

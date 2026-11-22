@@ -53,6 +53,12 @@ Route::get('/setup-database', function (\Illuminate\Http\Request $request) {
         return response("<h2>✅ تم تأكيد وتعيين كلمة مرور الإدارة: zadnex2026@admin للحسابين info و admin بنجاح!</h2><p><a href='/login'>تسجيل الدخول ➔</a></p>", 200, ['Content-Type' => 'text/html; charset=utf-8']);
     }
 
+    // Optional SEO Search Engine Ping
+    if ($request->query('action') === 'seo-ping') {
+        $res = \App\Services\AutoIndexService::pingFullSitemap();
+        return response("<h2>🚀 نتيجة إرسال إشعار الأرشفة لمحركات البحث (Google + Bing + IndexNow):</h2><pre>" . json_encode($res, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) . "</pre><p><a href='/sitemap.xml'>معاينة ملف Sitemap ➔</a></p>", 200, ['Content-Type' => 'text/html; charset=utf-8']);
+    }
+
     try {
         $envPath = base_path('.env');
         

@@ -28,41 +28,83 @@
     <title>{{ $title ?? $siteMetaTitle }}</title>
     <meta name="description" content="{{ $description ?? $siteMetaDesc }}">
     <meta name="keywords" content="{{ $keywords ?? $siteMetaKeywords }}">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+    <meta name="format-detection" content="telephone=no">
     <link rel="canonical" href="{{ url()->current() }}">
 
     <!-- Brand Favicon (Official Zad Nex Logo) -->
-    <link rel="icon" type="image/jpeg" href="{{ asset('images/logo.png') }}?v=2">
-    <link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}?v=2">
+    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}?v=4">
+    <link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}?v=4">
 
-    <!-- Schema.org Store Structured Data -->
+    <!-- Open Graph / Facebook / WhatsApp Rich Sharing Preview -->
+    <meta property="og:type" content="{{ $ogType ?? 'website' }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:site_name" content="متجر زاد نيكس | ZADNEX STORE">
+    <meta property="og:locale" content="ar_SA">
+    <meta property="og:title" content="{{ $title ?? $siteMetaTitle }}">
+    <meta property="og:description" content="{{ $description ?? $siteMetaDesc }}">
+    <meta property="og:image" content="{{ $ogImage ?? asset('images/logo.png') }}">
+    <meta property="og:image:alt" content="{{ $title ?? $siteMetaTitle }}">
+
+    <!-- Twitter / X Large Summary Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="{{ url()->current() }}">
+    <meta name="twitter:title" content="{{ $title ?? $siteMetaTitle }}">
+    <meta name="twitter:description" content="{{ $description ?? $siteMetaDesc }}">
+    <meta name="twitter:image" content="{{ $ogImage ?? asset('images/logo.png') }}">
+
+    <!-- Schema.org GroceryStore Structured Data -->
     <script type="application/ld+json">
     {
       "{{ '@' }}context": "https://schema.org",
       "{{ '@' }}type": "GroceryStore",
-      "name": "{{ $siteMetaTitle }}",
+      "name": "متجر زاد نيكس | ZADNEX STORE",
       "url": "{{ url('/') }}",
+      "logo": "{{ asset('images/logo.png') }}",
+      "image": "{{ asset('images/logo.png') }}",
       "description": "{{ $siteMetaDesc }}",
       "telephone": "{{ \App\Models\StoreSetting::get('contact_phone', '+966580760890') }}",
       "priceRange": "$$",
+      "currenciesAccepted": "SAR",
+      "paymentAccepted": "Cash, Credit Card, Mada, Apple Pay, Tamara, Tabby",
       "address": {
         "{{ '@' }}type": "PostalAddress",
-        "streetAddress": "{{ \App\Models\StoreSetting::get('address', 'المملكة العربية السعودية، مكة المكرمة، حي أم الجود، شارع عبد الله بن أبي بكر الصديق') }}",
+        "streetAddress": "حي أم الجود، شارع عبد الله بن أبي بكر الصديق",
+        "addressLocality": "مكة المكرمة",
+        "addressRegion": "منطقة مكة المكرمة",
         "addressCountry": "SA"
-      }
+      },
+      "geo": {
+        "{{ '@' }}type": "GeoCoordinates",
+        "latitude": 21.4312,
+        "longitude": 39.7548
+      },
+      "openingHoursSpecification": [
+        {
+          "{{ '@' }}type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "23:30"
+        }
+      ]
     }
     </script>
 
-    @if(!empty($gVerification))
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="{{ strip_tags($gVerification) }}">
-    @endif
-
-    <!-- Open Graph / Meta -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="{{ $title ?? $siteMetaTitle }}">
-    <meta property="og:description" content="{{ $description ?? $siteMetaDesc }}">
-    <meta property="og:site_name" content="زاد نيكس | ZADNEX STORE">
+    <!-- Schema.org WebSite Sitelinks SearchBox -->
+    <script type="application/ld+json">
+    {
+      "{{ '@' }}context": "https://schema.org",
+      "{{ '@' }}type": "WebSite",
+      "name": "متجر زاد نيكس",
+      "alternateName": "ZADNEX STORE",
+      "url": "{{ url('/') }}",
+      "potentialAction": {
+        "{{ '@' }}type": "SearchAction",
+        "target": "{{ url('/products') }}?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 
     <!-- Luxury Typography: IBM Plex Sans Arabic (Brand Font) + Cormorant Garamond -->
     <link rel="preconnect" href="https://fonts.googleapis.com">

@@ -1,6 +1,36 @@
 <x-app-layout>
-    <x-slot:title>{{ $category->name_ar }} | متجر زاد نيكس</x-slot:title>
+    <x-slot:title>{{ $category->name_ar }} | متجر زاد نيكس للمواد الغذائية والتموينية بمكة</x-slot:title>
     <x-slot:description>{{ $category->description_ar }}</x-slot:description>
+    <x-slot:ogImage>{{ $category->image }}</x-slot:ogImage>
+    <x-slot:keywords>{{ $category->name_ar }}, عروض {{ $category->name_ar }} مكة, تسوق {{ $category->name_ar }}, متجر زاد نيكس, مواد غذائية وتموين مكة المكرمة</x-slot:keywords>
+
+    <!-- Schema.org BreadcrumbList -->
+    <script type="application/ld+json">
+    {
+      "{{ '@' }}context": "https://schema.org",
+      "{{ '@' }}type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "{{ '@' }}type": "ListItem",
+          "position": 1,
+          "name": "الرئيسية",
+          "item": "{{ url('/') }}"
+        },
+        {
+          "{{ '@' }}type": "ListItem",
+          "position": 2,
+          "name": "جميع المنتجات",
+          "item": "{{ route('products.index') }}"
+        },
+        {
+          "{{ '@' }}type": "ListItem",
+          "position": 3,
+          "name": "{{ $category->name_ar }}",
+          "item": "{{ url()->current() }}"
+        }
+      ]
+    }
+    </script>
 
     <!-- Category Header Hero -->
     <div class="relative bg-[#242424] text-white py-14 overflow-hidden border-b border-[#3E3E3E]">
