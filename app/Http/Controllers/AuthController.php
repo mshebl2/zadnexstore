@@ -21,18 +21,37 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->validate([
-            'email' => 'required|email',
-            'password' => 'required',
-        ], [
-            'email.required' => 'يرجى إدخال البريد الإلكتروني.',
-            'password.required' => 'يرجى إدخال كلمة المرور.',
-        ]);
+        $input = trim($request->input('login') ?: $request->input('email', ''));
+        $password = $request->input('password', '');
 
-        if (Auth::attempt($credentials, $request->boolean('remember'))) {
+        if (empty($input) || empty($password)) {
+            return back()->withErrors([
+                'login' => 'يرجى إدخال اسم المستخدم أو البريد الإلكتروني وكلمة المرور.',
+            ])->onlyInput('login');
+        }
+
+        // Support username 'admin' alias or direct role match
+        $user = null;
+        $lowered = strtolower($input);
+        if ($lowered === 'admin' || $lowered === 'إدارة' || $lowered === 'ادارة') {
+            $user = User::where('role', 'admin')->first();
+        } elseif (filter_var($input, FILTER_VALIDATE_EMAIL)) {
+            $user = User::where('email', $lowered)->first();
+        } else {
+            $cleanPhone = preg_replace('/[^0-9]/', '', $input);
+            $user = User::where('email', $input)
+                ->orWhere('name', 'like', "%{$input}%")
+                ->when(!empty($cleanPhone), function ($q) use ($cleanPhone) {
+                    $q->orWhere('phone', 'like', "%{$cleanPhone}%");
+                })
+                ->first();
+        }
+
+        if ($user && Hash::check($password, $user->password)) {
+            Auth::login($user, $request->boolean('remember'));
             $request->session()->regenerate();
 
-            if (Auth::user()->isAdmin()) {
+            if ($user->isAdmin()) {
                 return redirect()->intended(route('admin.dashboard'));
             }
 
@@ -40,8 +59,8 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'email' => 'البريد الإلكتروني أو كلمة المرور غير صحيحة.',
-        ])->onlyInput('email');
+            'login' => 'بيانات الدخول غير صحيحة. يرجى التأكد من اسم المستخدم أو البريد وكلمة المرور.',
+        ])->onlyInput('login');
     }
 
     public function showRegister(Request $request)

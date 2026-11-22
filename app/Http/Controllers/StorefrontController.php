@@ -224,11 +224,11 @@ class StorefrontController extends Controller
     public function contact()
     {
         $settings = [
-            'phone' => StoreSetting::get('contact_phone', '+966503606971'),
-            'whatsapp' => StoreSetting::get('whatsapp_number', '966503606971'),
+            'phone' => StoreSetting::get('contact_phone', '+966 58 076 0890'),
+            'whatsapp' => StoreSetting::get('whatsapp_number', '966580760890'),
             'email' => StoreSetting::get('contact_email', 'info@zadnexstore.com'),
-            'address' => StoreSetting::get('address', 'المملكة العربية السعودية، الرياض، طريق الملك فهد'),
-            'commercial_registry' => StoreSetting::get('commercial_registry', '7025150512'),
+            'address' => StoreSetting::get('address', 'المملكة العربية السعودية، مكة المكرمة (العاصمة المقدسة)، حي أم الجود، شارع عبد الله بن أبي بكر الصديق'),
+            'commercial_registry' => StoreSetting::get('commercial_registry', '7055435114'),
             'tax_number' => StoreSetting::get('tax_number', '310458921000003'),
             'instagram' => StoreSetting::get('instagram', 'https://www.instagram.com/zadnexstore/'),
             'snapchat' => StoreSetting::get('snapchat', 'https://www.snapchat.com/add/zadnexstore'),
@@ -254,7 +254,12 @@ class StorefrontController extends Controller
 
         ContactMessage::create($validated);
 
-        return back()->with('success', 'تم استلام رسالتكم بنجاح! سيتواصل معكم فريق خدمة عملاء متجر زاد نيكس في أقرب وقت.');
+        $waText = "رسالة تواصل جديدة عبر موقع زاد نيكس:\nالاسم: {$validated['name']}\nالجوال: {$validated['phone']}\nالموضوع: " . ($validated['subject'] ?? 'عام') . "\nالرسالة: {$validated['message']}";
+        $whatsappUrl = 'https://wa.me/966580760890?text=' . urlencode($waText);
+
+        return back()
+            ->with('success', 'تم استلام رسالتكم بنجاح وتسجيلها في النظام! سيتواصل معكم فريق الإدارة في أقرب وقت.')
+            ->with('whatsapp_redirect', $whatsappUrl);
     }
 }
 

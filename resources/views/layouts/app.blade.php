@@ -150,9 +150,17 @@
     <style>
         [x-cloak] { display: none !important; }
         .font-serif { font-family: 'Cormorant Garamond', Georgia, serif; }
+        .zadnex-brand-bg {
+            background-color: #F4F6FB;
+            background-image: 
+                radial-gradient(at 0% 0%, rgba(11, 46, 117, 0.06) 0px, transparent 50%),
+                radial-gradient(at 100% 0%, rgba(251, 180, 4, 0.08) 0px, transparent 45%),
+                radial-gradient(at 50% 100%, rgba(11, 46, 117, 0.04) 0px, transparent 60%);
+            background-attachment: fixed;
+        }
     </style>
 </head>
-<body x-data class="bg-[#F8FAFC] text-[#0F172A] antialiased selection:bg-[#0B2E75] selection:text-[#FBB404] flex flex-col min-h-screen">
+<body x-data class="zadnex-brand-bg text-[#0F172A] antialiased selection:bg-[#0B2E75] selection:text-[#FBB404] flex flex-col min-h-screen">
     
     <!-- Tracking NoScript Fallbacks -->
     @if($gtmId)

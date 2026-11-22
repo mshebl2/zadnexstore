@@ -80,8 +80,12 @@
                         <span>مكة المكرمة - حي أم الجود - شارع عبد الله بن أبي بكر الصديق</span>
                     </p>
                     <p class="flex items-center gap-2">
+                        <x-icon name="user" class="w-3.5 h-3.5 text-[#FBB404] shrink-0" />
+                        <span>مالك المنشأة: <strong class="text-white">منال سالم فرج</strong></span>
+                    </p>
+                    <p class="flex items-center gap-2">
                         <x-icon name="shield-check" class="w-3.5 h-3.5 text-[#FBB404] shrink-0" />
-                        <span>السجل التجاري: <strong class="text-white font-mono" dir="ltr">{{ $cr }}</strong> (نشط)</span>
+                        <span>السجل التجاري: <strong class="text-white font-mono" dir="ltr">{{ $cr }}</strong> (تاريخ التأسيس: 2026/10/20م)</span>
                     </p>
                     <p class="flex items-center gap-2">
                         <x-icon name="check-circle" class="w-3.5 h-3.5 text-[#FBB404] shrink-0" />
@@ -115,7 +119,15 @@
                     </button>
                 </form>
 
-                <div class="mt-4 pt-4 border-t border-white/10 text-xs">
+                <div class="mt-4 pt-4 border-t border-white/10 flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/10">
+                    <img src="{{ asset('images/zadnex-qr-code.png') }}" alt="باركود متجر زاد نيكس" class="w-14 h-14 bg-white p-1 rounded-lg shrink-0">
+                    <div>
+                        <span class="text-[11px] font-bold text-[#FBB404] block">باركود المتجر السريع</span>
+                        <span class="text-[10px] text-gray-300">امسح للدخول الفوري للتسوق</span>
+                    </div>
+                </div>
+
+                <div class="mt-3 pt-3 border-t border-white/10 text-xs">
                     <span class="text-gray-400 block mb-1">البريد الرسمي:</span>
                     <a href="mailto:{{ $email }}" class="text-[#FBB404] font-bold font-mono hover:underline" dir="ltr">{{ $email }}</a>
                 </div>

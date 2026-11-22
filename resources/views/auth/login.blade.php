@@ -23,13 +23,14 @@
                 @csrf
 
                 <div>
-                    <label class="block text-xs font-bold text-slate-800 mb-1.5">البريد الإلكتروني</label>
-                    <input type="email" 
-                           name="email" 
-                           value="{{ old('email') }}" 
+                    <label class="block text-xs font-bold text-slate-800 mb-1.5">البريد الإلكتروني أو اسم المستخدم أو الجوال</label>
+                    <input type="text" 
+                           name="login" 
+                           value="{{ old('login', old('email')) }}" 
                            required 
-                           placeholder="name@example.com" 
+                           placeholder="info@zadnexstore.com أو admin أو 0580760890" 
                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-[#0B2E75] focus:ring-2 focus:ring-[#0B2E75]/10">
+                    @error('login') <span class="text-[11px] text-red-500 mt-1 block">{{ $message }}</span> @enderror
                     @error('email') <span class="text-[11px] text-red-500 mt-1 block">{{ $message }}</span> @enderror
                 </div>
 
@@ -41,6 +42,17 @@
                            placeholder="••••••••" 
                            class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3.5 py-2.5 text-xs text-slate-900 focus:outline-none focus:border-[#0B2E75] focus:ring-2 focus:ring-[#0B2E75]/10">
                     @error('password') <span class="text-[11px] text-red-500 mt-1 block">{{ $message }}</span> @enderror
+                </div>
+
+                <!-- Admin Quick Hint -->
+                <div class="bg-blue-50/70 border border-blue-200/60 rounded-xl p-3 text-[11px] text-blue-900 flex items-start gap-2">
+                    <x-icon name="info" class="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
+                    <div>
+                        <span class="font-bold">بيانات حساب الإدارة الافتراضية:</span>
+                        <div class="mt-0.5 text-[10px] text-blue-800 font-mono" dir="ltr">
+                            البريد: info@zadnexstore.com | كلمة المرور: zadnex2026@admin
+                        </div>
+                    </div>
                 </div>
 
                 <div class="flex items-center justify-between text-xs text-slate-500">

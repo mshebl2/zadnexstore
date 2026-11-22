@@ -129,12 +129,20 @@
                 </div>
 
                 @if(session('success'))
-                <div class="mb-6 p-4 rounded-2xl bg-[#E8F8EE] border border-[#25D366]/30 flex items-start gap-3">
-                    <x-icon name="check-circle" class="w-5 h-5 text-[#25D366] shrink-0 mt-0.5" />
-                    <div>
-                        <h4 class="text-xs font-bold text-[#1e824c]">تم استلام الرسالة بنجاح</h4>
-                        <p class="text-xs text-[#2c7744] mt-0.5">{{ session('success') }}</p>
+                <div class="mb-6 p-4 rounded-2xl bg-[#E8F8EE] border border-[#25D366]/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                    <div class="flex items-start gap-3">
+                        <x-icon name="check-circle" class="w-5 h-5 text-[#25D366] shrink-0 mt-0.5" />
+                        <div>
+                            <h4 class="text-xs font-bold text-[#1e824c]">تم استلام الرسالة وتسجيلها بنجاح</h4>
+                            <p class="text-xs text-[#2c7744] mt-0.5">{{ session('success') }}</p>
+                        </div>
                     </div>
+                    @if(session('whatsapp_redirect'))
+                    <a href="{{ session('whatsapp_redirect') }}" target="_blank" rel="noopener noreferrer" class="shrink-0 bg-[#25D366] hover:bg-[#1ebd5a] text-white text-xs font-bold px-4 py-2 rounded-xl transition flex items-center gap-1.5 shadow-sm">
+                        <x-icon name="whatsapp" class="w-4 h-4" />
+                        <span>إرسال نسخة للإدارة عبر واتساب</span>
+                    </a>
+                    @endif
                 </div>
                 @endif
 

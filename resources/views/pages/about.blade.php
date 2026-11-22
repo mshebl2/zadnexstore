@@ -82,6 +82,14 @@
                         
                         <div class="mt-6 pt-5 border-t border-white/15 w-full text-xs text-white/90 space-y-2 text-right">
                             <div class="flex items-center justify-between">
+                                <span class="text-white/70">مالك المتجر:</span>
+                                <span class="font-bold text-[#FBB404]">منال سالم فرج</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-white/70">تاريخ التأسيس (قيد السجل):</span>
+                                <span class="font-mono font-bold text-white">20/10/2026م</span>
+                            </div>
+                            <div class="flex items-center justify-between">
                                 <span class="text-white/70">السجل التجاري:</span>
                                 <span class="font-mono font-bold text-[#FBB404]">7055435114</span>
                             </div>
@@ -145,12 +153,16 @@
                                 <span class="font-bold text-[#0F172A]">متجر زاد نيكس</span>
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-gray-500">نوع الكيان:</span>
-                                <span class="font-medium text-gray-800">مؤسسة</span>
+                                <span class="text-gray-500">مالك المنشأة:</span>
+                                <span class="font-bold text-[#0B2E75]">منال سالم فرج</span>
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-gray-500">تاريخ الإصدار:</span>
-                                <span class="font-mono text-gray-800">20/10/2026</span>
+                                <span class="text-gray-500">نوع الكيان:</span>
+                                <span class="font-medium text-gray-800">مؤسسة فردية</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="text-gray-500">تاريخ التأسيس (قيد السجل):</span>
+                                <span class="font-mono font-bold text-gray-800">20/10/2026م (1448/04/09هـ)</span>
                             </div>
                         </div>
                     </div>

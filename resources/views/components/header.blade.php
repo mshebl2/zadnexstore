@@ -7,34 +7,43 @@
 <header x-data="{ 
     isScrolled: false, 
     searchOpen: false, 
-    searchQuery: ''
+    searchQuery: '',
+    qrModalOpen: false
 }" 
 @scroll.window="isScrolled = (window.pageYOffset > 20)"
-class="sticky top-0 z-40 transition-all duration-300"
-:class="isScrolled ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-[#E2E8F0]' : 'bg-[#F8FAFC] border-b border-[#E2E8F0]'">
+class="sticky top-0 z-40 transition-all duration-300 border-b border-[#FBB404]/30"
+:class="isScrolled ? 'bg-[#071E50]/95 backdrop-blur-md shadow-lg' : 'bg-gradient-to-r from-[#071E50] via-[#0B2E75] to-[#0A2768] shadow-md'">
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between h-20">
+        <div class="flex items-center justify-between h-20 sm:h-24">
             
             <!-- Mobile Menu Trigger -->
             <div class="flex items-center lg:hidden">
-                <button @click="$store.mobileMenu.open()" type="button" class="p-2 text-[#0F172A] hover:text-[#0B2E75] transition focus:outline-none" aria-label="القائمة">
+                <button @click="$store.mobileMenu.open()" type="button" class="p-2 text-white hover:text-[#FBB404] transition focus:outline-none" aria-label="القائمة">
                     <x-icon name="menu" class="w-6 h-6" />
                 </button>
             </div>
 
-            <!-- Brand Logo -->
+            <!-- Brand Logo & Expanded Name (Covering top cleanly with royal blue) -->
             <div class="flex items-center">
-                <a href="{{ route('home') }}" class="group flex items-center gap-2" title="متجر زاد نيكس - ZADNEX STORE">
+                <a href="{{ route('home') }}" class="group flex items-center gap-3 sm:gap-4" title="متجر زاد نيكس - ZADNEX STORE">
                     <img src="{{ asset('images/logo.png') }}" 
                          alt="متجر زاد نيكس - ZADNEX STORE" 
-                         class="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105">
+                         class="h-14 sm:h-16 lg:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-md">
+                    <div class="flex flex-col text-right">
+                        <span class="text-lg sm:text-2xl font-black text-white tracking-wide leading-tight group-hover:text-[#FBB404] transition">
+                            متجر زاد نيكس
+                        </span>
+                        <span class="text-[10px] sm:text-xs font-bold text-[#FBB404] tracking-widest uppercase mt-0.5">
+                            ZADNEX STORE • مواد غذائية وتموين
+                        </span>
+                    </div>
                 </a>
             </div>
 
             <!-- Desktop Nav Links with Dropdowns -->
             <nav class="hidden lg:flex items-center gap-5 xl:gap-7">
-                <a href="{{ route('home') }}" class="text-xs xl:text-sm font-bold transition py-2 whitespace-nowrap relative {{ request()->routeIs('home') ? 'text-[#0B2E75]' : 'text-[#0F172A] hover:text-[#0B2E75]' }}">
+                <a href="{{ route('home') }}" class="text-xs xl:text-sm font-bold transition py-2 whitespace-nowrap relative {{ request()->routeIs('home') ? 'text-[#FBB404]' : 'text-white/90 hover:text-[#FBB404]' }}">
                     الرئيسية
                     @if(request()->routeIs('home'))
                         <span class="absolute bottom-0 right-0 left-0 h-0.5 bg-[#FBB404] rounded-full"></span>
@@ -42,7 +51,7 @@ class="sticky top-0 z-40 transition-all duration-300"
                 </a>
 
                 <!-- About Us Link -->
-                <a href="{{ route('about') }}" class="text-xs xl:text-sm font-bold transition py-2 whitespace-nowrap relative {{ request()->routeIs('about') ? 'text-[#0B2E75]' : 'text-[#0F172A] hover:text-[#0B2E75]' }}">
+                <a href="{{ route('about') }}" class="text-xs xl:text-sm font-bold transition py-2 whitespace-nowrap relative {{ request()->routeIs('about') ? 'text-[#FBB404]' : 'text-white/90 hover:text-[#FBB404]' }}">
                     <span>من نحن</span>
                     @if(request()->routeIs('about'))
                         <span class="absolute bottom-0 right-0 left-0 h-0.5 bg-[#FBB404] rounded-full"></span>
@@ -50,7 +59,7 @@ class="sticky top-0 z-40 transition-all duration-300"
                 </a>
 
                 <!-- Desktop Products Direct Link -->
-                <a href="{{ route('products.index') }}" class="text-xs xl:text-sm font-bold transition py-2 whitespace-nowrap relative {{ request()->routeIs('products.index') && !request('category') ? 'text-[#0B2E75]' : 'text-[#0F172A] hover:text-[#0B2E75]' }}">
+                <a href="{{ route('products.index') }}" class="text-xs xl:text-sm font-bold transition py-2 whitespace-nowrap relative {{ request()->routeIs('products.index') && !request('category') ? 'text-[#FBB404]' : 'text-white/90 hover:text-[#FBB404]' }}">
                     <span>جميع المنتجات</span>
                     @if(request()->routeIs('products.index') && !request('category'))
                         <span class="absolute bottom-0 right-0 left-0 h-0.5 bg-[#FBB404] rounded-full"></span>
@@ -60,10 +69,10 @@ class="sticky top-0 z-40 transition-all duration-300"
                 <!-- Individual Parent Category Tabs with Sub-Dropdowns -->
                 @foreach($parentCategories as $parent)
                 <div class="relative group" x-data="{ open: false }" @mouseenter="open = true" @mouseleave="open = false">
-                    <a href="{{ route('category.show', $parent->slug) }}" class="text-xs xl:text-sm font-bold transition py-2 whitespace-nowrap flex items-center gap-1 {{ request()->is('category/' . $parent->slug) ? 'text-[#0B2E75]' : 'text-[#0F172A] hover:text-[#0B2E75]' }}">
+                    <a href="{{ route('category.show', $parent->slug) }}" class="text-xs xl:text-sm font-bold transition py-2 whitespace-nowrap flex items-center gap-1 {{ request()->is('category/' . $parent->slug) ? 'text-[#FBB404]' : 'text-white/90 hover:text-[#FBB404]' }}">
                         <span>{{ $parent->name_ar }}</span>
                         @if($parent->children->isNotEmpty())
-                        <x-icon name="chevron-down" class="w-3 h-3 text-[#94A3B8] group-hover:text-[#0B2E75] transition-transform duration-200" ::class="open ? 'rotate-180' : ''" />
+                        <x-icon name="chevron-down" class="w-3 h-3 text-white/60 group-hover:text-[#FBB404] transition-transform duration-200" ::class="open ? 'rotate-180' : ''" />
                         @endif
                         @if(request()->is('category/' . $parent->slug))
                             <span class="absolute bottom-0 right-0 left-0 h-0.5 bg-[#FBB404] rounded-full"></span>
@@ -99,7 +108,7 @@ class="sticky top-0 z-40 transition-all duration-300"
                 @endforeach
 
                 <!-- Contact Us Link -->
-                <a href="{{ route('contact') }}" class="text-xs xl:text-sm font-bold transition py-2 whitespace-nowrap relative {{ request()->routeIs('contact') ? 'text-[#0B2E75]' : 'text-[#0F172A] hover:text-[#0B2E75]' }}">
+                <a href="{{ route('contact') }}" class="text-xs xl:text-sm font-bold transition py-2 whitespace-nowrap relative {{ request()->routeIs('contact') ? 'text-[#FBB404]' : 'text-white/90 hover:text-[#FBB404]' }}">
                     <span>اتصل بنا</span>
                     @if(request()->routeIs('contact'))
                         <span class="absolute bottom-0 right-0 left-0 h-0.5 bg-[#FBB404] rounded-full"></span>
@@ -107,34 +116,40 @@ class="sticky top-0 z-40 transition-all duration-300"
                 </a>
             </nav>
 
-            <!-- Actions (Search, Account, Cart) -->
-            <div class="flex items-center gap-2 sm:gap-3">
+            <!-- Actions (QR Code, Search, Account, Cart) -->
+            <div class="flex items-center gap-1.5 sm:gap-2.5">
+                <!-- Barcode / QR Code Quick Scan Trigger -->
+                <button @click="qrModalOpen = true" type="button" class="p-2 text-white/90 hover:text-[#FBB404] hover:bg-white/10 transition rounded-full flex items-center gap-1" title="باركود المتجر (QR Code) لتسهيل الدخول">
+                    <x-icon name="qr-code" class="w-5 h-5" />
+                    <span class="hidden xl:inline text-xs font-bold text-[#FBB404]">الباركود</span>
+                </button>
+
                 <!-- Search Button -->
-                <button @click="searchOpen = true; $nextTick(() => $refs.searchInput.focus())" type="button" class="p-2 text-[#0F172A] hover:text-[#0B2E75] transition rounded-full hover:bg-white" title="البحث">
+                <button @click="searchOpen = true; $nextTick(() => $refs.searchInput.focus())" type="button" class="p-2 text-white/90 hover:text-[#FBB404] hover:bg-white/10 transition rounded-full" title="البحث في السلع">
                     <x-icon name="search" class="w-5 h-5" />
                 </button>
 
                 <!-- Account / Admin -->
                 @auth
                     @if(auth()->user()->isAdmin())
-                        <a href="{{ route('admin.dashboard') }}" class="p-2 text-[#0B2E75] hover:bg-white transition rounded-full flex items-center gap-1.5 text-xs font-semibold" title="لوحة التحكم">
+                        <a href="{{ route('admin.dashboard') }}" class="p-2 text-[#FBB404] bg-white/10 hover:bg-white/20 transition rounded-full flex items-center gap-1.5 text-xs font-bold" title="لوحة التحكم">
                             <x-icon name="user" class="w-5 h-5" />
                             <span class="hidden md:inline">الإدارة</span>
                         </a>
                     @else
-                        <a href="{{ route('customer.dashboard') }}" class="p-2 text-[#0F172A] hover:text-[#0B2E75] hover:bg-white transition rounded-full flex items-center gap-1.5" title="لوحة تحكم حسابي">
+                        <a href="{{ route('customer.dashboard') }}" class="p-2 text-white/90 hover:text-[#FBB404] hover:bg-white/10 transition rounded-full flex items-center gap-1.5" title="لوحة تحكم حسابي">
                             <x-icon name="user" class="w-5 h-5" />
-                            <span class="hidden md:inline text-xs font-bold text-[#0B2E75]">حسابي</span>
+                            <span class="hidden md:inline text-xs font-bold text-[#FBB404]">حسابي</span>
                         </a>
                     @endif
                 @else
-                    <a href="{{ route('login') }}" class="p-2 text-[#0F172A] hover:text-[#0B2E75] hover:bg-white transition rounded-full" title="تسجيل الدخول">
+                    <a href="{{ route('login') }}" class="p-2 text-white/90 hover:text-[#FBB404] hover:bg-white/10 transition rounded-full" title="تسجيل الدخول">
                         <x-icon name="user" class="w-5 h-5" />
                     </a>
                 @endauth
 
                 <!-- Cart Button -->
-                <button @click="$store.cart.open()" type="button" class="relative p-2 text-[#0F172A] hover:text-[#0B2E75] hover:bg-white transition rounded-full group" title="سلة التسوق">
+                <button @click="$store.cart.open()" type="button" class="relative p-2 text-white/90 hover:text-[#FBB404] hover:bg-white/10 transition rounded-full group" title="سلة التسوق">
                     <x-icon name="shopping-bag" class="w-5 h-5 group-hover:scale-105 transition-transform" />
                     <span x-show="$store.cart.count > 0" 
                           x-text="$store.cart.count" 
@@ -234,6 +249,51 @@ class="sticky top-0 z-40 transition-all duration-300"
                 <a href="{{ route('products.index', ['q' => 'زيت']) }}" class="bg-[#F8FAFC] hover:bg-[#E2E8F0] text-[#0F172A] px-2.5 py-1 rounded-full transition text-[11px]">زيت زيتون بكر</a>
                 <a href="{{ route('products.index', ['q' => 'غسيل']) }}" class="bg-[#F8FAFC] hover:bg-[#E2E8F0] text-[#0F172A] px-2.5 py-1 rounded-full transition text-[11px]">مسحوق غسيل</a>
                 <a href="{{ route('products.index', ['q' => 'مناديل']) }}" class="bg-[#F8FAFC] hover:bg-[#E2E8F0] text-[#0F172A] px-2.5 py-1 rounded-full transition text-[11px]">مناديل ورقية</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- QR Code Fast Access Modal -->
+    <div x-show="qrModalOpen" 
+         x-cloak
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm"
+         @keydown.escape.window="qrModalOpen = false">
+        
+        <div @click.away="qrModalOpen = false" 
+             x-transition:enter="transition ease-out duration-300"
+             x-transition:enter-start="opacity-0 scale-95"
+             x-transition:enter-end="opacity-100 scale-100"
+             class="bg-white rounded-3xl p-6 sm:p-8 max-w-sm w-full shadow-2xl text-center border-4 border-[#FBB404]/40 relative text-[#0F172A]">
+            
+            <button @click="qrModalOpen = false" type="button" class="absolute top-4 left-4 p-1.5 rounded-full text-gray-400 hover:text-gray-700 hover:bg-gray-100 transition" aria-label="إغلاق">
+                <x-icon name="x" class="w-5 h-5" />
+            </button>
+
+            <div class="w-14 h-14 mx-auto mb-3 bg-[#0B2E75] p-2 rounded-2xl flex items-center justify-center shadow-md">
+                <img src="{{ asset('images/logo.png') }}" alt="زاد نيكس" class="max-h-full object-contain">
+            </div>
+
+            <h3 class="text-lg font-black text-[#0B2E75]">باركود متجر زاد نيكس (QR Code)</h3>
+            <p class="text-xs text-gray-500 mt-1">
+                امسح الباركود بكاميرا الجوال للدخول الفوري والشراء المباشر دون كتابة الرابط
+            </p>
+
+            <div class="my-5 p-4 bg-[#F8FAFC] border-2 border-dashed border-[#0B2E75]/20 rounded-2xl flex items-center justify-center">
+                <img src="{{ asset('images/zadnex-qr-code.png') }}" alt="باركود متجر زاد نيكس" class="w-52 h-52 object-contain rounded-lg shadow-xs">
+            </div>
+
+            <div class="space-y-2">
+                <a href="{{ asset('images/zadnex-qr-code.png') }}" download="zadnex-store-qr.png" class="w-full bg-[#0B2E75] hover:bg-[#071E50] text-white font-bold text-xs py-2.5 px-4 rounded-xl transition flex items-center justify-center gap-2 shadow-sm">
+                    <x-icon name="arrow-left" class="w-4 h-4 text-[#FBB404] rotate-[-90deg]" />
+                    <span>تحميل الباركود للطباعة (PNG عالي الدقة)</span>
+                </a>
+                <p class="text-[11px] text-gray-400 font-mono" dir="ltr">https://www.zadnexstore.com</p>
             </div>
         </div>
     </div>
