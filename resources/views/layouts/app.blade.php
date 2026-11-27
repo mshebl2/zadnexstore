@@ -218,6 +218,9 @@
     <!-- Initial Splash Preloader (2 Seconds with Store Logo & Skip Button) -->
     <x-splash-preloader />
 
+    <!-- Store Launch & Preparation Notice (Initial Entry Notice & Banner) -->
+    <x-store-launch-notice />
+
     <!-- Top Announcement Bar -->
     <x-announcement-bar />
 

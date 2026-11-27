@@ -24,6 +24,103 @@
             <form action="{{ route('admin.settings.update') }}" method="POST" class="space-y-6">
                 @csrf
 
+                <!-- Section 0: Store Launch & Preparation Notice (إشعار تجهيز المتجر المبدئي) -->
+                <div id="launch-notice-section" class="bg-gradient-to-br from-amber-50/60 via-white to-amber-50/30 rounded-2xl border-2 border-amber-200/90 p-5 sm:p-6 shadow-2xs">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-amber-200/60 pb-4 mb-5">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-amber-400 text-slate-950 flex items-center justify-center font-bold shadow-xs">
+                                <x-icon name="bell" class="w-5 h-5 stroke-[2]" />
+                            </div>
+                            <div>
+                                <h3 class="text-sm font-black text-slate-900 flex items-center gap-2">
+                                    <span>إشعار تجهيز المتجر والإطلاق المبدئي للعملاء</span>
+                                    <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-black {{ ($settings['store_launch_notice_active'] ?? '1') === '1' ? 'bg-emerald-100 text-emerald-800' : 'bg-gray-200 text-gray-700' }}">
+                                        <span class="w-1.5 h-1.5 rounded-full {{ ($settings['store_launch_notice_active'] ?? '1') === '1' ? 'bg-emerald-500 animate-pulse' : 'bg-gray-400' }}"></span>
+                                        {{ ($settings['store_launch_notice_active'] ?? '1') === '1' ? 'مفعل ويظهر للعملاء حالياً' : 'معطل ومخفي' }}
+                                    </span>
+                                </h3>
+                                <p class="text-xs text-slate-500 mt-0.5">يظهر بمجرد دخول العملاء للمتجر لتنبيههم بأن المتجر قيد التجهيز لاستقبال طلباتهم</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-2 self-end sm:self-auto">
+                            <a href="{{ route('home', ['preview_notice' => 1]) }}" target="_blank" class="bg-white hover:bg-amber-50 border border-amber-300 text-amber-900 px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1 shadow-2xs">
+                                <span>معاينة حية في المتجر</span>
+                                <x-icon name="arrow-up-right" class="w-3.5 h-3.5" />
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Activation Checkbox -->
+                        <div class="bg-white p-3.5 rounded-xl border border-amber-200 flex items-center justify-between">
+                            <label for="store_launch_notice_active" class="flex items-center gap-3 cursor-pointer select-none">
+                                <input type="checkbox" id="store_launch_notice_active" name="store_launch_notice_active" value="1" {{ ($settings['store_launch_notice_active'] ?? '1') === '1' ? 'checked' : '' }} class="w-4 h-4 text-[#0B2E75] rounded border-gray-300 focus:ring-[#0B2E75]">
+                                <div>
+                                    <span class="block text-xs font-black text-slate-900">تفعيل ظهور الإشعار المبدئي للعملاء بمجرد الدخول</span>
+                                    <span class="block text-[11px] text-slate-500">عند تفعيله يظهر إشعار التجهيز تلقائياً لجميع زوار المتجر مع إمكانية التصفح</span>
+                                </div>
+                            </label>
+                            <span class="text-xs font-bold {{ ($settings['store_launch_notice_active'] ?? '1') === '1' ? 'text-emerald-600' : 'text-gray-400' }}">
+                                {{ ($settings['store_launch_notice_active'] ?? '1') === '1' ? 'نشط' : 'متوقف' }}
+                            </span>
+                        </div>
+
+                        <!-- Core Notice Text (The exact requested text) -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-900 mb-1.5">
+                                نص الإشعار الرئيسي البارز <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" name="store_launch_notice_text" value="{{ $settings['store_launch_notice_text'] ?? 'المتجر قيد التجهيز لاستقبال طلباتكم بما يليق بكم' }}" required class="w-full bg-white border-2 border-amber-300 rounded-xl p-2.5 text-xs sm:text-sm font-bold text-slate-900 focus:outline-none focus:border-[#0B2E75] shadow-2xs">
+                            <span class="text-[10px] text-slate-500 block mt-1">هذا هو النص الأساسي الذي يظهر بخط بارز وواضح للعملاء.</span>
+                        </div>
+
+                        <!-- Title and Badge -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-900 mb-1.5">عنوان الإشعار الترحيبي</label>
+                                <input type="text" name="store_launch_notice_title" value="{{ $settings['store_launch_notice_title'] ?? 'مرحباً بكم في متجر زاد نيكس' }}" class="w-full bg-white border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-slate-900 focus:outline-none focus:border-[#0B2E75]">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-900 mb-1.5">الشارة التوضيحية العلوية (Badge)</label>
+                                <input type="text" name="store_launch_notice_badge" value="{{ $settings['store_launch_notice_badge'] ?? 'تنبيه رسمي • قيد التجهيز' }}" class="w-full bg-white border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-slate-900 focus:outline-none focus:border-[#0B2E75]">
+                            </div>
+                        </div>
+
+                        <!-- Subtitle Description -->
+                        <div>
+                            <label class="block text-xs font-bold text-slate-900 mb-1.5">النص التوضيحي الإضافي</label>
+                            <textarea name="store_launch_notice_subtitle" rows="2" class="w-full bg-white border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-slate-900 focus:outline-none focus:border-[#0B2E75]">{{ $settings['store_launch_notice_subtitle'] ?? 'يسعدنا زيارتكم! نعمل حالياً بكل شغف على إعداد وتجهيز أفضل تشكيلة من المواد الغذائية والمنظفات ومستلزماتكم بأعلى معايير الجودة والسلامة المعتمدة. ترقبوا انطلاقتنا الرسمية قريباً، ونسعد بتصفحكم لأقسام المتجر أو التواصل المباشر معنا.' }}</textarea>
+                        </div>
+
+                        <!-- Display Mode and Button Text -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs font-bold text-slate-900 mb-1.5">طريقة العرض في واجهة المتجر</label>
+                                <select name="store_launch_notice_display" class="w-full bg-white border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-slate-900 focus:outline-none focus:border-[#0B2E75]">
+                                    <option value="both" {{ ($settings['store_launch_notice_display'] ?? 'both') === 'both' ? 'selected' : '' }}>نافذة منبثقة واضحة فور الدخول + شريط تنبيه علوي ثابت (موصى به)</option>
+                                    <option value="modal" {{ ($settings['store_launch_notice_display'] ?? 'both') === 'modal' ? 'selected' : '' }}>نافذة منبثقة فور الدخول فقط (Modal)</option>
+                                    <option value="banner" {{ ($settings['store_launch_notice_display'] ?? 'both') === 'banner' ? 'selected' : '' }}>شريط تنبيه علوي ثابت فقط (Banner)</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-900 mb-1.5">نص زر المتابعة والتصفح</label>
+                                <input type="text" name="store_launch_notice_button_text" value="{{ $settings['store_launch_notice_button_text'] ?? 'تصفح المتجر الآن' }}" class="w-full bg-white border border-[#E2E8F0] rounded-xl p-2.5 text-xs text-slate-900 focus:outline-none focus:border-[#0B2E75]">
+                            </div>
+                        </div>
+
+                        <!-- WhatsApp Contact Option -->
+                        <div class="pt-2">
+                            <label class="flex items-center gap-2.5 text-xs font-bold text-slate-800 cursor-pointer select-none">
+                                <input type="checkbox" name="store_launch_notice_show_whatsapp" value="1" {{ ($settings['store_launch_notice_show_whatsapp'] ?? '1') === '1' ? 'checked' : '' }} class="w-4 h-4 text-[#0B2E75] rounded border-gray-300 focus:ring-[#0B2E75]">
+                                <span>إظهار زر التواصل السريع عبر واتساب داخل إشعار التجهيز</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Section 1: Official Store Information -->
                 <div>
                     <h3 class="text-xs font-bold text-[#0B2E75] uppercase tracking-wider mb-3">المعلومات الأساسية</h3>

@@ -292,6 +292,7 @@ Route::middleware(['auth', EnsureAdmin::class])->prefix('admin')->name('admin.')
     // Settings
     Route::get('/settings', [AdminController::class, 'settingsIndex'])->name('settings.index');
     Route::post('/settings', [AdminController::class, 'settingsUpdate'])->name('settings.update');
+    Route::post('/settings/toggle-launch-notice', [AdminController::class, 'toggleLaunchNotice'])->name('settings.toggle-launch-notice');
     Route::post('/settings/seo-ping', [AdminController::class, 'pingSearchEngines'])->name('settings.seo.ping');
 
     // Customer Contact Inquiries

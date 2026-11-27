@@ -1194,6 +1194,12 @@ class AdminController extends Controller
             'snapchat_pixel_id',
             'custom_head_scripts',
             'custom_body_scripts',
+            'store_launch_notice_title',
+            'store_launch_notice_text',
+            'store_launch_notice_badge',
+            'store_launch_notice_subtitle',
+            'store_launch_notice_display',
+            'store_launch_notice_button_text',
         ];
 
         foreach ($keys as $k) {
@@ -1202,6 +1208,8 @@ class AdminController extends Controller
             }
         }
 
+        StoreSetting::set('store_launch_notice_active', $request->has('store_launch_notice_active') ? '1' : '0');
+        StoreSetting::set('store_launch_notice_show_whatsapp', $request->has('store_launch_notice_show_whatsapp') ? '1' : '0');
         StoreSetting::set('announcement_active', $request->has('announcement_active') ? '1' : '0');
         StoreSetting::set('popup_ad_active', $request->has('popup_ad_active') ? '1' : '0');
         StoreSetting::set('paymob_enabled', $request->has('paymob_enabled') ? '1' : '0');
@@ -1211,6 +1219,22 @@ class AdminController extends Controller
         StoreSetting::set('cod_enabled', $request->has('cod_enabled') ? '1' : '0');
 
         return back()->with('success', 'تم حفظ جميع إعدادات المتجر بنجاح');
+    }
+
+    /**
+     * Quick toggle for store launch preparation notice
+     */
+    public function toggleLaunchNotice()
+    {
+        $current = StoreSetting::get('store_launch_notice_active', '1');
+        $new = ($current === '1') ? '0' : '1';
+        StoreSetting::set('store_launch_notice_active', $new);
+
+        $msg = ($new === '1') 
+            ? 'تم تفعيل ظهور الإشعار المبدئي للعملاء (المتجر قيد التجهيز) بنجاح.' 
+            : 'تم إيقاف ظهور الإشعار المبدئي للعملاء بنجاح.';
+
+        return back()->with('success', $msg);
     }
 
     /**
